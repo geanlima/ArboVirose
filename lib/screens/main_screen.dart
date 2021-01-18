@@ -1,4 +1,3 @@
-import 'package:arboviroses/screens/dados_pessoais_screen.dart';
 import 'package:arboviroses/utils/app_routes.dart';
 import 'package:arboviroses/widgets/bug_widget.dart';
 import 'package:arboviroses/widgets/main_body_widget.dart';
@@ -13,7 +12,7 @@ class MainScreen extends StatelessWidget {
       child: Stack(
         children: [
           ShadowWidget(),
-          MainHeaderWidget(),
+          MainHeaderWidget('Arbo Virose'),
           MainBodyWidget(),
           BugWidget(),
           Form(

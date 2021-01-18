@@ -2,6 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:adobe_xd/pinned.dart';
 
 class MainHeaderWidget extends StatelessWidget {
+  
+  final String header;
+
+  MainHeaderWidget(
+    @required this.header,
+  );
+
   @override
   Widget build(BuildContext context) {
     return Transform.translate(
@@ -19,7 +26,7 @@ class MainHeaderWidget extends StatelessWidget {
               pinTop: true,
               pinBottom: true,
               child: Text(
-                'Arbo Virose',
+                header,
                 style: TextStyle(
                   fontFamily: 'Poppins',
                   fontSize: 26,

@@ -1,4 +1,5 @@
 import 'package:arboviroses/screens/dados_pessoais_screen.dart';
+import 'package:arboviroses/screens/exames_screen.dart';
 import 'package:arboviroses/screens/main_screen.dart';
 import 'package:arboviroses/screens/sintomas_screen.dart';
 import 'package:arboviroses/utils/app_routes.dart';
@@ -26,7 +27,7 @@ class MyApp extends StatelessWidget {
         //AppRoutes.HOME: (ctx) => MainScreen(),
         AppRoutes.DADOS_PESSOAIS: (ctx) => DadosPessoaisScreen(),
         AppRoutes.SINTOMAS: (ctx) => SintomasScreen(),
-        AppRoutes.EXAMES: (ctx) => DadosPessoaisScreen(),
+        AppRoutes.EXAMES: (ctx) => ExamesScreen(),
         AppRoutes.SOROLOGIA: (ctx) => SintomasScreen(),
         AppRoutes.RESULTADO: (ctx) => DadosPessoaisScreen(),
         
