@@ -1,9 +1,14 @@
-import 'package:arboviroses/screens/dados_pessoais_screen.dart';
+import 'package:arboviroses/screens/arboexmplo/arbo_DadosPessoais.dart';
+import 'package:arboviroses/screens/dados_pessoais_screen_old.dart';
+
 import 'package:arboviroses/screens/exames_screen.dart';
 import 'package:arboviroses/screens/main_screen.dart';
+import 'package:arboviroses/screens/resultado_screen.dart';
 import 'package:arboviroses/screens/sintomas_screen.dart';
 import 'package:arboviroses/utils/app_routes.dart';
 import 'package:flutter/material.dart';
+
+import 'screens/dadospessoais_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -26,10 +31,10 @@ class MyApp extends StatelessWidget {
       routes: {
         //AppRoutes.HOME: (ctx) => MainScreen(),
         AppRoutes.DADOS_PESSOAIS: (ctx) => DadosPessoaisScreen(),
-        AppRoutes.SINTOMAS: (ctx) => SintomasScreen(),
+        AppRoutes.SINTOMAS: (ctx) => arbo_DadosPessoais(),
         AppRoutes.EXAMES: (ctx) => ExamesScreen(),
         AppRoutes.SOROLOGIA: (ctx) => SintomasScreen(),
-        AppRoutes.RESULTADO: (ctx) => DadosPessoaisScreen(),
+        AppRoutes.RESULTADO: (ctx) => ResultadoScreen(),
         
       },
     );
