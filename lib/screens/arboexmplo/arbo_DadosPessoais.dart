@@ -62,8 +62,6 @@ class arbo_DadosPessoais extends StatelessWidget {
             ),
           ),
 
-// End Padrao Tela
-
           Transform.translate(
             offset: Offset(26.0, 205.0),
             child: SizedBox(

@@ -1,10 +1,30 @@
-import 'package:arboviroses/widgets/opcoes_widget.dart';
+import 'package:arboviroses/utils/app_multiselect.dart';
+import 'package:arboviroses/widgets/box_text_widget.dart';
+import 'package:arboviroses/widgets/titulo_widget.dart';
+import 'package:arboviroses/widgets/trailler_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_multiselect/flutter_multiselect.dart';
 
-class SintomasScreen extends StatelessWidget {
+class SintomasScreen extends StatefulWidget {
+  @override
+  _SintomasScreenState createState() => _SintomasScreenState();
+}
+
+class _SintomasScreenState extends State<SintomasScreen> {
+  bool _selected1 = false;
+  bool _selected2 = false;
+  bool _selected3 = false;
+
+  bool _selected4 = false;
+  bool _selected5 = false;
+  bool _selected6 = false;
+
+  bool _selected7 = false;
+  bool _selected8 = false;  
+
   @override
   Widget build(BuildContext context) {
+    final List<Map<String, Object>> _map = SINTOMAS;
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -21,21 +41,7 @@ class SintomasScreen extends StatelessWidget {
                 children: [
                   Column(
                     children: [
-                      Container(
-                        margin: EdgeInsets.only(left: 10, right: 10),
-                        width: double.infinity,
-                        child: Text(
-                          'Quais sintomas tem apresentado?',
-                          style: TextStyle(
-                            fontFamily: 'Poppins',
-                            fontSize: 20,
-                            color: const Color(0xff3a3a3a),
-                            fontWeight: FontWeight.w600,
-                            height: 1.3888888888888888,
-                          ),
-                          textAlign: TextAlign.left,
-                        ),
-                      ),
+                      TituloWidget('Quais sintomas tem apresentado?'),
                       Container(
                         padding: const EdgeInsets.only(top: 15),
                         margin: EdgeInsets.only(left: 10, right: 10),
@@ -57,205 +63,230 @@ class SintomasScreen extends StatelessWidget {
                         margin: EdgeInsets.only(left: 10, right: 10),
                         width: double.infinity,
                         child: MultiSelect(
-                          errorBorderColor: const Color(0xff7380f2),
-                          clearButtonColor: const Color(0xff7380f2),
-                          clearButtonTextColor: Colors.white,
-                          cancelButtonColor: const Color(0xff7380f2),
-                          cancelButtonTextColor: Colors.white,
-                          saveButtonColor: const Color(0xff7380f2),
-                          saveButtonTextColor: Colors.white,
-                          selectedOptionsBoxColor: Colors.grey,
-                          selectIconColor: const Color(0xff7380f2),
-                          checkBoxColor: const Color(0xff7380f2),
-                          titleTextColor: Colors.black,
-                          titleText: 'Selecionar sintomas.',
-                          validator: (value) {
-                            if (value == null) {
-                              return 'Por favor selecione uma ou mais opcão(s)';
-                            }
-                          },
-                          errorText: 'Por favor selecione uma ou mais opcão(s)',
-                          textField: 'display',
-                          valueField: 'value',
-                          filterable: true,
-                          required: false,
-                          value: null,
-                          onSaved: (value) {
-                            print('The value is $value');
-                          },
-                          dataSource: [
-                            {
-                              "display": "Dor retrorbital",
-                              "value": 1,
+                            errorBorderColor: const Color(0xff7380f2),
+                            clearButtonColor: const Color(0xff7380f2),
+                            clearButtonTextColor: Colors.white,
+                            cancelButtonColor: const Color(0xff7380f2),
+                            cancelButtonTextColor: Colors.white,
+                            saveButtonColor: const Color(0xff7380f2),
+                            saveButtonTextColor: Colors.white,
+                            selectedOptionsBoxColor: Colors.grey,
+                            selectIconColor: const Color(0xff7380f2),
+                            checkBoxColor: const Color(0xff7380f2),
+                            titleTextColor: Colors.black,
+                            titleText: 'Selecionar sintomas.',
+                            validator: (value) {
+                              if (value == null) {
+                                return 'Por favor selecione uma ou mais opcão(s)';
+                              }
                             },
-                            {
-                              "display": "Cefaléia",
-                              "value": 2,
+                            errorText:
+                                'Por favor selecione uma ou mais opcão(s)',
+                            textField: 'display',
+                            valueField: 'value',
+                            filterable: true,
+                            required: false,
+                            value: null,
+                            onSaved: (value) {
+                              print('The value is $value');
                             },
-                            {
-                              "display": "Artralgia",
-                              "value": 3,
-                            },
-                            {
-                              "display": "Prostação",
-                              "value": 4,
-                            },
-                            {
-                              "display": "Mialgia",
-                              "value": 5,
-                            },
-                            {
-                              "display": "Prurido",
-                              "value": 6,
-                            },
-                            {
-                              "display": "Dor Abdominal",
-                              "value": 7,
-                            },
-                            {
-                              "display": "Hemorragia",
-                              "value": 8,
-                            },
-                            {
-                              "display": "Dor retrorbital",
-                              "value": 9,
-                            },
-                            {
-                              "display": "Cefaléia",
-                              "value": 10,
-                            },
-                            {
-                              "display": "Artralgia",
-                              "value": 11,
-                            },
-                            {
-                              "display": "Prostação",
-                              "value": 12,
-                            },
-                            {
-                              "display": "Mialgia",
-                              "value": 13,
-                            },
-                            {
-                              "display": "Prurido",
-                              "value": 14,
-                            },
-                            {
-                              "display": "Convulsões",
-                              "value": 15,
-                            },
-                            {
-                              "display": "Náuseas/Vômito",
-                              "value": 16,
-                            },
-                            {
-                              "display": "Conjutivite",
-                              "value": 17,
-                            },
-                            {
-                              "display": "Tosse",
-                              "value": 18,
-                            },
-                            {
-                              "display": "Dor nas costas",
-                              "value": 19,
-                            },
-                            {
-                              "display": "Artrite",
-                              "value": 20,
-                            },
-                            {
-                              "display": "Dor de ouvido",
-                              "value": 21,
-                            },
-                            {
-                              "display": "Falta de apetite",
-                              "value": 22,
-                            },
-                            {
-                              "display": "Diarreia",
-                              "value": 23,
-                            },
-                            {
-                              "display": "Mal estar",
-                              "value": 24,
-                            },
-                            {
-                              "display": "Dispneia",
-                              "value": 25,
-                            },
-                            {
-                              "display": "Sudorese",
-                              "value": 26,
-                            },
-                            {
-                              "display": "Calafrio",
-                              "value": 27,
-                            },
-                            {
-                              "display": "Linfadenopatia",
-                              "value": 28,
-                            },
-                            {
-                              "display": "Edema",
-                              "value": 29,
-                            },
-                            {
-                              "display": "Exantema",
-                              "value": 30,
-                            },
-                          ],
-                        ),
+                            dataSource: _map),
                       ),
+                      SizedBox(height: 15),
+                      TituloWidget('Febre?'),
                       Container(
-                        padding: const EdgeInsets.only(top: 15),
                         margin: EdgeInsets.only(left: 10, right: 10),
-                        width: double.infinity,
-                        child: Text(
-                          'Febre?',
-                          style: TextStyle(
-                            fontFamily: 'Poppins',
-                            fontSize: 20,
-                            color: const Color(0xff3a3a3a),
-                            fontWeight: FontWeight.w600,
-                            height: 1.3888888888888888,
-                          ),
-                          textAlign: TextAlign.left,
-                        ),
-                      ),
-                      Container(
-                        margin: EdgeInsets.only(left: 10, right: 10),                        
                         child: Column(
                           children: [
                             SizedBox(height: 10),
                             Row(
                               children: [
-                                OpcoesWidget('Menor ou igual a 38,5 C', 100),
+                                InkWell(
+                                  onTap: () {
+                                    setState(
+                                      () {
+                                        _selected1 = !_selected1;
+                                        if (_selected1) {
+                                          _selected2 = false;
+                                          _selected3 = false;
+                                          _selected7 = false;
+                                          _selected8 = false;
+                                        }
+                                      },
+                                    );
+                                  },
+                                  child: BoxTextWidget(
+                                    'Menor ou igual a 38,5 C',
+                                    100,
+                                    _selected1,
+                                  ),
+                                ),
                                 SizedBox(width: 15),
-                                OpcoesWidget('Entre 38,5 C', 90),
+                                InkWell(
+                                  onTap: () {
+                                    setState(
+                                      () {
+                                        _selected2 = !_selected2;
+                                        if (_selected2) {
+                                          _selected1 = false;
+                                          _selected3 = false;
+                                          _selected7 = false;
+                                          _selected8 = false;
+                                        }
+                                      },
+                                    );
+                                  },
+                                  child: BoxTextWidget(
+                                    'Entre 38,5 C',
+                                    90,
+                                    _selected2,
+                                  ),
+                                ),
                                 SizedBox(width: 15),
-                                OpcoesWidget('Entre 39 a 40 C', 100),
+                                InkWell(
+                                  onTap: () {
+                                    setState(
+                                      () {
+                                        _selected3 = !_selected3;
+                                        if (_selected3) {
+                                          _selected1 = false;
+                                          _selected2 = false;
+                                          _selected7 = false;
+                                          _selected8 = false;
+                                        }
+                                      },
+                                    );
+                                  },
+                                  child: BoxTextWidget(
+                                    'Entre 39 a 40 C',
+                                    100,
+                                    _selected3,
+                                  ),
+                                ),
                                 SizedBox(width: 15),
                               ],
                             ),
                             SizedBox(height: 25),
                             Row(
                               children: [
-                                OpcoesWidget('Duração de 1 a 2 dias', 100),
+                                InkWell(
+                                  onTap: () {
+                                    setState(
+                                      () {
+                                        _selected4 = !_selected4;
+                                        if (_selected4) {
+                                          _selected5 = false;
+                                          _selected6 = false;
+                                          _selected7 = false;
+                                          _selected8 = false;
+                                        }
+                                      },
+                                    );
+                                  },
+                                  child: BoxTextWidget(
+                                    'Duração de 1 a 2 dias',
+                                    100,
+                                    _selected4,
+                                  ),
+                                ),
                                 SizedBox(width: 15),
-                                OpcoesWidget('Duração de 2 a 3 dias', 100),
+                                InkWell(
+                                  onTap: () {
+                                    setState(
+                                      () {
+                                        _selected5 = !_selected5;
+                                        if (_selected5) {
+                                          _selected4 = false;
+                                          _selected6 = false;
+                                          _selected7 = false;
+                                          _selected8 = false;
+                                        }
+                                      },
+                                    );
+                                  },
+                                  child: BoxTextWidget(
+                                    'Duração de 2 a 3 dias',
+                                    100,
+                                    _selected5,
+                                  ),
+                                ),
                                 SizedBox(width: 10),
-                                OpcoesWidget('Duração de 2 a 7 dias', 100),
+                                InkWell(
+                                  onTap: () {
+                                    setState(
+                                      () {
+                                        _selected6 = !_selected6;
+                                        if (_selected6) {
+                                          _selected4 = false;
+                                          _selected5 = false;
+                                          _selected7 = false;
+                                          _selected8 = false;
+                                        }
+                                      },
+                                    );
+                                  },
+                                  child: BoxTextWidget(
+                                    'Duração de 2 a 7 dias',
+                                    100,
+                                    _selected6,
+                                  ),
+                                ),
                                 SizedBox(width: 15),
                               ],
                             ),
                             SizedBox(height: 25),
                             Row(
                               children: [
-                                OpcoesWidget('Ausente', 80),
+                                InkWell(
+                                  onTap: () {
+                                    setState(
+                                      () {
+                                        _selected7 = !_selected7;
+                                        if (_selected7) {
+                                          _selected1 = false;
+                                          _selected2 = false;
+                                          _selected3 = false;
+                                          _selected4 = false;
+                                          _selected5 = false;
+                                          _selected6 = false;
+                                          _selected8 = false;                                                                                    
+                                        }
+                                      },
+                                    );
+                                  },
+                                  child: BoxTextWidget(
+                                    'Ausente',
+                                    80,
+                                    _selected7,
+                                  ),
+                                ),
                                 SizedBox(width: 15),
-                                OpcoesWidget('Temperatura não informada', 100),
-                                SizedBox(width: 15),                                
+                                InkWell(
+                                  onTap: () {
+                                    setState(
+                                      () {
+                                        _selected8 = !_selected8;
+                                        if (_selected8) {
+                                            _selected1 = false;
+                                            _selected2 = false;
+                                            _selected3 = false;
+                                            _selected4 = false;
+                                            _selected5 = false;
+                                            _selected6 = false;
+                                            _selected7 = false;
+                                        }
+                                      },
+                                    );
+                                  },
+                                  child: Container(
+                                    child: BoxTextWidget(
+                                      'Temperatura não informada',
+                                      100,
+                                      _selected8,
+                                    ),
+                                  ),
+                                ),
+                                SizedBox(width: 15),
                               ],
                             ),
                             SizedBox(height: 30),
@@ -267,25 +298,7 @@ class SintomasScreen extends StatelessWidget {
                 ],
               ),
             ),
-            Container(
-              margin: EdgeInsets.only(bottom: 10),
-              child: ListTile(
-                leading: ClipRRect(
-                  borderRadius: BorderRadius.circular(10),
-                  child: Container(
-                    width: 60,
-                    color: const Color(0xff7380f2),
-                    child: IconButton(
-                      icon: Icon(Icons.arrow_back),
-                      color: Colors.white,
-                      onPressed: () {
-                        Navigator.of(context).pop();
-                      },
-                    ),
-                  ),
-                ),
-              ),
-            ),
+            TraillerWidget(),
           ],
         ),
       ),

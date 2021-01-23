@@ -1,24 +1,24 @@
 import 'package:flutter/material.dart';
 
-class OpcoesWidget extends StatelessWidget {
+class BoxTextWidget extends StatelessWidget {
+  
   final String _label;
   final double _size; 
+  final bool _value;
 
-  const OpcoesWidget(
+  const BoxTextWidget(
     this._label,
-    this._size ,
+    this._size,
+    this._value
   );
-
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () {},
-      child: Container(
+    return Container(
         width: _size,
         height: 50.0,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10.0),
-          color: const Color(0xffffffff),
+          color: _value ? Color(0xff7380f2) : Color(0xfff9f9f9),
           boxShadow: [
             BoxShadow(
               color: const Color(0x0f000000),
@@ -33,14 +33,13 @@ class OpcoesWidget extends StatelessWidget {
             style: TextStyle(
               fontFamily: 'Poppins',
               fontSize: 14,
-              color: const Color(0xff3a3a3a),
+              color: _value ? Color(0xfff9f9f9) : Color(0xff3a3a3a),
               fontWeight: FontWeight.w600,
               height: 1.3571428571428572,
             ),
             textAlign: TextAlign.center,
           ),
         ),
-      ),
-    );
+      );
   }
 }

@@ -1,7 +1,23 @@
-import 'package:arboviroses/widgets/opcoes_widget.dart';
+import 'package:arboviroses/utils/app_routes.dart';
+import 'package:arboviroses/widgets/box_text_widget.dart';
 import 'package:flutter/material.dart';
 
-class SorologiaScreen extends StatelessWidget {
+class SorologiaScreen extends StatefulWidget {
+  @override
+  _SorologiaScreenState createState() => _SorologiaScreenState();
+}
+
+class _SorologiaScreenState extends State<SorologiaScreen> {
+  bool _selected1 = false;
+  bool _selected2 = false;
+  bool _selected3 = false;
+
+  bool _selected4 = false;
+  bool _selected5 = false;
+
+  bool _selected6 = false;
+  bool _selected7 = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,11 +56,62 @@ class SorologiaScreen extends StatelessWidget {
                     padding: EdgeInsets.only(bottom: 15),
                     child: Row(
                       children: [
-                        OpcoesWidget('igM Positivo?', 80),
+                        InkWell(
+                          onTap: () {
+                            setState(
+                              () {
+                                _selected1 = !_selected1;
+                                if (_selected1) {
+                                  _selected2 = false;
+                                  _selected3 = false;
+                                }
+                              },
+                            );
+                          },
+                          child: BoxTextWidget(
+                            'igM Positivo?',
+                            80,
+                            _selected1,
+                          ),
+                        ),
                         SizedBox(width: 15),
-                        OpcoesWidget('igG Positivo?', 80),
+                        InkWell(
+                          onTap: () {
+                            setState(
+                              () {
+                                _selected2 = !_selected2;
+                                if (_selected2) {
+                                  _selected1 = false;
+                                  _selected3 = false;
+                                }
+                              },
+                            );
+                          },
+                          child: BoxTextWidget(
+                            'igG Positivo?',
+                            80,
+                            _selected2,
+                          ),
+                        ),
                         SizedBox(width: 15),
-                        OpcoesWidget('NS1 Positivo?', 80),
+                        InkWell(
+                          onTap: () {
+                            setState(
+                              () {
+                                _selected3 = !_selected3;
+                                if (_selected3) {
+                                  _selected1 = false;
+                                  _selected2 = false;
+                                }
+                              },
+                            );
+                          },
+                          child: BoxTextWidget(
+                            'NS1 Positivo?',
+                            80,
+                            _selected3,
+                          ),
+                        ),
                       ],
                     ),
                   ),
@@ -70,9 +137,41 @@ class SorologiaScreen extends StatelessWidget {
                     padding: EdgeInsets.only(bottom: 15),
                     child: Row(
                       children: [
-                        OpcoesWidget('igM Positivo?', 80),
+                        InkWell(
+                          onTap: () {
+                            setState(
+                              () {
+                                _selected4 = !_selected4;
+                                if (_selected4) {
+                                  _selected5 = false;
+                                }
+                              },
+                            );
+                          },
+                          child: BoxTextWidget(
+                            'igM Positivo?',
+                            80,
+                            _selected4,
+                          ),
+                        ),
                         SizedBox(width: 15),
-                        OpcoesWidget('igG Positivo?', 80),
+                        InkWell(
+                          onTap: () {
+                            setState(
+                              () {
+                                _selected5 = !_selected5;
+                                if (_selected5) {
+                                  _selected4 = false;
+                                }
+                              },
+                            );
+                          },
+                          child: BoxTextWidget(
+                            'igG Positivo?',
+                            80,
+                            _selected5,
+                          ),
+                        ),
                       ],
                     ),
                   ),
@@ -98,9 +197,41 @@ class SorologiaScreen extends StatelessWidget {
                     padding: EdgeInsets.only(bottom: 15),
                     child: Row(
                       children: [
-                        OpcoesWidget('igM Positivo?', 80),
+                        InkWell(
+                          onTap: () {
+                            setState(
+                              () {
+                                _selected6 = !_selected6;
+                                if (_selected6) {
+                                  _selected7 = false;
+                                }
+                              },
+                            );
+                          },
+                          child: BoxTextWidget(
+                            'igM Positivo?',
+                            80,
+                            _selected6,
+                          ),
+                        ),
                         SizedBox(width: 15),
-                        OpcoesWidget('igG Positivo?', 80),
+                        InkWell(
+                          onTap: () {
+                            setState(
+                              () {
+                                _selected7 = !_selected7;
+                                if (_selected7) {
+                                  _selected6 = false;
+                                }
+                              },
+                            );
+                          },
+                          child: BoxTextWidget(
+                            'igG Positivo?',
+                            80,
+                            _selected7,
+                          ),
+                        ),
                       ],
                     ),
                   ),
@@ -110,7 +241,7 @@ class SorologiaScreen extends StatelessWidget {
             Container(
               margin: EdgeInsets.only(bottom: 10, left: 10, right: 10),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,                
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   ClipRRect(
                     borderRadius: BorderRadius.circular(10),
@@ -131,12 +262,14 @@ class SorologiaScreen extends StatelessWidget {
                     child: Container(
                       //width: 100,
                       child: RaisedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.of(context).pushNamed(AppRoutes.RESULTADO);
+                        },
                         textColor: Colors.white,
                         padding: const EdgeInsets.all(0.0),
                         child: Container(
                           decoration: const BoxDecoration(
-                            color: Color(0xff7380f2),                            
+                            color: Color(0xff7380f2),
                           ),
                           padding: const EdgeInsets.all(10.0),
                           child: const Text(

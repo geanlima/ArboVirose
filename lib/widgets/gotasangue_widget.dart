@@ -2,39 +2,62 @@ import 'package:adobe_xd/adobe_xd.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class GotaSangue extends StatelessWidget {
+class GotaSangueWidget extends StatelessWidget {
   final String _label;
-
-  GotaSangue(this._label);
+  final bool _value;
+  GotaSangueWidget(this._label, this._value);
 
   @override
   Widget build(BuildContext context) {
-    var container = Container(
+    return Container(
+      width: 90.0,
+      height: 80.0,
+      color: _value ? Color(0xff7380f2) : Color(0xfff9f9f9),
       margin: EdgeInsets.only(left: 10, right: 10),
-      child: Column(
-        children: [
-          Container(
-            child: _gotaSangue(),
-          ),
-          SizedBox(height: 15),
-          Container(
-            child: Text(
-              _label,
-              style: TextStyle(
-                fontFamily: 'Poppins',
-                fontSize: 11,
-                color: const Color(0xff000000),
-              //  letterSpacing: -0.187,
-                fontWeight: FontWeight.w500,
-                height: 1.2727272727272727,
-              ),
-              textAlign: TextAlign.center,
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10.0),
+          boxShadow: [
+            BoxShadow(
+              color: const Color(0x0f000000),
+              offset: Offset(0, 3),
+              blurRadius: 20,
             ),
-          ),
-        ],
+          ],
+        ),
+        child: Column(
+          children: [
+            Container(
+              child: _gotaSangue(),
+            ),
+            SizedBox(height: 15),
+            Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10.0),
+                boxShadow: [
+                  BoxShadow(
+                    color: const Color(0x0f000000),
+                    offset: Offset(0, 3),
+                    blurRadius: 20,
+                  ),
+                ],
+              ),
+              child: Text(
+                _label,
+                style: TextStyle(
+                  fontFamily: 'Poppins',
+                  fontSize: 11,
+                  color: _value ? Color(0xfff9f9f9) : Color(0xff3a3a3a),
+                  fontWeight: FontWeight.w500,
+                  height: 1.2727272727272727,
+                ),
+                textAlign: TextAlign.center,
+              ),
+            ),
+          ],
+        ),
       ),
     );
-    return container;
   }
 
   Widget _gotaSangue() {
