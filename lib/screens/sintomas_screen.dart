@@ -1,3 +1,4 @@
+import 'package:arboviroses/widgets/opcoes_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_multiselect/flutter_multiselect.dart';
 
@@ -223,277 +224,38 @@ class SintomasScreen extends StatelessWidget {
                         ),
                       ),
                       Container(
+                        margin: EdgeInsets.only(left: 10, right: 10),                        
                         child: Column(
                           children: [
                             SizedBox(height: 10),
                             Row(
                               children: [
-                                SizedBox(width: 10),
-                                InkWell(
-                                  onTap: () {},
-                                  child: Container(
-                                    width: 75.0,
-                                    height: 50.0,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(10.0),
-                                      color: const Color(0xffffffff),
-                                      boxShadow: [
-                                        BoxShadow(
-                                          color: const Color(0x0f000000),
-                                          offset: Offset(0, 3),
-                                          blurRadius: 20,
-                                        ),
-                                      ],
-                                    ),
-                                    child: Center(
-                                      child: Text(
-                                        'Ausente',
-                                        style: TextStyle(
-                                          fontFamily: 'Poppins',
-                                          fontSize: 14,
-                                          color: const Color(0xff3a3a3a),
-                                          fontWeight: FontWeight.w600,
-                                          height: 1.3571428571428572,
-                                        ),
-                                        textAlign: TextAlign.left,
-                                      ),
-                                    ),
-                                  ),
-                                ),
+                                OpcoesWidget('Menor ou igual a 38,5 C', 100),
                                 SizedBox(width: 15),
-                                InkWell(
-                                  onTap: () {},
-                                  child: Container(
-                                    width: 120.0,
-                                    height: 50.0,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(10.0),
-                                      color: const Color(0xffffffff),
-                                      boxShadow: [
-                                        BoxShadow(
-                                          color: const Color(0x0f000000),
-                                          offset: Offset(0, 3),
-                                          blurRadius: 20,
-                                        ),
-                                      ],
-                                    ),
-                                    child: Center(
-                                      child: Text(
-                                        'Entre 39 e 40 C',
-                                        style: TextStyle(
-                                          fontFamily: 'Poppins',
-                                          fontSize: 14,
-                                          color: const Color(0xff3a3a3a),
-                                          fontWeight: FontWeight.w600,
-                                          height: 1.3571428571428572,
-                                        ),
-                                        textAlign: TextAlign.left,
-                                      ),
-                                    ),
-                                  ),
-                                ),
+                                OpcoesWidget('Entre 38,5 C', 90),
                                 SizedBox(width: 15),
-                                InkWell(
-                                  onTap: () {},
-                                  child: Container(
-                                    height: 50.0,
-                                    width: 80.0,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(10.0),
-                                      color: const Color(0xffffffff),
-                                      boxShadow: [
-                                        BoxShadow(
-                                          color: const Color(0x0f000000),
-                                          offset: Offset(0, 3),
-                                          blurRadius: 20,
-                                        ),
-                                      ],
-                                    ),
-                                    child: Center(
-                                      child: Text(
-                                        '> 38,5C',
-                                        style: TextStyle(
-                                          fontFamily: 'Poppins',
-                                          fontSize: 14,
-                                          color: const Color(0xff3a3a3a),
-                                          fontWeight: FontWeight.w600,
-                                          height: 1.3571428571428572,
-                                        ),
-                                        textAlign: TextAlign.left,
-                                      ),
-                                    ),
-                                  ),
-                                ),
+                                OpcoesWidget('Entre 39 a 40 C', 100),
+                                SizedBox(width: 15),
                               ],
                             ),
-                            SizedBox(height: 10),
+                            SizedBox(height: 25),
                             Row(
                               children: [
+                                OpcoesWidget('Duração de 1 a 2 dias', 100),
+                                SizedBox(width: 15),
+                                OpcoesWidget('Duração de 2 a 3 dias', 100),
                                 SizedBox(width: 10),
-                                InkWell(
-                                  onTap: () {},
-                                  child: Container(
-                                    width: 80.0,
-                                    height: 50.0,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(10.0),
-                                      color: const Color(0xffffffff),
-                                      boxShadow: [
-                                        BoxShadow(
-                                          color: const Color(0x0f000000),
-                                          offset: Offset(0, 3),
-                                          blurRadius: 20,
-                                        ),
-                                      ],
-                                    ),
-                                    child: Center(
-                                      child: Text(
-                                        '> = 38,5C',
-                                        style: TextStyle(
-                                          fontFamily: 'Poppins',
-                                          fontSize: 14,
-                                          color: const Color(0xff3a3a3a),
-                                          fontWeight: FontWeight.w600,
-                                          height: 1.3571428571428572,
-                                        ),
-                                        textAlign: TextAlign.left,
-                                      ),
-                                    ),
-                                  ),
-                                ),
+                                OpcoesWidget('Duração de 2 a 7 dias', 100),
                                 SizedBox(width: 15),
-                                InkWell(
-                                  onTap: () {},
-                                  child: Container(
-                                    width: 100.0,
-                                    height: 50.0,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(10.0),
-                                      color: const Color(0xffffffff),
-                                      boxShadow: [
-                                        BoxShadow(
-                                          color: const Color(0x0f000000),
-                                          offset: Offset(0, 3),
-                                          blurRadius: 20,
-                                        ),
-                                      ],
-                                    ),
-                                    child: Center(
-                                      child: Text(
-                                        'Duração 1 a 2 dias',
-                                        style: TextStyle(
-                                          fontFamily: 'Poppins',
-                                          fontSize: 14,
-                                          color: const Color(0xff3a3a3a),
-                                          fontWeight: FontWeight.w600,
-                                          height: 1.3571428571428572,
-                                        ),
-                                        textAlign: TextAlign.center,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                SizedBox(width: 15),
-                                InkWell(
-                                  onTap: () {},
-                                  child: Container(
-                                    height: 50.0,
-                                    width: 100.0,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(10.0),
-                                      color: const Color(0xffffffff),
-                                      boxShadow: [
-                                        BoxShadow(
-                                          color: const Color(0x0f000000),
-                                          offset: Offset(0, 3),
-                                          blurRadius: 20,
-                                        ),
-                                      ],
-                                    ),
-                                    child: Center(
-                                      child: Text(
-                                        'Duração 2 a 3 dias',
-                                        style: TextStyle(
-                                          fontFamily: 'Poppins',
-                                          fontSize: 14,
-                                          color: const Color(0xff3a3a3a),
-                                          fontWeight: FontWeight.w600,
-                                          height: 1.3571428571428572,
-                                        ),
-                                        textAlign: TextAlign.center,
-                                      ),
-                                    ),
-                                  ),
-                                ),
                               ],
                             ),
-                            SizedBox(height: 10),
+                            SizedBox(height: 25),
                             Row(
                               children: [
-                                SizedBox(width: 10),
-                                InkWell(
-                                  onTap: () {},
-                                  child: Container(
-                                    width: 100.0,
-                                    height: 50.0,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(10.0),
-                                      color: const Color(0xffffffff),
-                                      boxShadow: [
-                                        BoxShadow(
-                                          color: const Color(0x0f000000),
-                                          offset: Offset(0, 3),
-                                          blurRadius: 20,
-                                        ),
-                                      ],
-                                    ),
-                                    child: Center(
-                                      child: Text(
-                                        'Duração 2 a 7 dias',
-                                        style: TextStyle(
-                                          fontFamily: 'Poppins',
-                                          fontSize: 14,
-                                          color: const Color(0xff3a3a3a),
-                                          fontWeight: FontWeight.w600,
-                                          height: 1.3571428571428572,
-                                        ),
-                                        textAlign: TextAlign.center,
-                                      ),
-                                    ),
-                                  ),
-                                ),
+                                OpcoesWidget('Ausente', 80),
                                 SizedBox(width: 15),
-                                InkWell(
-                                  onTap: () {},
-                                  child: Container(
-                                    width: 120.0,
-                                    height: 50.0,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(10.0),
-                                      color: const Color(0xffffffff),
-                                      boxShadow: [
-                                        BoxShadow(
-                                          color: const Color(0x0f000000),
-                                          offset: Offset(0, 3),
-                                          blurRadius: 20,
-                                        ),
-                                      ],
-                                    ),
-                                    child: Center(
-                                      child: Text(
-                                        'Temperatura não informada',
-                                        style: TextStyle(
-                                          fontFamily: 'Poppins',
-                                          fontSize: 14,
-                                          color: const Color(0xff3a3a3a),
-                                          fontWeight: FontWeight.w600,
-                                          height: 1.3571428571428572,
-                                        ),
-                                        textAlign: TextAlign.center,
-                                      ),
-                                    ),
-                                  ),
-                                ),
+                                OpcoesWidget('Temperatura não informada', 100),
+                                SizedBox(width: 15),                                
                               ],
                             ),
                             SizedBox(height: 30),

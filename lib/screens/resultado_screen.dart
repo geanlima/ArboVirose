@@ -16,7 +16,29 @@ class ResultadoScreen extends StatelessWidget {
           children: <Widget>[
             Expanded(
               child: ListView(
-                children: [],
+                children: [
+                  Card(
+                    margin: EdgeInsets.all(10),
+                    child: ListTile(
+                      title: Text('Dengue'),
+                      trailing: Text('33%'),
+                    ),
+                  ),
+                  Card(
+                    margin: EdgeInsets.all(10),
+                    child: ListTile(
+                      title: Text('Zika'),
+                      trailing: Text('33%'),
+                    ),
+                  ),
+                  Card(
+                    margin: EdgeInsets.all(10),
+                    child: ListTile(
+                      title: Text('Chicungunya'),
+                      trailing: Text('33%'),
+                    ),
+                  ),
+                ],
               ),
             ),
             Container(
@@ -41,6 +63,6 @@ class ResultadoScreen extends StatelessWidget {
           ],
         ),
       ),
-    ); 
+    );
   }
 }

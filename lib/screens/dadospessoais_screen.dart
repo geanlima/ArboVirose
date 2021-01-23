@@ -252,8 +252,7 @@ class _DadosPessoaisScreenState extends State<DadosPessoaisScreen> {
                           textSize: 18.0,
                           onChanged: (bool position){
                             print("this");
-                          },
-                          
+                          },                          
                         ),
                       ),
                     ],
