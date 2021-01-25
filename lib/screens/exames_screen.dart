@@ -135,8 +135,7 @@ class _ExamesScreenState extends State<ExamesScreen> {
                   ),
                   SizedBox(height: 15),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.baseline,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,                    
                     children: [
                       Expanded(
                         child: InkWell(
@@ -216,7 +215,7 @@ class _ExamesScreenState extends State<ExamesScreen> {
                   SizedBox(height: 15),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.baseline,
+                    
                     children: [
                       Container(
                         child: Expanded(
@@ -298,7 +297,7 @@ class _ExamesScreenState extends State<ExamesScreen> {
                   SizedBox(height: 15),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.baseline,
+                    
                     children: [
                       Expanded(
                         child: InkWell(
@@ -378,7 +377,7 @@ class _ExamesScreenState extends State<ExamesScreen> {
                   SizedBox(height: 15),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.baseline,
+                    
                     children: [
                       Expanded(
                         child: InkWell(
@@ -458,7 +457,7 @@ class _ExamesScreenState extends State<ExamesScreen> {
                   SizedBox(height: 15),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.baseline,
+                    
                     children: [
                       Expanded(
                         child: InkWell(
@@ -538,7 +537,7 @@ class _ExamesScreenState extends State<ExamesScreen> {
                   SizedBox(height: 15),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.baseline,
+                    
                     children: [
                       Expanded(
                         child: InkWell(
@@ -618,7 +617,7 @@ class _ExamesScreenState extends State<ExamesScreen> {
                   SizedBox(height: 15),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.baseline,
+                    
                     children: [
                       Expanded(
                         child: InkWell(
@@ -698,7 +697,7 @@ class _ExamesScreenState extends State<ExamesScreen> {
                   SizedBox(height: 15),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.baseline,
+                    
                     children: [
                       Expanded(
                         child: InkWell(
@@ -778,7 +777,7 @@ class _ExamesScreenState extends State<ExamesScreen> {
                   SizedBox(height: 15),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.baseline,
+                    
                     children: [
                       Expanded(
                         child: InkWell(
