@@ -12,7 +12,7 @@ class MainScreen extends StatelessWidget {
       child: Stack(
         children: [
           ShadowWidget(),
-          MainHeaderWidget('Arbo Virose'),
+          MainHeaderWidget('D.A.I.'),
           MainBodyWidget(),
           BugWidget(),
           Form(
@@ -23,7 +23,7 @@ class MainScreen extends StatelessWidget {
                   Card(
                     margin: EdgeInsets.all(10),
                     child: ListTile(
-                      title: Text('Dados Pessoais'),
+                      title: Text('Paciente'),
                       trailing: IconButton(
                         icon: Icon(Icons.arrow_forward),
                         onPressed: () {
@@ -43,6 +43,20 @@ class MainScreen extends StatelessWidget {
                         onPressed: () {
                           Navigator.of(context).pushNamed(
                             AppRoutes.SINTOMAS,                            
+                          );
+                        },
+                      ),
+                    ),
+                  ),
+                  Card(
+                    margin: EdgeInsets.all(10),
+                    child: ListTile(
+                      title: Text('Febre'),
+                      trailing: IconButton(
+                        icon: Icon(Icons.arrow_forward),
+                        onPressed: () {
+                          Navigator.of(context).pushNamed(
+                            AppRoutes.FEBRE,                            
                           );
                         },
                       ),

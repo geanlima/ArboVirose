@@ -1,4 +1,32 @@
 const SINTOMAS = const [
+  'Dor retrorbital',
+  'Cefaléia',
+  'Prurido',
+  'Dor Abdominal',
+  'Hemorragia',
+  'Artralgia',
+  'Prostação',
+  'Mialgia',
+  'Convulsões',
+  'Náuseas/Vômito',
+  'Conjutivite',
+  'Tosse',
+  'Dor nas costas',
+  'Artrite',
+  'Dor de ouvido',
+  'Falta de apetite',
+  'Diarreia',
+  'Mal estar',
+  'Dispneia',
+  'Sudorese',
+  'Calafrio',
+  'Linfadenopatia',
+  'Edema',
+  'Exantema',
+  'Hematoma',
+  'Outros'
+];
+const SINTOMASMAP = const [
   {
     "display": "Dor retrorbital",
     "value": 1,

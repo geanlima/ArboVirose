@@ -35,7 +35,7 @@ class ResultadoScreen extends StatelessWidget {
                   Card(
                     margin: EdgeInsets.all(10),
                     child: ListTile(
-                      title: Text('Chicungunya'),
+                      title: Text('Chikungunya'),
                       trailing: Text('33%'),
                     ),
                   ),

@@ -18,12 +18,14 @@ class _DadosPessoaisScreenState extends State<DadosPessoaisScreen> {
   bool _value1760 = false;
   bool _value60 = false;
 
+  bool _valueSwitch = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'Dados Pessoais',
+          'Paciente',
         ),
         backgroundColor: const Color(0xff7380f2),
       ),
@@ -50,6 +52,7 @@ class _DadosPessoaisScreenState extends State<DadosPessoaisScreen> {
                                   _valueMan = !_valueMan;
                                   if (_valueMan) {
                                     _valueWoman = false;
+                                    _valueSwitch = false;
                                   }
                                 },
                               );
@@ -67,6 +70,7 @@ class _DadosPessoaisScreenState extends State<DadosPessoaisScreen> {
                                   _valueWoman = !_valueWoman;
                                   if (_valueWoman) {
                                     _valueMan = false;
+                                    _valueSwitch = true;
                                   }
                                 },
                               );
@@ -152,7 +156,7 @@ class _DadosPessoaisScreenState extends State<DadosPessoaisScreen> {
                       SizedBox(width: 10),
                       Container(
                         child: LiteRollingSwitch(
-                          value: false,
+                          value: _valueSwitch,
                           textOn: "Sim",
                           textOff: "Não",
                           colorOn: const Color(0xff7380f2),
@@ -161,7 +165,7 @@ class _DadosPessoaisScreenState extends State<DadosPessoaisScreen> {
                           iconOff: Icons.alarm_off,
                           textSize: 18.0,
                           onChanged: (bool position) {
-                            print("this");
+                            
                           },
                         ),
                       ),

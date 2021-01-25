@@ -180,7 +180,7 @@ class _SorologiaScreenState extends State<SorologiaScreen> {
                     width: double.infinity,
                     padding: EdgeInsets.only(bottom: 15),
                     child: Text(
-                      'Chicungunya',
+                      'Chikungunya',
                       style: TextStyle(
                         fontFamily: 'Poppins',
                         fontSize: 20,
@@ -256,36 +256,7 @@ class _SorologiaScreenState extends State<SorologiaScreen> {
                         },
                       ),
                     ),
-                  ),
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(10),
-                    child: Container(
-                      //width: 100,
-                      child: RaisedButton(
-                        onPressed: () {
-                          Navigator.of(context).pushNamed(AppRoutes.RESULTADO);
-                        },
-                        textColor: Colors.white,
-                        padding: const EdgeInsets.all(0.0),
-                        child: Container(
-                          decoration: const BoxDecoration(
-                            color: Color(0xff7380f2),
-                          ),
-                          padding: const EdgeInsets.all(10.0),
-                          child: const Text(
-                            'Consultar',
-                            style: TextStyle(
-                              fontFamily: 'Poppins',
-                              fontSize: 20,
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                              height: 1.3888888888888888,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
+                  ),                  
                 ],
               ),
             ),
