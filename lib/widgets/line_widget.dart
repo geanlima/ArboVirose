@@ -1,70 +1,92 @@
 import 'package:arboviroses/widgets/box_text_widget.dart';
 import 'package:flutter/material.dart';
 
-class LineWidget extends StatelessWidget {
-  final String _line1;
-  final String _line2;
-  final String _line3;
+class LineWidget extends StatefulWidget {
+  final String label1;
+  final String label2;
+  final String label3;
+  final Function(bool) function;
 
-  LineWidget(
-    this._line1,
-    this._line2,
-    this._line3,
-  );
+  LineWidget({
+    this.label1,
+    this.label2,
+    this.label3,
+    this.function,
+  });
 
-  bool _selected1;
-  bool _selected2;
-  bool _selected3;
+  @override
+  _LineWidgetState createState() => _LineWidgetState();
+}
+
+class _LineWidgetState extends State<LineWidget> {
+  bool _selected1 = false;
+  bool _selected2 = false;
+  bool _selected3 = false;
+
+  bool _selectd1() {
+    _selected1 = !_selected1;    
+    return widget.function(_selected1);
+  }
+
+  bool _selectd2() {
+    _selected2 = !_selected2;    
+    return widget.function(_selected2);
+  }
+
+  bool _selectd3() {
+    _selected3 = !_selected3;    
+    return widget.function(_selected3);
+  }
+
+  
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        InkWell(
-          onTap: () {
-            _selected1 = !_selected1;
-            if (_selected1) {
-              _selected2 = false;
-              _selected3 = false;
-            }
-          },
-          child: BoxTextWidget(
-            _line1,
-            100,
-            _selected1,
+    return Container(
+      margin: EdgeInsets.only(left: 10, right: 10),
+      width: double.infinity,
+      child: Row(
+        children: [
+          InkWell(
+            onTap: () {
+              setState(() {
+                _selected1 = _selectd1();              
+              });
+            },
+            child: BoxTextWidget(
+              widget.label1,
+              80,
+              _selected1,
+            ),
           ),
-        ),
-        SizedBox(width: 15),
-        InkWell(
-          onTap: () {
-            _selected2 = !_selected2;
-            if (_selected2) {
-              _selected1 = false;
-              _selected3 = false;
-            }
-          },
-          child: BoxTextWidget(
-            _line2,
-            90,
-            _selected2,
+          SizedBox(width: 15),
+          InkWell(
+            onTap: () {
+              setState(() {
+                _selected2 = _selectd2();              
+              });
+            },
+            child: BoxTextWidget(
+              widget.label2,
+              80,
+              _selected2,
+            ),
           ),
-        ),
-        SizedBox(width: 15),
-        InkWell(
-          onTap: () {
-            _selected3 = !_selected3;
-            if (_selected3) {
-              _selected1 = false;
-              _selected2 = false;
-            }
-          },
-          child: BoxTextWidget(
-            _line3,
-            100,
-            _selected3,
+          SizedBox(width: 15),
+          InkWell(
+            onTap: () {
+              setState(() {
+                _selected3 = _selectd3();              
+              });
+            },
+            child: BoxTextWidget(
+              widget.label3,
+              80,
+              _selected3,
+            ),
           ),
-        ),
-        SizedBox(width: 15),
-      ],
+          SizedBox(width: 15),
+        ],
+      ),
     );
   }
 }

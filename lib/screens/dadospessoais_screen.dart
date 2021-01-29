@@ -1,7 +1,6 @@
 import 'package:arboviroses/widgets/box_image_widget.dart';
 import 'package:arboviroses/widgets/box_text_widget.dart';
 import 'package:arboviroses/widgets/titulo_widget.dart';
-import 'package:arboviroses/widgets/trailler_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:lite_rolling_switch/lite_rolling_switch.dart';
 
@@ -23,14 +22,7 @@ class _DadosPessoaisScreenState extends State<DadosPessoaisScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          'Paciente',
-        ),
-        backgroundColor: const Color(0xff7380f2),
-      ),
       body: Container(
-        padding: const EdgeInsets.only(top: 25),
         child: Column(
           children: <Widget>[
             Expanded(
@@ -174,7 +166,7 @@ class _DadosPessoaisScreenState extends State<DadosPessoaisScreen> {
                 ],
               ),
             ),
-            TraillerWidget(),
+            //TraillerWidget(),
           ],
         ),
       ),

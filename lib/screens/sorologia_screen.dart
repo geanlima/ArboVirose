@@ -1,4 +1,3 @@
-import 'package:arboviroses/utils/app_routes.dart';
 import 'package:arboviroses/widgets/box_text_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -21,12 +20,6 @@ class _SorologiaScreenState extends State<SorologiaScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          'Sorologia',
-        ),
-        backgroundColor: const Color(0xff7380f2),
-      ),
       body: Container(
         padding: const EdgeInsets.only(top: 25),
         child: Column(
@@ -237,29 +230,7 @@ class _SorologiaScreenState extends State<SorologiaScreen> {
                   ),
                 ],
               ),
-            ),
-            Container(
-              margin: EdgeInsets.only(bottom: 10, left: 10, right: 10),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(10),
-                    child: Container(
-                      width: 60,
-                      color: const Color(0xff7380f2),
-                      child: IconButton(
-                        icon: Icon(Icons.arrow_back),
-                        color: Colors.white,
-                        onPressed: () {
-                          Navigator.of(context).pop();
-                        },
-                      ),
-                    ),
-                  ),                  
-                ],
-              ),
-            ),
+            ),            
           ],
         ),
       ),

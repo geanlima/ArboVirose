@@ -52,12 +52,6 @@ class _ExamesScreenState extends State<ExamesScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          'Exames',
-        ),
-        backgroundColor: const Color(0xff7380f2),
-      ),
       body: Container(
         padding: const EdgeInsets.only(top: 25),
         child: Column(
@@ -920,7 +914,7 @@ class _ExamesScreenState extends State<ExamesScreen> {
                 ],
               ),
             ),
-            TraillerWidget(),
+            //TraillerWidget(),
           ],
         ),
       ),

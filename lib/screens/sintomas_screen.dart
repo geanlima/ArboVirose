@@ -1,7 +1,7 @@
-import 'package:arboviroses/class/content.dart';
-import 'package:arboviroses/utils/app_multiselect.dart';
+import 'package:arboviroses/widgets/line_widget.dart';
+import 'package:arboviroses/widgets/titulo_widget.dart';
 import 'package:arboviroses/widgets/trailler_widget.dart';
-import 'package:chips_choice/chips_choice.dart';
+
 import 'package:flutter/material.dart';
 
 class SintomasScreen extends StatefulWidget {
@@ -10,54 +10,44 @@ class SintomasScreen extends StatefulWidget {
 }
 
 class _SintomasScreenState extends State<SintomasScreen> {
-  // single choice value
-  int tag = 1;
-
-  // multiple choice value
-  List<String> tags = [];
-
-  List<String> options = SINTOMAS;
+  
+  bool _selected1(bool sel1) {
+    return sel1;
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          'Sintomas',
-        ),
-        backgroundColor: const Color(0xff7380f2),
-      ),
       body: Container(
+        padding: const EdgeInsets.only(top: 25),
         child: Column(
           children: <Widget>[
             Expanded(
               child: ListView(
                 children: [
-                  Column(
-                    children: [
-                      //TituloWidget('Quais sintomas tem apresentado?'),
-                      //SizedBox(height: 15),
-                      Content(
-                        title: 'Quais sintomas tem apresentado?',                            
-                        child: ChipsChoice<String>.multiple(
-                          value: tags,
-                          onChanged: (val) => setState(() => tags = val),
-                          choiceItems: C2Choice.listFrom<String, String>(
-                            source: options,
-                            value: (i, v) => v,
-                            label: (i, v) => v,
-                            tooltip: (i, v) => v,
-                          ),
-                          wrapped: true,
-                          //textDirection: TextDirection.rtl,
-                        ),
-                      ),                      
-                    ],
-                  ),
+                  TituloWidget('Quais sintomas tem apresentado?'),
+                  SizedBox(height: 15),
+                  LineWidget(label1: 'Dor retrorbital',label2: 'Cefaléia',label3: 'Prurido',function: _selected1),
+                  SizedBox(height: 15),
+                  LineWidget(label1: 'Dor Abdominal',label2: 'Hemorragia',label3: 'Artralgia',function: _selected1),
+                  SizedBox(height: 15),
+                  LineWidget(label1: 'Prostação',label2: 'Mialgia',label3: 'Convulsões',function: _selected1),
+                  SizedBox(height: 15),
+                  LineWidget(label1: 'Náuseas/Vômito',label2: 'Conjutivite',label3: 'Tosse',function: _selected1),
+                  SizedBox(height: 15),
+                  LineWidget(label1: 'Dor nas costas',label2: 'Artrite',label3: 'Dor de ouvido',function: _selected1),
+                  SizedBox(height: 15),
+                  LineWidget(label1: 'Falta de apetite',label2: 'Diarreia',label3: 'Mal estar',function: _selected1),
+                  SizedBox(height: 15),
+                  LineWidget(label1: 'Dispneia',label2: 'Sudorese',label3: 'Calafrio',function: _selected1),
+                  SizedBox(height: 15),
+                  LineWidget(label1: 'Linfadenopatia',label2: 'Edema',label3: 'Exantema',function: _selected1),
+                  SizedBox(height: 15),
+                  LineWidget(label1: 'Hematoma', label2: 'Outros',label3: '', function: _selected1),                  
                 ],
               ),
             ),
-            TraillerWidget(),
+            //TraillerWidget(),
           ],
         ),
       ),

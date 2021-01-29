@@ -5,12 +5,6 @@ class ResultadoScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          'Resultado',
-        ),
-        backgroundColor: const Color(0xff7380f2),
-      ),
       body: Container(
         padding: const EdgeInsets.only(top: 25),
         child: Column(
@@ -42,7 +36,7 @@ class ResultadoScreen extends StatelessWidget {
                 ],
               ),
             ),
-            TraillerWidget(),
+            //TraillerWidget(),
           ],
         ),
       ),

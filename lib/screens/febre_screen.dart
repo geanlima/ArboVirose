@@ -1,6 +1,5 @@
 import 'package:arboviroses/widgets/box_text_widget.dart';
 import 'package:arboviroses/widgets/titulo_widget.dart';
-import 'package:arboviroses/widgets/trailler_widget.dart';
 import 'package:flutter/material.dart';
 
 class FebreScreen extends StatefulWidget {
@@ -23,12 +22,6 @@ class _FebreScreenState extends State<FebreScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          'Febre',
-        ),
-        backgroundColor: const Color(0xff7380f2),
-      ),
       body: Container(
         padding: const EdgeInsets.only(top: 25),
         child: Column(
@@ -62,7 +55,7 @@ class _FebreScreenState extends State<FebreScreen> {
                                   },
                                   child: BoxTextWidget(
                                     'Menor ou igual a 38,5 C',
-                                    100,
+                                    80,
                                     _selected1,
                                   ),
                                 ),
@@ -83,7 +76,7 @@ class _FebreScreenState extends State<FebreScreen> {
                                   },
                                   child: BoxTextWidget(
                                     'Entre 38,5 C',
-                                    90,
+                                    80,
                                     _selected2,
                                   ),
                                 ),
@@ -104,7 +97,7 @@ class _FebreScreenState extends State<FebreScreen> {
                                   },
                                   child: BoxTextWidget(
                                     'Entre 39 a 40 C',
-                                    100,
+                                    80,
                                     _selected3,
                                   ),
                                 ),
@@ -130,7 +123,7 @@ class _FebreScreenState extends State<FebreScreen> {
                                   },
                                   child: BoxTextWidget(
                                     'Duração de 1 a 2 dias',
-                                    100,
+                                    80,
                                     _selected4,
                                   ),
                                 ),
@@ -151,7 +144,7 @@ class _FebreScreenState extends State<FebreScreen> {
                                   },
                                   child: BoxTextWidget(
                                     'Duração de 2 a 3 dias',
-                                    100,
+                                    80,
                                     _selected5,
                                   ),
                                 ),
@@ -172,7 +165,7 @@ class _FebreScreenState extends State<FebreScreen> {
                                   },
                                   child: BoxTextWidget(
                                     'Duração de 2 a 7 dias',
-                                    100,
+                                    80,
                                     _selected6,
                                   ),
                                 ),
@@ -226,7 +219,7 @@ class _FebreScreenState extends State<FebreScreen> {
                                   child: Container(
                                     child: BoxTextWidget(
                                       'Temperatura não informada',
-                                      100,
+                                      80,
                                       _selected8,
                                     ),
                                   ),
@@ -243,7 +236,7 @@ class _FebreScreenState extends State<FebreScreen> {
                 ],
               ),
             ),
-            TraillerWidget(),
+            //TraillerWidget(),
           ],
         ),
       ),
