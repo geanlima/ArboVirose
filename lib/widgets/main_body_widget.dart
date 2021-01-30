@@ -7,7 +7,7 @@ class MainBodyWidget extends StatelessWidget {
       offset: Offset(0.0, 158.0),
       child: Container(
         padding: EdgeInsets.symmetric(horizontal: 200, vertical: 50),
-        width: 390.0,
+        width: double.infinity,
         height: 617.0,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.only(

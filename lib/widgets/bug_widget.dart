@@ -4,7 +4,7 @@ class BugWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Transform.translate(
-      offset: Offset(260.0, 26.0),
+      offset: Offset(MediaQuery.of(context).size.width * 0.7, 26.0),
       child: Padding(
         padding: const EdgeInsets.only(top: 25),
         child: Container(

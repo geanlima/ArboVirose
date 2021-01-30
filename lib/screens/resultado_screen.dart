@@ -15,7 +15,7 @@ class _ResultadoScreenState extends State<ResultadoScreen> {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Theme.of(context).accentColor,
+        color: Colors.white,
         borderRadius: BorderRadius.circular(20),
       ),
       child: Column(

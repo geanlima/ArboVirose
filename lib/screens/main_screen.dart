@@ -46,8 +46,8 @@ class _MainScreenState extends State<MainScreen> {
         children: [
           ShadowWidget(),
           MainHeaderWidget('D.A.I.'),
-          MainBodyWidget(),
           BugWidget(),
+          MainBodyWidget(),          
           Form(
             child: Padding(
               padding: const EdgeInsets.only(top: 180),
