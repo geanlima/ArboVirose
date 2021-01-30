@@ -25,9 +25,9 @@ class _MainScreenState extends State<MainScreen> {
 
   double itemsHeight1 = (15 * 25.0) + 10;
   double itemsHeight2 = (25 * 25.0) + 10;
-  double itemsHeight3 = (12 * 25.0) + 10;
+  double itemsHeight3 = (10 * 25.0) + 10;
   double itemsHeight4 = (25 * 25.0) + 10;
-  double itemsHeight5 = (15 * 25.0) + 10;
+  double itemsHeight5 = (13 * 25.0) + 10;
   double itemsHeight6 = (12 * 25.0) + 10;
 
   void expanded1() => _expanded1 = !_expanded1;
@@ -36,6 +36,8 @@ class _MainScreenState extends State<MainScreen> {
   void expanded4() => _expanded4 = !_expanded4;
   void expanded5() => _expanded5 = !_expanded5;
   void expanded6() => _expanded6 = !_expanded6;
+
+  double bordaArr = 50.0;
 
   @override
   Widget build(BuildContext context) {
@@ -53,11 +55,14 @@ class _MainScreenState extends State<MainScreen> {
                 scrollDirection: Axis.vertical,
                 children: [
                   Card(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(bordaArr),
+                    ),
                     elevation: 2,
                     margin: EdgeInsets.all(10),
                     child: Container(
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(4),
+                        borderRadius: BorderRadius.circular(bordaArr),
                         color: Theme.of(context).accentColor,
                       ),
                       child: InkWell(
@@ -71,8 +76,12 @@ class _MainScreenState extends State<MainScreen> {
                             ListTile(
                               title: Text(
                                 'Paciente',
+                                style: TextStyle(color: Colors.white),
                               ),
-                              trailing: Icon(Icons.expand_more),
+                              trailing: Icon(
+                                Icons.expand_more,
+                                color: Colors.white,
+                              ),
                             ),
                             AnimatedContainer(
                               duration: Duration(milliseconds: 300),
@@ -82,7 +91,7 @@ class _MainScreenState extends State<MainScreen> {
                                   horizontal: 15,
                                   vertical: 4,
                                 ),
-                                height: itemsHeight1,
+                                height: 25,//itemsHeight1,
                                 child: DadosPessoaisScreen(),
                               ),
                             ),
@@ -92,11 +101,14 @@ class _MainScreenState extends State<MainScreen> {
                     ),
                   ),
                   Card(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(bordaArr),
+                    ),
                     elevation: 2,
                     margin: EdgeInsets.all(10),
                     child: Container(
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(4),
+                        borderRadius: BorderRadius.circular(bordaArr),
                         color: Theme.of(context).accentColor,
                       ),
                       child: InkWell(
@@ -108,8 +120,14 @@ class _MainScreenState extends State<MainScreen> {
                         child: Column(
                           children: [
                             ListTile(
-                              title: Text('Sintomas'),
-                              trailing: Icon(Icons.expand_more),
+                              title: Text(
+                                'Sintomas',
+                                style: TextStyle(color: Colors.white),
+                              ),
+                              trailing: Icon(
+                                Icons.expand_more,
+                                color: Colors.white,
+                              ),
                             ),
                             AnimatedContainer(
                               duration: Duration(milliseconds: 300),
@@ -129,11 +147,14 @@ class _MainScreenState extends State<MainScreen> {
                     ),
                   ),
                   Card(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(bordaArr),
+                    ),
                     elevation: 2,
                     margin: EdgeInsets.all(10),
                     child: Container(
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(4),
+                        borderRadius: BorderRadius.circular(bordaArr),
                         color: Theme.of(context).accentColor,
                       ),
                       child: InkWell(
@@ -151,8 +172,14 @@ class _MainScreenState extends State<MainScreen> {
                           child: Column(
                             children: [
                               ListTile(
-                                title: Text('Febre'),
-                                trailing: Icon(Icons.expand_more),
+                                title: Text(
+                                  'Febre',
+                                  style: TextStyle(color: Colors.white),
+                                ),
+                                trailing: Icon(
+                                  Icons.expand_more,
+                                  color: Colors.white,
+                                ),
                               ),
                               AnimatedContainer(
                                 duration: Duration(milliseconds: 300),
@@ -173,11 +200,14 @@ class _MainScreenState extends State<MainScreen> {
                     ),
                   ),
                   Card(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(bordaArr),
+                    ),
                     elevation: 2,
                     margin: EdgeInsets.all(10),
                     child: Container(
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(4),
+                        borderRadius: BorderRadius.circular(bordaArr),
                         color: Theme.of(context).accentColor,
                       ),
                       child: InkWell(
@@ -189,8 +219,14 @@ class _MainScreenState extends State<MainScreen> {
                         child: Column(
                           children: [
                             ListTile(
-                              title: Text('Exames'),
-                              trailing: Icon(Icons.expand_more),
+                              title: Text(
+                                'Exames',
+                                style: TextStyle(color: Colors.white),
+                              ),
+                              trailing: Icon(
+                                Icons.expand_more,
+                                color: Colors.white,
+                              ),
                             ),
                             AnimatedContainer(
                               duration: Duration(milliseconds: 300),
@@ -210,11 +246,14 @@ class _MainScreenState extends State<MainScreen> {
                     ),
                   ),
                   Card(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(bordaArr),
+                    ),
                     elevation: 2,
                     margin: EdgeInsets.all(10),
                     child: Container(
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(4),
+                        borderRadius: BorderRadius.circular(bordaArr),
                         color: Theme.of(context).accentColor,
                       ),
                       child: InkWell(
@@ -226,8 +265,14 @@ class _MainScreenState extends State<MainScreen> {
                         child: Column(
                           children: [
                             ListTile(
-                              title: Text('Sorologia'),
-                              trailing: Icon(Icons.expand_more),
+                              title: Text(
+                                'Sorologia',
+                                style: TextStyle(color: Colors.white),
+                              ),
+                              trailing: Icon(
+                                Icons.expand_more,
+                                color: Colors.white,
+                              ),
                             ),
                             AnimatedContainer(
                               duration: Duration(milliseconds: 300),
@@ -247,11 +292,14 @@ class _MainScreenState extends State<MainScreen> {
                     ),
                   ),
                   Card(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(bordaArr),
+                    ),
                     elevation: 2,
                     margin: EdgeInsets.all(10),
                     child: Container(
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(4),
+                        borderRadius: BorderRadius.circular(bordaArr),
                         color: Theme.of(context).accentColor,
                       ),
                       child: InkWell(
@@ -263,8 +311,14 @@ class _MainScreenState extends State<MainScreen> {
                         child: Column(
                           children: [
                             ListTile(
-                              title: Text('Resultado'),
-                              trailing: Icon(Icons.expand_more),
+                              title: Text(
+                                'Resultado',
+                                style: TextStyle(color: Colors.white),
+                              ),
+                              trailing: Icon(
+                                Icons.expand_more,
+                                color: Colors.white,
+                              ),
                             ),
                             AnimatedContainer(
                               duration: Duration(milliseconds: 300),

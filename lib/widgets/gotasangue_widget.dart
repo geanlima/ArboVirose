@@ -25,36 +25,38 @@ class GotaSangueWidget extends StatelessWidget {
             ),
           ],
         ),
-        child: Column(
-          children: [
-            Container(
-              child: _gotaSangue(),
-            ),
-            SizedBox(height: 15),
-            Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10.0),
-                boxShadow: [
-                  BoxShadow(
-                    color: const Color(0x0f000000),
-                    offset: Offset(0, 3),
-                    blurRadius: 20,
-                  ),
-                ],
+        child: Container(
+          child: Column(
+            children: [
+              Container(
+                child: _gotaSangue(),
               ),
-              child: Text(
-                _label,
-                style: TextStyle(
-                  fontFamily: 'Poppins',
-                  fontSize: 11,
-                  color: _value ? Color(0xfff9f9f9) : Color(0xff3a3a3a),
-                  fontWeight: FontWeight.w500,
-                  height: 1.2727272727272727,
+              SizedBox(height: 15),
+              Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10.0),
+                  boxShadow: [
+                    BoxShadow(
+                      color: const Color(0x0f000000),
+                      offset: Offset(0, 3),
+                      blurRadius: 20,
+                    ),
+                  ],
                 ),
-                textAlign: TextAlign.center,
+                child: Text(
+                  _label,
+                  style: TextStyle(
+                    fontFamily: 'Poppins',
+                    fontSize: 11,
+                    color: _value ? Color(0xfff9f9f9) : Color(0xff3a3a3a),
+                    fontWeight: FontWeight.w500,
+                    height: 1.2727272727272727,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

@@ -8,22 +8,27 @@ class ResultadoScreen extends StatefulWidget {
 
 class _ResultadoScreenState extends State<ResultadoScreen> {
   bool _selected1 = false;
-
   bool _selected2 = false;
-
   bool _selected3 = false;
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        padding: const EdgeInsets.only(top: 25),
-        child: Column(
-          children: <Widget>[
-            Expanded(
-              child: ListView(
-                children: [
-                  InkWell(
+    return Container(
+      decoration: BoxDecoration(
+        color: Theme.of(context).accentColor,
+        borderRadius: BorderRadius.circular(20),
+      ),
+      child: Column(
+        children: <Widget>[
+          Container(
+            padding: EdgeInsets.only(bottom: 15),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  height: 50,
+                  width: 150,
+                  child: InkWell(
                     onTap: () {
                       setState(
                         () {
@@ -41,8 +46,19 @@ class _ResultadoScreenState extends State<ResultadoScreen> {
                       _selected1,
                     ),
                   ),
-                  SizedBox(width: 15),
-                  InkWell(
+                ),
+              ],
+            ),
+          ),
+          Container(
+            padding: EdgeInsets.only(bottom: 15),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  height: 50,
+                  width: 150,
+                  child: InkWell(
                     onTap: () {
                       setState(
                         () {
@@ -60,8 +76,18 @@ class _ResultadoScreenState extends State<ResultadoScreen> {
                       _selected2,
                     ),
                   ),
-                  SizedBox(width: 15),
-                  InkWell(
+                ),
+              ],
+            ),
+          ),
+          Container(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  height: 50,
+                  width: 150,
+                  child: InkWell(
                     onTap: () {
                       setState(
                         () {
@@ -79,34 +105,42 @@ class _ResultadoScreenState extends State<ResultadoScreen> {
                       _selected3,
                     ),
                   ),
-                  SizedBox(width: 15)
-                ],
-              ),
+                ),
+              ],
             ),
-            InkWell(
-              onTap: (){},
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Container(
-                    height: 50,
-                    width: 150,
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: Theme.of(context).primaryColor,
-                    ),
-                    child: Text(
-                      'Gravar',
-                      style: TextStyle(
-                          color: Colors.white, fontWeight: FontWeight.bold),
-                    ),
+          ),
+          Container(
+            padding: EdgeInsets.only(top: 40),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.end,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                InkWell(
+                  onTap: () {},
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        height: 50,
+                        width: 150,
+                        alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: Theme.of(context).primaryColor,
+                        ),
+                        child: Text(
+                          'Gravar',
+                          style: TextStyle(
+                              color: Colors.white, fontWeight: FontWeight.bold),
+                        ),
+                      ),
+                    ],
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

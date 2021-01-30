@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
         //primarySwatch: Colors.blue,
         primaryColor: Color(0xff7380f2),
         visualDensity: VisualDensity.adaptivePlatformDensity,        
-        accentColor: Color(0xffe2e6f8),                      
+        accentColor: Color(0xff7380f2),
       ),      
       home: Scaffold(
         backgroundColor: const Color(0xff7380f2),        
