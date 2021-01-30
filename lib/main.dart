@@ -20,11 +20,13 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         //primarySwatch: Colors.blue,
+        primaryColor: Color(0xff7380f2),
         visualDensity: VisualDensity.adaptivePlatformDensity,        
+        accentColor: Color(0xffe2e6f8),                      
       ),      
       home: Scaffold(
-        backgroundColor: const Color(0xff7380f2),
-        body: MainScreen(),        
+        backgroundColor: const Color(0xff7380f2),        
+        body: MainScreen(),///ReorderableListDemo(),//MainScreen(),        
       ),
       routes: {
         //AppRoutes.HOME: (ctx) => MainScreen(),

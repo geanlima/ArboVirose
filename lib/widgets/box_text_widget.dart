@@ -5,12 +5,15 @@ class BoxTextWidget extends StatelessWidget {
   final String _label;
   final double _size; 
   final bool _value;
+  final double sizeFont;
 
-  const BoxTextWidget(
+   BoxTextWidget(
     this._label,
     this._size,
-    this._value
+    this._value,
+    {this.sizeFont,}
   );
+  
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<Object>(
@@ -35,7 +38,7 @@ class BoxTextWidget extends StatelessWidget {
                 _label,
                 style: TextStyle(
                   fontFamily: 'Poppins',
-                  fontSize: 10,
+                  fontSize: sizeFont == 0 ? 10 : sizeFont,
                   color: _value ? Color(0xfff9f9f9) : Color(0xff3a3a3a),
                   fontWeight: FontWeight.w600,
                   height: 1.3571428571428572,

@@ -1,6 +1,4 @@
 import 'package:arboviroses/widgets/line_widget.dart';
-import 'package:arboviroses/widgets/titulo_widget.dart';
-import 'package:arboviroses/widgets/trailler_widget.dart';
 
 import 'package:flutter/material.dart';
 
@@ -25,8 +23,6 @@ class _SintomasScreenState extends State<SintomasScreen> {
             Expanded(
               child: ListView(
                 children: [
-                  TituloWidget('Quais sintomas tem apresentado?'),
-                  SizedBox(height: 15),
                   LineWidget(label1: 'Dor retrorbital',label2: 'Cefaléia',label3: 'Prurido',function: _selected1),
                   SizedBox(height: 15),
                   LineWidget(label1: 'Dor Abdominal',label2: 'Hemorragia',label3: 'Artralgia',function: _selected1),

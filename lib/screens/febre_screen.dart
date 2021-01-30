@@ -31,7 +31,7 @@ class _FebreScreenState extends State<FebreScreen> {
                 children: [
                   Column(
                     children: [
-                      TituloWidget('Febre?'),
+                      TituloWidget('Febre'),
                       Container(
                         margin: EdgeInsets.only(left: 10, right: 10),
                         child: Column(
@@ -57,6 +57,7 @@ class _FebreScreenState extends State<FebreScreen> {
                                     'Menor ou igual a 38,5 C',
                                     80,
                                     _selected1,
+                                    sizeFont: 12,
                                   ),
                                 ),
                                 SizedBox(width: 15),
@@ -78,6 +79,7 @@ class _FebreScreenState extends State<FebreScreen> {
                                     'Entre 38,5 C',
                                     80,
                                     _selected2,
+                                    sizeFont: 12,
                                   ),
                                 ),
                                 SizedBox(width: 15),
@@ -99,6 +101,7 @@ class _FebreScreenState extends State<FebreScreen> {
                                     'Entre 39 a 40 C',
                                     80,
                                     _selected3,
+                                    sizeFont: 12,
                                   ),
                                 ),
                                 SizedBox(width: 15),
@@ -125,6 +128,7 @@ class _FebreScreenState extends State<FebreScreen> {
                                     'Duração de 1 a 2 dias',
                                     80,
                                     _selected4,
+                                    sizeFont: 12,
                                   ),
                                 ),
                                 SizedBox(width: 15),
@@ -146,6 +150,7 @@ class _FebreScreenState extends State<FebreScreen> {
                                     'Duração de 2 a 3 dias',
                                     80,
                                     _selected5,
+                                    sizeFont: 12,
                                   ),
                                 ),
                                 SizedBox(width: 10),
@@ -167,6 +172,7 @@ class _FebreScreenState extends State<FebreScreen> {
                                     'Duração de 2 a 7 dias',
                                     80,
                                     _selected6,
+                                    sizeFont: 12,
                                   ),
                                 ),
                                 SizedBox(width: 15),
@@ -196,6 +202,7 @@ class _FebreScreenState extends State<FebreScreen> {
                                     'Ausente',
                                     80,
                                     _selected7,
+                                    sizeFont: 12,
                                   ),
                                 ),
                                 SizedBox(width: 15),
@@ -221,6 +228,7 @@ class _FebreScreenState extends State<FebreScreen> {
                                       'Temperatura não informada',
                                       80,
                                       _selected8,
+                                      sizeFont: 12,
                                     ),
                                   ),
                                 ),

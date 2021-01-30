@@ -16,8 +16,13 @@ class _DadosPessoaisScreenState extends State<DadosPessoaisScreen> {
   bool _value016 = false;
   bool _value1760 = false;
   bool _value60 = false;
-
   bool _valueSwitch = false;
+  bool prag = false;
+
+
+  bool rulePregnant(bool valueM){    
+     return !valueM;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -41,11 +46,12 @@ class _DadosPessoaisScreenState extends State<DadosPessoaisScreen> {
                             onTap: () {
                               setState(
                                 () {
-                                  _valueMan = !_valueMan;
-                                  if (_valueMan) {
-                                    _valueWoman = false;
-                                    _valueSwitch = false;
-                                  }
+                                   _valueMan = !_valueMan;
+                                   if (_valueMan) {                                    
+                                     _valueWoman = false;
+                                     _valueSwitch = rulePregnant(_valueMan);
+                                                                         
+                                   }
                                 },
                               );
                             },
