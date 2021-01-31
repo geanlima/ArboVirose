@@ -1,3 +1,4 @@
+import 'package:arboviroses/class/reorderableList.dart';
 import 'package:arboviroses/screens/exames_screen.dart';
 import 'package:arboviroses/screens/febre_screen.dart';
 import 'package:arboviroses/screens/main_screen.dart';
@@ -26,10 +27,9 @@ class MyApp extends StatelessWidget {
       ),      
       home: Scaffold(
         backgroundColor: const Color(0xff7380f2),        
-        body: MainScreen(),///ReorderableListDemo(),//MainScreen(),        
+        body: MainScreen(),//ReorderableListDemo()        
       ),
       routes: {
-        //AppRoutes.HOME: (ctx) => MainScreen(),
         AppRoutes.DADOS_PESSOAIS: (ctx) => DadosPessoaisScreen(),
         AppRoutes.SINTOMAS: (ctx) => SintomasScreen(),
         AppRoutes.EXAMES: (ctx) => ExamesScreen(),

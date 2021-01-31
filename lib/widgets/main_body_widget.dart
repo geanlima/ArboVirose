@@ -8,7 +8,7 @@ class MainBodyWidget extends StatelessWidget {
       child: Container(
         padding: EdgeInsets.symmetric(horizontal: 200, vertical: 50),
         width: double.infinity,
-        height: 617.0,
+        height: double.infinity,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.only(
             topLeft: Radius.circular(50.0),

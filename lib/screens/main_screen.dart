@@ -16,6 +16,7 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
+  
   bool _expanded1 = false;
   bool _expanded2 = false;
   bool _expanded3 = false;
@@ -26,7 +27,7 @@ class _MainScreenState extends State<MainScreen> {
   double itemsHeight1 = (15 * 25.0) + 10;
   double itemsHeight2 = (25 * 25.0) + 10;
   double itemsHeight3 = (10 * 25.0) + 10;
-  double itemsHeight4 = (25 * 25.0) + 10;
+  double itemsHeight4 = (62 * 25.0) + 10;
   double itemsHeight5 = (13 * 25.0) + 10;
   double itemsHeight6 = (12 * 25.0) + 10;
 
@@ -54,83 +55,32 @@ class _MainScreenState extends State<MainScreen> {
               child: ListView(
                 scrollDirection: Axis.vertical,
                 children: [
-                  Column(
-                    //mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Card(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(bordaArr),
-                        ),
-                        elevation: 2,
-                        margin: EdgeInsets.all(10),
-                        child: Container(
-                          decoration: BoxDecoration(
+                  Container(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Card(
+                          shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(bordaArr),
-                            color: Theme.of(context).accentColor,
                           ),
-                          child: InkWell(
-                            onTap: () {
-                              setState(() {
-                                expanded1();
-                              });
-                            },
-                            child: Column(
-                              children: [
-                                ListTile(
-                                  title: Text(
-                                    'Paciente',
-                                    style: TextStyle(color: Colors.white),
-                                  ),
-                                  trailing: Icon(
-                                    Icons.expand_more,
-                                    color: Colors.white,
-                                  ),
-                                ),
-                                AnimatedContainer(
-                                  duration: Duration(milliseconds: 300),
-                                  height: _expanded1 ? itemsHeight1 : 0,
-                                  child: Container(
-                                    padding: EdgeInsets.symmetric(
-                                      horizontal: 15,
-                                      vertical: 4,
-                                    ),
-                                    height: 25, //itemsHeight1,
-                                    child: DadosPessoaisScreen(),
-                                  ),
-                                ),
-                              ],
+                          elevation: 2,
+                          margin: EdgeInsets.all(10),
+                          child: Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(bordaArr),
+                              color: Theme.of(context).accentColor,
                             ),
-                          ),
-                        ),
-                      ),
-                      Card(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(bordaArr),
-                        ),
-                        elevation: 2,
-                        margin: EdgeInsets.all(10),
-                        child: Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(bordaArr),
-                            color: Theme.of(context).accentColor,
-                          ),
-                          child: InkWell(
-                            onTap: () {
-                              setState(() {
-                                expanded3();
-                              });
-                            },
                             child: InkWell(
                               onTap: () {
                                 setState(() {
-                                  expanded3();
+                                  expanded1();
                                 });
                               },
                               child: Column(
                                 children: [
                                   ListTile(
                                     title: Text(
-                                      'Febre',
+                                      'Paciente',
                                       style: TextStyle(color: Colors.white),
                                     ),
                                     trailing: Icon(
@@ -140,14 +90,14 @@ class _MainScreenState extends State<MainScreen> {
                                   ),
                                   AnimatedContainer(
                                     duration: Duration(milliseconds: 300),
-                                    height: _expanded3 ? itemsHeight3 : 0,
+                                    height: _expanded1 ? itemsHeight1 : 0,                                    
                                     child: Container(
                                       padding: EdgeInsets.symmetric(
                                         horizontal: 15,
                                         vertical: 4,
                                       ),
-                                      height: itemsHeight3,
-                                      child: FebreScreen(),
+                                      height: 25, //itemsHeight1,
+                                      child: DadosPessoaisScreen(),
                                     ),
                                   ),
                                 ],
@@ -155,192 +105,245 @@ class _MainScreenState extends State<MainScreen> {
                             ),
                           ),
                         ),
-                      ),
-                      Card(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(bordaArr),
-                        ),
-                        elevation: 2,
-                        margin: EdgeInsets.all(10),
-                        child: Container(
-                          decoration: BoxDecoration(
+                        Card(
+                          shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(bordaArr),
-                            color: Theme.of(context).accentColor,
                           ),
-                          child: InkWell(
-                            onTap: () {
-                              setState(() {
-                                expanded2();
-                              });
-                            },
-                            child: Column(
-                              children: [
-                                ListTile(
-                                  title: Text(
-                                    'Sintomas',
-                                    style: TextStyle(color: Colors.white),
-                                  ),
-                                  trailing: Icon(
-                                    Icons.expand_more,
-                                    color: Colors.white,
-                                  ),
-                                ),
-                                AnimatedContainer(
-                                  duration: Duration(milliseconds: 300),
-                                  height: _expanded2 ? itemsHeight2 : 0,
-                                  child: Container(
-                                    padding: EdgeInsets.symmetric(
-                                      horizontal: 15,
-                                      vertical: 4,
+                          elevation: 2,
+                          margin: EdgeInsets.all(10),
+                          child: Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(bordaArr),
+                              color: Theme.of(context).accentColor,
+                            ),
+                            child: InkWell(
+                              onTap: () {
+                                setState(() {
+                                  expanded3();
+                                });
+                              },
+                              child: InkWell(
+                                onTap: () {
+                                  setState(() {
+                                    expanded3();
+                                  });
+                                },
+                                child: Column(
+                                  children: [
+                                    ListTile(
+                                      title: Text(
+                                        'Febre',
+                                        style: TextStyle(color: Colors.white),
+                                      ),
+                                      trailing: Icon(
+                                        Icons.expand_more,
+                                        color: Colors.white,
+                                      ),
                                     ),
-                                    height: itemsHeight2,
-                                    child: SintomasScreen(),
-                                  ),
+                                    AnimatedContainer(
+                                      duration: Duration(milliseconds: 300),
+                                      height: _expanded3 ? itemsHeight3 : 0,
+                                      child: Container(
+                                        padding: EdgeInsets.symmetric(
+                                          horizontal: 15,
+                                          vertical: 4,
+                                        ),
+                                        height: itemsHeight3,
+                                        child: FebreScreen(),
+                                      ),
+                                    ),
+                                  ],
                                 ),
-                              ],
+                              ),
                             ),
                           ),
                         ),
-                      ),
-                      Card(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(bordaArr),
-                        ),
-                        elevation: 2,
-                        margin: EdgeInsets.all(10),
-                        child: Container(
-                          decoration: BoxDecoration(
+                        Card(
+                          shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(bordaArr),
-                            color: Theme.of(context).accentColor,
                           ),
-                          child: InkWell(
-                            onTap: () {
-                              setState(() {
-                                expanded4();
-                              });
-                            },
-                            child: Column(
-                              children: [
-                                ListTile(
-                                  title: Text(
-                                    'Exames',
-                                    style: TextStyle(color: Colors.white),
-                                  ),
-                                  trailing: Icon(
-                                    Icons.expand_more,
-                                    color: Colors.white,
-                                  ),
-                                ),
-                                AnimatedContainer(
-                                  duration: Duration(milliseconds: 300),
-                                  height: _expanded4 ? itemsHeight4 : 0,
-                                  child: Container(
-                                    padding: EdgeInsets.symmetric(
-                                      horizontal: 15,
-                                      vertical: 4,
+                          elevation: 2,
+                          margin: EdgeInsets.all(10),
+                          child: Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(bordaArr),
+                              color: Theme.of(context).accentColor,
+                            ),
+                            child: InkWell(
+                              onTap: () {
+                                setState(() {
+                                  expanded2();
+                                });
+                              },
+                              child: Column(
+                                children: [
+                                  ListTile(
+                                    title: Text(
+                                      'Sintomas',
+                                      style: TextStyle(color: Colors.white),
                                     ),
-                                    height: itemsHeight4,
-                                    child: ExamesScreen(),
+                                    trailing: Icon(
+                                      Icons.expand_more,
+                                      color: Colors.white,
+                                    ),
                                   ),
-                                ),
-                              ],
+                                  AnimatedContainer(
+                                    duration: Duration(milliseconds: 300),
+                                    height: _expanded2 ? itemsHeight2 : 0,
+                                    child: Container(
+                                      padding: EdgeInsets.symmetric(
+                                        horizontal: 15,
+                                        vertical: 4,
+                                      ),
+                                      height: itemsHeight2,
+                                      child: SintomasScreen(),
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         ),
-                      ),
-                      Card(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(bordaArr),
-                        ),
-                        elevation: 2,
-                        margin: EdgeInsets.all(10),
-                        child: Container(
-                          decoration: BoxDecoration(
+                        Card(
+                          shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(bordaArr),
-                            color: Theme.of(context).accentColor,
                           ),
-                          child: InkWell(
-                            onTap: () {
-                              setState(() {
-                                expanded5();
-                              });
-                            },
-                            child: Column(
-                              children: [
-                                ListTile(
-                                  title: Text(
-                                    'Sorologia',
-                                    style: TextStyle(color: Colors.white),
-                                  ),
-                                  trailing: Icon(
-                                    Icons.expand_more,
-                                    color: Colors.white,
-                                  ),
-                                ),
-                                AnimatedContainer(
-                                  duration: Duration(milliseconds: 300),
-                                  height: _expanded5 ? itemsHeight5 : 0,
-                                  child: Container(
-                                    padding: EdgeInsets.symmetric(
-                                      horizontal: 15,
-                                      vertical: 4,
+                          elevation: 2,
+                          margin: EdgeInsets.all(10),
+                          child: Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(bordaArr),
+                              color: Theme.of(context).accentColor,
+                            ),
+                            child: InkWell(
+                              onTap: () {
+                                setState(() {
+                                  expanded4();
+                                });
+                              },
+                              child: Column(
+                                children: [
+                                  ListTile(
+                                    title: Text(
+                                      'Exames',
+                                      style: TextStyle(color: Colors.white),
                                     ),
-                                    height: itemsHeight5,
-                                    child: SorologiaScreen(),
+                                    trailing: Icon(
+                                      Icons.expand_more,
+                                      color: Colors.white,
+                                    ),
                                   ),
-                                ),
-                              ],
+                                  AnimatedContainer(
+                                    duration: Duration(milliseconds: 300),
+                                    height: _expanded4 ? itemsHeight4 : 0,
+                                    child: Container(
+                                      padding: EdgeInsets.symmetric(
+                                        horizontal: 15,
+                                        vertical: 4,
+                                      ),
+                                      height: itemsHeight4,
+                                      child: ExamesScreen(),
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         ),
-                      ),
-                      Card(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(bordaArr),
-                        ),
-                        elevation: 2,
-                        margin: EdgeInsets.all(10),
-                        child: Container(
-                          decoration: BoxDecoration(
+                        Card(
+                          shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(bordaArr),
-                            color: Theme.of(context).accentColor,
                           ),
-                          child: InkWell(
-                            onTap: () {
-                              setState(() {
-                                expanded6();
-                              });
-                            },
-                            child: Column(
-                              children: [
-                                ListTile(
-                                  title: Text(
-                                    'Resultado',
-                                    style: TextStyle(color: Colors.white),
-                                  ),
-                                  trailing: Icon(
-                                    Icons.expand_more,
-                                    color: Colors.white,
-                                  ),
-                                ),
-                                AnimatedContainer(
-                                  duration: Duration(milliseconds: 300),
-                                  height: _expanded6 ? itemsHeight6 : 0,
-                                  child: Container(
-                                    padding: EdgeInsets.symmetric(
-                                      horizontal: 15,
-                                      vertical: 4,
+                          elevation: 2,
+                          margin: EdgeInsets.all(10),
+                          child: Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(bordaArr),
+                              color: Theme.of(context).accentColor,
+                            ),
+                            child: InkWell(
+                              onTap: () {
+                                setState(() {
+                                  expanded5();
+                                });
+                              },
+                              child: Column(
+                                children: [
+                                  ListTile(
+                                    title: Text(
+                                      'Sorologia',
+                                      style: TextStyle(color: Colors.white),
                                     ),
-                                    height: itemsHeight6,
-                                    child: ResultadoScreen(),
+                                    trailing: Icon(
+                                      Icons.expand_more,
+                                      color: Colors.white,
+                                    ),
                                   ),
-                                ),
-                              ],
+                                  AnimatedContainer(
+                                    duration: Duration(milliseconds: 300),
+                                    height: _expanded5 ? itemsHeight5 : 0,
+                                    child: Container(
+                                      padding: EdgeInsets.symmetric(
+                                        horizontal: 15,
+                                        vertical: 4,
+                                      ),
+                                      height: itemsHeight5,
+                                      child: SorologiaScreen(),
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         ),
-                      ),
-                    ],
+                        Card(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(bordaArr),
+                          ),
+                          elevation: 2,
+                          margin: EdgeInsets.all(10),
+                          child: Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(bordaArr),
+                              color: Theme.of(context).accentColor,
+                            ),
+                            child: InkWell(
+                              onTap: () {
+                                setState(() {
+                                  expanded6();
+                                });
+                              },
+                              child: Column(
+                                children: [
+                                  ListTile(
+                                    title: Text(
+                                      'Resultado',
+                                      style: TextStyle(color: Colors.white),
+                                    ),
+                                    trailing: Icon(
+                                      Icons.expand_more,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  AnimatedContainer(
+                                    duration: Duration(milliseconds: 300),
+                                    height: _expanded6 ? itemsHeight6 : 0,
+                                    child: Container(
+                                      padding: EdgeInsets.symmetric(
+                                        horizontal: 15,
+                                        vertical: 4,
+                                      ),
+                                      height: itemsHeight6,
+                                      child: ResultadoScreen(),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ],
               ),

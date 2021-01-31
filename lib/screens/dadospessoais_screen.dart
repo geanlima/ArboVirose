@@ -1,3 +1,4 @@
+import 'package:arboviroses/models/dai_class.dart';
 import 'package:arboviroses/widgets/box_image_widget.dart';
 import 'package:arboviroses/widgets/box_text_widget.dart';
 import 'package:arboviroses/widgets/titulo_widget.dart';
@@ -19,9 +20,18 @@ class _DadosPessoaisScreenState extends State<DadosPessoaisScreen> {
   bool _valueSwitch = false;
   bool prag = false;
 
+  final cntsexof = TextEditingController();
+  final cntsexom = TextEditingController();
+  final cntidade1 = TextEditingController();
+  final cntidade2 = TextEditingController();
+  final cntidade3 = TextEditingController();
+  final cntgestante = TextEditingController();
+
   bool rulePregnant(bool valueM) {
     return !valueM;
   }
+
+  Paciente newPaciente() {}
 
   @override
   Widget build(BuildContext context) {
@@ -29,147 +39,145 @@ class _DadosPessoaisScreenState extends State<DadosPessoaisScreen> {
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(20),
-      ),      
+      ),
       child: Column(
         children: <Widget>[
-          Expanded(
-            child: ListView(
-              children: [
-                TituloWidget('Qual seu sexo?'),
-                Column(
-                  children: [
-                    SizedBox(height: 8),
-                    Row(
-                      children: [
-                        SizedBox(
-                          width: 10,
-                        ),
-                        InkWell(
-                          onTap: () {
-                            setState(
-                              () {
-                                _valueMan = !_valueMan;
-                                if (_valueMan) {
-                                  _valueWoman = false;
-                                  _valueSwitch = rulePregnant(_valueMan);
-                                }
-                              },
-                            );
+          TituloWidget('Qual seu sexo?'),
+          Column(
+            children: [
+              SizedBox(height: 8),
+              Row(
+                children: [
+                  SizedBox(width: 10),
+                  Container(
+                    child: InkWell(
+                      onTap: () {
+                        setState(
+                          () {
+                            _valueMan = !_valueMan;
+                            if (_valueMan) {
+                              cntsexof.text = '0';
+                              cntsexom.text = '1';
+                              _valueWoman = false;
+                              _valueSwitch = rulePregnant(_valueMan);
+                            }
                           },
-                          child: BoxImageWidget(
-                            'assets/images/man.png',
-                            _valueMan,
-                          ),
-                        ),
-                        SizedBox(width: 15),
-                        InkWell(
-                          onTap: () {
-                            setState(
-                              () {
-                                _valueWoman = !_valueWoman;
-                                if (_valueWoman) {
-                                  _valueMan = false;
-                                  _valueSwitch = true;
-                                }
-                              },
-                            );
-                          },
-                          child: BoxImageWidget(
-                            'assets/images/woman.png',
-                            _valueWoman,
-                          ),
-                        ),
-                      ],
-                    ),
-                    SizedBox(height: 30),
-                  ],
-                ),
-                TituloWidget('Qual sua idade?'),
-                Column(
-                  children: [
-                    SizedBox(height: 10),
-                    Row(
-                      children: [
-                        SizedBox(width: 15),
-                        InkWell(
-                          onTap: () {
-                            setState(
-                              () {
-                                _value016 = !_value016;
-                                if (_value016) {
-                                  _value1760 = false;
-                                  _value60 = false;
-                                }
-                              },
-                            );
-                          },
-                          child: BoxTextWidget(
-                            '0-16',
-                            75,
-                            _value016,
-                          ),
-                        ),
-                        SizedBox(width: 15),
-                        InkWell(
-                          onTap: () {
-                            setState(() {
-                              _value1760 = !_value1760;
-                              if (_value1760) {
-                                _value016 = false;
-                                _value60 = false;
-                              }
-                            });
-                          },
-                          child: BoxTextWidget(
-                            '17-60',
-                            75,
-                            _value1760,
-                          ),
-                        ),
-                        SizedBox(width: 15),
-                        InkWell(
-                          onTap: () {
-                            setState(() {
-                              _value60 = !_value60;
-                              if (_value60) {
-                                _value016 = false;
-                                _value1760 = false;
-                              }
-                            });
-                          },
-                          child: BoxTextWidget(
-                            '>60',
-                            75,
-                            _value60,
-                          ),
-                        ),
-                      ],
-                    ),
-                    SizedBox(height: 30),
-                  ],
-                ),
-                TituloWidget('Gestante?'),
-                SizedBox(height: 10),
-                Row(
-                  children: [
-                    SizedBox(width: 10),
-                    Container(
-                      child: LiteRollingSwitch(
-                        value: _valueSwitch,
-                        textOn: "Sim",
-                        textOff: "Não",
-                        colorOn: const Color(0xff7380f2),
-                        colorOff: const Color(0xff7380f2),
-                        iconOn: Icons.pregnant_woman_rounded,
-                        iconOff: Icons.alarm_off,
-                        textSize: 18.0,
-                        onChanged: (bool position) {},
+                        );
+                      },
+                      child: BoxImageWidget(
+                        'assets/images/man.png',
+                        _valueMan,
                       ),
                     ),
-                  ],
+                  ),
+                  SizedBox(width: 15),
+                  InkWell(
+                    onTap: () {
+                      setState(
+                        () {
+                          _valueWoman = !_valueWoman;
+                          if (_valueWoman) {
+                            cntsexof.text = '1';
+                            cntsexom.text = '0 ';
+                            _valueMan = false;
+                            _valueSwitch = true;
+                          }
+                        },
+                      );
+                    },
+                    child: BoxImageWidget(
+                      'assets/images/woman.png',
+                      _valueWoman,
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(height: 30),
+            ],
+          ),
+          TituloWidget('Qual sua idade?'),
+          Column(
+            children: [
+              SizedBox(height: 10),
+              Row(
+                children: [
+                  SizedBox(width: 15),
+                  InkWell(
+                    onTap: () {
+                      setState(
+                        () {
+                          _value016 = !_value016;
+                          if (_value016) {
+                            _value1760 = false;
+                            _value60 = false;
+                          }
+                        },
+                      );
+                    },
+                    child: BoxTextWidget(
+                      '0-16',
+                      75,
+                      _value016,
+                    ),
+                  ),
+                  SizedBox(width: 15),
+                  InkWell(
+                    onTap: () {
+                      setState(() {
+                        _value1760 = !_value1760;
+                        if (_value1760) {
+                          _value016 = false;
+                          _value60 = false;
+                        }
+                      });
+                    },
+                    child: BoxTextWidget(
+                      '17-60',
+                      75,
+                      _value1760,
+                    ),
+                  ),
+                  SizedBox(width: 15),
+                  InkWell(
+                    onTap: () {
+                      setState(() {
+                        _value60 = !_value60;
+                        if (_value60) {
+                          _value016 = false;
+                          _value1760 = false;
+                        }
+                      });
+                    },
+                    child: BoxTextWidget(
+                      '>60',
+                      75,
+                      _value60,
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(height: 30),
+            ],
+          ),
+          TituloWidget('Gestante?'),
+          SizedBox(height: 10),
+          Row(
+            children: [
+              SizedBox(width: 10),
+              Container(
+                child: LiteRollingSwitch(
+                  value: _valueSwitch,
+                  textOn: "Sim",
+                  textOff: "Não",
+                  colorOn: const Color(0xff7380f2),
+                  colorOff: const Color(0xff7380f2),
+                  iconOn: Icons.pregnant_woman_rounded,
+                  iconOff: Icons.alarm_off,
+                  textSize: 18.0,
+                  onChanged: (bool position) {},
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
           //TraillerWidget(),
         ],
