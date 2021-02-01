@@ -1,17 +1,19 @@
+import 'package:arboviroses/models/sintomas_class.dart';
 import 'package:arboviroses/widgets/box_text_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class LineWidget extends StatefulWidget {
   final String label1;
   final String label2;
   final String label3;
-  final Function(bool) function;
+  final Function(bool) function;  
 
   LineWidget({
     this.label1,
     this.label2,
     this.label3,
-    this.function,
+    this.function
   });
 
   @override
@@ -19,6 +21,7 @@ class LineWidget extends StatefulWidget {
 }
 
 class _LineWidgetState extends State<LineWidget> {
+  
   bool _selected1 = false;
   bool _selected2 = false;
   bool _selected3 = false;
@@ -37,10 +40,11 @@ class _LineWidgetState extends State<LineWidget> {
     _selected3 = !_selected3;    
     return widget.function(_selected3);
   }
-
   
   @override
   Widget build(BuildContext context) {
+
+    SintomasClass obj = Provider.of(context, listen: false);
     return Container(
       margin: EdgeInsets.only(left: 10, right: 10),
       width: double.infinity,
@@ -49,7 +53,7 @@ class _LineWidgetState extends State<LineWidget> {
           InkWell(
             onTap: () {
               setState(() {
-                _selected1 = _selectd1();              
+                _selected1 = _selectd1();                
               });
             },
             child: BoxTextWidget(

@@ -1,3 +1,4 @@
+import 'package:arboviroses/screens/dadospessoais_screen.dart';
 import 'package:arboviroses/widgets/box_text_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -116,7 +117,9 @@ class _ResultadoScreenState extends State<ResultadoScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 InkWell(
-                  onTap: () {},
+                  onTap: () {
+                    
+                  },
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [

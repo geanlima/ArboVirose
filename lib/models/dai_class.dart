@@ -1,14 +1,183 @@
 import 'dart:convert';
-
 import 'package:arboviroses/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
-class DaiClass {
-  
-  int artralgia; int artrite; int calafrio; int cefaleia; int chikigg; int chikigm; int conjutivite; int convulsoes; int dengueigg; int dengueigm; int denguens1; int diarreia; int dispneia; int doenca; int dorabdominal; int dorcostas; int dorouvido; int dorretro; int duracao1; int duracao2; int duracao3; int edema; int exantema; int faltaapetite; int febreausente; int gestante; int hemacias1; int hemacias2; int hemacias3; int hematocrito1; int hematocrito2; int hematocrito3; int hematoma; int hemoglobina1; int hemoglobina2; int hemoglobina3; int hemorragia; int id; int idade1; int idade2; int idade3; int laco; int leucocitos1; int leucocitos2; int leucocitos3; int linfadenopatia; int linfocitos1; int linfocitos2; int linfocitos3; int malestar; int mialgia; int nauseas; int neutrofilos1; int neutrofilos2; int neutrofilos3; int outros; int pcr1; int pcr2; int pcr3; int plaqueta1; int plaqueta2; int plaqueta3; int prostacao; int prurido; int sexof; int sexom; int sudorese; int temperatura1; int temperatura2; int temperatura3; int temperaturanao; int tgo1; int tgo2; int tgo3; int tgp1; int tgp2; int tgp3; int tosse; int vomito; int zikaigg; int zikaigmint;
-  DaiClass({ this.artralgia, this.artrite, this.calafrio, this.cefaleia, this.chikigg, this.chikigm, this.conjutivite, this.convulsoes, this.dengueigg, this.dengueigm, this.denguens1, this.diarreia, this.dispneia, this.doenca, this.dorabdominal, this.dorcostas, this.dorouvido, this.dorretro, this.duracao1, this.duracao2, this.duracao3, this.edema, this.exantema, this.faltaapetite, this.febreausente, this.gestante, this.hemacias1, this.hemacias2, this.hemacias3, this.hematocrito1, this.hematocrito2, this.hematocrito3, this.hematoma, this.hemoglobina1, this.hemoglobina2, this.hemoglobina3, this.hemorragia, this.id, this.idade1, this.idade2, this.idade3, this.laco, this.leucocitos1, this.leucocitos2, this.leucocitos3, this.linfadenopatia, this.linfocitos1, this.linfocitos2, this.linfocitos3, this.malestar, this.mialgia, this.nauseas, this.neutrofilos1, this.neutrofilos2, this.neutrofilos3, this.outros, this.pcr1, this.pcr2, this.pcr3, this.plaqueta1, this.plaqueta2, this.plaqueta3, this.prostacao, this.prurido, this.sexof, this.sexom, this.sudorese, this.temperatura1, this.temperatura2, this.temperatura3, this.temperaturanao, this.tgo1, this.tgo2, this.tgo3, this.tgp1, this.tgp2, this.tgp3, this.tosse, this.vomito, this.zikaigg, this.zikaigmint});
+class DaiClass with ChangeNotifier {
 
+  //Dados do Paciente
+  int idade1;
+  int idade2;
+  int idade3;
+  int gestante;
+  int sexof;
+  int sexom;  
+
+  //Dados Febre
+  int temperatura1;
+  int temperatura2;
+  int temperatura3;
+  int duracao1;
+  int duracao2;
+  int duracao3;
+  int temperaturanao;
+  int febreausente;
+
+  // Dados Sintomas
+  int dorretro;
+  int cefaleia;
+  int prurido;
+  int dorabdominal;
+  int hemorragia;
+  int artralgia;
+  int prostacao;
+  int mialgia;
+  int vomito;
+  int conjutivite;
+  int tosse;
+  int dorcostas;
+  int artrite;
+  int dorouvido;
+  int faltaapetite;
+  int diarreia;
+  int malestar;
+  int dispneia;
+  int sudorese;
+  int calafrio;
+  int linfadenopatia;
+  int edema;
+  int exantema;
+  int hematoma;
+  int outros;
+  int nauseas;
+
+
+
+  int chikigg;
+  int chikigm;  
+  int convulsoes;
+  int dengueigg;
+  int dengueigm;
+  int denguens1;
+  int doenca;
+  int hemacias1;
+  int hemacias2;
+  int hemacias3;
+  int hematocrito1;
+  int hematocrito2;
+  int hematocrito3;  
+  int hemoglobina1;
+  int hemoglobina2;
+  int hemoglobina3;  
+  int id;  
+  int laco;
+  int leucocitos1;
+  int leucocitos2;
+  int leucocitos3;  
+  int linfocitos1;
+  int linfocitos2;
+  int linfocitos3;
+  int neutrofilos1;
+  int neutrofilos2;
+  int neutrofilos3;
+  int pcr1;
+  int pcr2;
+  int pcr3;
+  int plaqueta1;
+  int plaqueta2;
+  int plaqueta3;
+  int tgo1;
+  int tgo2;
+  int tgo3;
+  int tgp1;
+  int tgp2;
+  int tgp3;
+  int zikaigg;
+  int zikaigmint;
+  
+  DaiClass({
+    this.artralgia,
+    this.artrite,
+    this.calafrio,
+    this.cefaleia,
+    this.chikigg,
+    this.chikigm,
+    this.conjutivite,
+    this.convulsoes,
+    this.dengueigg,
+    this.dengueigm,
+    this.denguens1,
+    this.diarreia,
+    this.dispneia,
+    this.doenca,
+    this.dorabdominal,
+    this.dorcostas,
+    this.dorouvido,
+    this.dorretro,
+    this.duracao1,
+    this.duracao2,
+    this.duracao3,
+    this.edema,
+    this.exantema,
+    this.faltaapetite,
+    this.febreausente,
+    this.gestante,
+    this.hemacias1,
+    this.hemacias2,
+    this.hemacias3,
+    this.hematocrito1,
+    this.hematocrito2,
+    this.hematocrito3,
+    this.hematoma,
+    this.hemoglobina1,
+    this.hemoglobina2,
+    this.hemoglobina3,
+    this.hemorragia,
+    this.id,
+    this.idade1,
+    this.idade2,
+    this.idade3,
+    this.laco,
+    this.leucocitos1,
+    this.leucocitos2,
+    this.leucocitos3,
+    this.linfadenopatia,
+    this.linfocitos1,
+    this.linfocitos2,
+    this.linfocitos3,
+    this.malestar,
+    this.mialgia,
+    this.nauseas,
+    this.neutrofilos1,
+    this.neutrofilos2,
+    this.neutrofilos3,
+    this.outros,
+    this.pcr1,
+    this.pcr2,
+    this.pcr3,
+    this.plaqueta1,
+    this.plaqueta2,
+    this.plaqueta3,
+    this.prostacao,
+    this.prurido,
+    this.sexof,
+    this.sexom,
+    this.sudorese,
+    this.temperatura1,
+    this.temperatura2,
+    this.temperatura3,
+    this.temperaturanao,
+    this.tgo1,
+    this.tgo2,
+    this.tgo3,
+    this.tgp1,
+    this.tgp2,
+    this.tgp3,
+    this.tosse,
+    this.vomito,
+    this.zikaigg,
+    this.zikaigmint,
+  });
 }
 
 class DaiClassAction with ChangeNotifier {
@@ -105,12 +274,14 @@ class DaiClassAction with ChangeNotifier {
     notifyListeners();
   }
 }
+
 class Paciente {
-  int sexof; 
+  int sexof;
   int sexom;
-  int idade1; 
-  int idade2; 
+  int idade1;
+  int idade2;
   int idade3;
   int gestante;
-}
 
+  Paciente(this.sexom, this.sexof, this.idade1, this.idade2, this.idade3, this.gestante);
+}

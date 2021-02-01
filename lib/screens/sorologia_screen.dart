@@ -29,7 +29,7 @@ class _SorologiaScreenState extends State<SorologiaScreen> {
           Container(
             margin: EdgeInsets.only(left: 10, right: 10),
             width: double.infinity,
-            padding: EdgeInsets.only(bottom: 15),
+            padding: EdgeInsets.only(bottom: 10),
             child: Text(
               'Dengue',
               style: TextStyle(

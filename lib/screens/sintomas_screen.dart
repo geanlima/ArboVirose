@@ -1,4 +1,5 @@
 import 'package:arboviroses/widgets/line_widget.dart';
+import 'package:arboviroses/widgets/single_widget.dart';
 
 import 'package:flutter/material.dart';
 
@@ -18,65 +19,109 @@ class _SintomasScreenState extends State<SintomasScreen> {
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(20),
-      ),      
+      ),
       child: Container(
         padding: EdgeInsets.only(top: 10),
         child: Column(
           children: <Widget>[
-            LineWidget(
-                label1: 'Dor retrorbital',
-                label2: 'Cefaléia',
-                label3: 'Prurido',
-                function: _selected1),
+            Row(
+              children: [
+                SingleWidget(label: 'dorretro', function: _selected1),
+                SizedBox(height: 15),
+                SingleWidget(label: 'cefaleia', function: _selected1),
+                SizedBox(height: 15),
+                SingleWidget(label: 'prurido', function: _selected1),
+                SizedBox(height: 15),
+              ],
+            ),
             SizedBox(height: 15),
-            LineWidget(
-                label1: 'Dor Abdominal',
-                label2: 'Hemorragia',
-                label3: 'Artralgia',
-                function: _selected1),
+            Row(
+              children: [
+                SingleWidget(label: 'dorabdominal', function: _selected1),
+                SizedBox(height: 15),
+                SingleWidget(label: 'hemorragia', function: _selected1),
+                SizedBox(height: 15),
+                SingleWidget(label: 'artralgia', function: _selected1),
+                SizedBox(height: 15),
+              ],
+            ),
             SizedBox(height: 15),
-            LineWidget(
-                label1: 'Prostação',
-                label2: 'Mialgia',
-                label3: 'Convulsões',
-                function: _selected1),
+            Row(
+              children: [
+                SingleWidget(label: 'prostacao', function: _selected1),
+                SizedBox(height: 15),
+                SingleWidget(label: 'mialgia', function: _selected1),
+                SizedBox(height: 15),
+                SingleWidget(label: 'convulcoes', function: _selected1),
+                SizedBox(height: 15),
+              ],
+            ),
             SizedBox(height: 15),
-            LineWidget(
-                label1: 'Vômito',
-                label2: 'Conjutivite',
-                label3: 'Tosse',
-                function: _selected1),
+            Row(
+              children: [
+                SingleWidget(label: 'conjutivite', function: _selected1),
+                SizedBox(height: 15),
+                SingleWidget(label: 'tosse', function: _selected1),
+                SizedBox(height: 15),
+                SingleWidget(label: 'dorcostas', function: _selected1),
+                SizedBox(height: 15),
+              ],
+            ),
             SizedBox(height: 15),
-            LineWidget(
-                label1: 'Dor nas costas',
-                label2: 'Artrite',
-                label3: 'Dor de ouvido',
-                function: _selected1),
+            Row(
+              children: [
+                SingleWidget(label: 'artrite', function: _selected1),
+                SizedBox(height: 15),
+                SingleWidget(label: 'dorouvido', function: _selected1),
+                SizedBox(height: 15),
+                SingleWidget(label: 'faltaapetite', function: _selected1),
+                SizedBox(height: 15),
+              ],
+            ),
             SizedBox(height: 15),
-            LineWidget(
-                label1: 'Falta de apetite',
-                label2: 'Diarreia',
-                label3: 'Mal estar',
-                function: _selected1),
+            Row(
+              children: [
+                SingleWidget(label: 'diarreia', function: _selected1),
+                SizedBox(height: 15),
+                SingleWidget(label: 'malestar', function: _selected1),
+                SizedBox(height: 15),
+                SingleWidget(label: 'dispneia', function: _selected1),
+                SizedBox(height: 15),
+              ],
+            ),
             SizedBox(height: 15),
-            LineWidget(
-                label1: 'Dispneia',
-                label2: 'Sudorese',
-                label3: 'Calafrio',
-                function: _selected1),
+            Row(
+              children: [
+                SingleWidget(label: 'sudorese', function: _selected1),
+                SizedBox(height: 15),
+                SingleWidget(label: 'calafrio', function: _selected1),
+                SizedBox(height: 15),
+                SingleWidget(label: 'linfadenopatia', function: _selected1),
+                SizedBox(height: 15),
+              ],
+            ),
             SizedBox(height: 15),
-            LineWidget(
-                label1: 'Linfadenopatia',
-                label2: 'Edema',
-                label3: 'Exantema',
-                function: _selected1),
-            SizedBox(height: 15),
-            LineWidget(
-                label1: 'Hematoma',
-                label2: 'Outros',
-                label3: 'Náuseas',
-                function: _selected1),
-            //TraillerWidget(),
+            Row(
+              children: [
+                SingleWidget(label: 'edema', function: _selected1),
+                SizedBox(height: 15),
+                SingleWidget(label: 'exantema', function: _selected1),
+                SizedBox(height: 15),
+                SingleWidget(label: 'hematoma', function: _selected1),
+                SizedBox(height: 15),
+              ],
+            ),
+             SizedBox(height: 15),
+            Row(
+              children: [
+                SingleWidget(label: 'nauseas', function: _selected1),
+                SizedBox(height: 15),
+                SingleWidget(label: 'vomito', function: _selected1),
+                SizedBox(height: 15),
+                SingleWidget(label: 'outros', function: _selected1),
+                SizedBox(height: 15),                
+              ],
+            ),
           ],
         ),
       ),

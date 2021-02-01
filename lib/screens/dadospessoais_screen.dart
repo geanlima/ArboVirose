@@ -1,9 +1,10 @@
-import 'package:arboviroses/models/dai_class.dart';
+import 'package:arboviroses/models/paciente_class.dart';
 import 'package:arboviroses/widgets/box_image_widget.dart';
 import 'package:arboviroses/widgets/box_text_widget.dart';
 import 'package:arboviroses/widgets/titulo_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:lite_rolling_switch/lite_rolling_switch.dart';
+import 'package:provider/provider.dart';
 
 class DadosPessoaisScreen extends StatefulWidget {
   @override
@@ -31,10 +32,9 @@ class _DadosPessoaisScreenState extends State<DadosPessoaisScreen> {
     return !valueM;
   }
 
-  Paciente newPaciente() {}
-
   @override
   Widget build(BuildContext context) {
+    PacienteClass obj = Provider.of(context, listen: false);
     return Container(
       decoration: BoxDecoration(
         color: Colors.white,
@@ -56,8 +56,10 @@ class _DadosPessoaisScreenState extends State<DadosPessoaisScreen> {
                           () {
                             _valueMan = !_valueMan;
                             if (_valueMan) {
-                              cntsexof.text = '0';
-                              cntsexom.text = '1';
+                              Map<String, int> sexom = {"sexom": 1};
+                              Map<String, int> sexof = {"sexof": 0};
+                              obj.newPaciente(sexom);
+                              obj.newPaciente(sexof);
                               _valueWoman = false;
                               _valueSwitch = rulePregnant(_valueMan);
                             }
@@ -77,8 +79,10 @@ class _DadosPessoaisScreenState extends State<DadosPessoaisScreen> {
                         () {
                           _valueWoman = !_valueWoman;
                           if (_valueWoman) {
-                            cntsexof.text = '1';
-                            cntsexom.text = '0 ';
+                            Map<String, int> sexof = {"sexof": 1};
+                            Map<String, int> sexom = {"sexom": 0};
+                            obj.newPaciente(sexof);
+                            obj.newPaciente(sexom);
                             _valueMan = false;
                             _valueSwitch = true;
                           }
@@ -110,6 +114,12 @@ class _DadosPessoaisScreenState extends State<DadosPessoaisScreen> {
                           if (_value016) {
                             _value1760 = false;
                             _value60 = false;
+                            Map<String, int> idade1 = {"idade1": 1};
+                            Map<String, int> idade2 = {"idade2": 0};
+                            Map<String, int> idade3 = {"idade3": 0};
+                            obj.newPaciente(idade1);
+                            obj.newPaciente(idade2);
+                            obj.newPaciente(idade3);                            
                           }
                         },
                       );
@@ -126,6 +136,12 @@ class _DadosPessoaisScreenState extends State<DadosPessoaisScreen> {
                       setState(() {
                         _value1760 = !_value1760;
                         if (_value1760) {
+                          Map<String, int> idade1 = {"idade1": 0};
+                          Map<String, int> idade2 = {"idade2": 1};
+                          Map<String, int> idade3 = {"idade3": 0};
+                          obj.newPaciente(idade1);
+                          obj.newPaciente(idade2);
+                          obj.newPaciente(idade3);  
                           _value016 = false;
                           _value60 = false;
                         }
@@ -145,6 +161,12 @@ class _DadosPessoaisScreenState extends State<DadosPessoaisScreen> {
                         if (_value60) {
                           _value016 = false;
                           _value1760 = false;
+                          Map<String, int> idade1 = {"idade1": 0};
+                          Map<String, int> idade2 = {"idade2": 0};
+                          Map<String, int> idade3 = {"idade3": 1};
+                          obj.newPaciente(idade1);
+                          obj.newPaciente(idade2);
+                          obj.newPaciente(idade3);  
                         }
                       });
                     },
@@ -174,7 +196,10 @@ class _DadosPessoaisScreenState extends State<DadosPessoaisScreen> {
                   iconOn: Icons.pregnant_woman_rounded,
                   iconOff: Icons.alarm_off,
                   textSize: 18.0,
-                  onChanged: (bool position) {},
+                  onChanged: (bool position) {                    
+                    Map<String, int> gestante = {"gestante": position ? 1 : 0};                    
+                    obj.newPaciente(gestante);
+                  },
                 ),
               ),
             ],
