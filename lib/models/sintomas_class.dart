@@ -1,32 +1,35 @@
 import 'package:flutter/material.dart';
 
 class SintomasClass with ChangeNotifier {
-  int _dorretro;
-  int _cefaleia;
-  int _prurido;
-  int _dorabdominal;
-  int _hemorragia;
-  int _artralgia;
-  int _prostacao;
-  int _mialgia;
-  int _vomito;
-  int _conjutivite;
-  int _tosse;
-  int _dorcostas;
-  int _artrite;
-  int _dorouvido;
-  int _faltaapetite;
-  int _diarreia;
-  int _malestar;
-  int _dispneia;
-  int _sudorese;
-  int _calafrio;
-  int _linfadenopatia;
-  int _edema;
-  int _exantema;
-  int _hematoma;
-  int _outros;
-  int _nauseas;
+  int dorretro;
+  int cefaleia;
+  int prurido;
+  int dorabdominal;
+  int hemorragia;
+  int artralgia;
+  int prostacao;
+  int mialgia;
+  int vomito;
+  int conjutivite;
+  int tosse;
+  int dorcostas;
+  int artrite;
+  int dorouvido;
+  int faltaapetite;
+  int diarreia;
+  int malestar;
+  int dispneia;
+  int sudorese;
+  int calafrio;
+  int linfadenopatia;
+  int edema;
+  int exantema;
+  int hematoma;
+  int outros;
+  int nauseas;
+  int convulsoes;
+
+  SintomasClass(this.dorretro, this.cefaleia, this.prurido, this.dorabdominal, this.hemorragia, this.artralgia, this.prostacao, this.mialgia, this.vomito, this.conjutivite, this.tosse, this.dorcostas, this.artrite, this.dorouvido, this.faltaapetite, this.diarreia, this.malestar, this.dispneia, this.sudorese, this.calafrio, this.linfadenopatia, this.edema, this.exantema, this.hematoma, this.outros, this.nauseas,this.convulsoes);
 
   List<SintomasClass> _list = [];
 
@@ -40,7 +43,7 @@ class SintomasClass with ChangeNotifier {
     int qtd = regCount;
     
     if (qtd == 0){
-      obj = new SintomasClass();
+      obj = new SintomasClass(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,);
       _list.add(obj);
     }
 
@@ -73,48 +76,40 @@ class SintomasClass with ChangeNotifier {
     int nauseas = map['nauseas'];
     
     
-    if(dorretro != null) _list[0]._dorretro = dorretro;
-    if(cefaleia != null) _list[0]._cefaleia = cefaleia;
-    if(prurido != null) _list[0]._prurido = prurido;
-    if(dorabdominal != null) _list[0]._dorabdominal = dorabdominal;
-    if(hemorragia != null) _list[0]._hemorragia = hemorragia;
-    if(artralgia != null) _list[0]._artralgia = artralgia;
+    if(dorretro != null) _list[0].dorretro = dorretro;
+    if(cefaleia != null) _list[0].cefaleia = cefaleia;
+    if(prurido != null) _list[0].prurido = prurido;
+    if(dorabdominal != null) _list[0].dorabdominal = dorabdominal;
+    if(hemorragia != null) _list[0].hemorragia = hemorragia;
+    if(artralgia != null) _list[0].artralgia = artralgia;
+    if(prostacao != null) _list[0].prostacao = prostacao;
+    if(mialgia != null) _list[0].mialgia = mialgia;
+    if(convulcoes != null) _list[0].mialgia = convulcoes;
+    if(conjutivite != null) _list[0].conjutivite = conjutivite;
+    if(tosse != null) _list[0].tosse = tosse;
+    if(dorcostas != null) _list[0].dorcostas = dorcostas;
+    if(artrite != null) _list[0].artrite = artrite;
+    if(dorouvido != null) _list[0].dorouvido = dorouvido;
+    if(faltaapetite != null) _list[0].faltaapetite = faltaapetite;    
+    if(diarreia != null) _list[0].diarreia = diarreia;
+    if(malestar != null) _list[0].malestar = malestar;
+    if(dispneia != null) _list[0].dispneia = dispneia;    
+    if(sudorese != null) _list[0].sudorese = sudorese;
+    if(calafrio != null) _list[0].calafrio = calafrio;
+    if(linfadenopatia != null) _list[0].linfadenopatia = linfadenopatia;    
+    if(edema != null) _list[0].edema = edema;
+    if(exantema != null) _list[0].exantema = exantema;
+    if(hematoma != null) _list[0].hematoma = hematoma;    
+    if(vomito != null) _list[0].vomito = vomito;
+    if(nauseas != null) _list[0].nauseas = nauseas;
+    if(outros != null) _list[0].outros = outros;    
 
-    if(prostacao != null) _list[0]._prostacao = prostacao;
-    if(mialgia != null) _list[0]._mialgia = mialgia;
-    if(convulcoes != null) _list[0]._mialgia = convulcoes;
-    if(conjutivite != null) _list[0]._conjutivite = conjutivite;
-    if(tosse != null) _list[0]._tosse = tosse;
-    if(dorcostas != null) _list[0]._dorcostas = dorcostas;
-
-    if(artrite != null) _list[0]._artrite = artrite;
-    if(dorouvido != null) _list[0]._dorouvido = dorouvido;
-    if(faltaapetite != null) _list[0]._faltaapetite = faltaapetite;
-    
-    if(diarreia != null) _list[0]._diarreia = diarreia;
-    if(malestar != null) _list[0]._malestar = malestar;
-    if(dispneia != null) _list[0]._dispneia = dispneia;
-    
-    if(sudorese != null) _list[0]._sudorese = sudorese;
-    if(calafrio != null) _list[0]._calafrio = calafrio;
-    if(linfadenopatia != null) _list[0]._linfadenopatia = linfadenopatia;
-    
-    if(edema != null) _list[0]._edema = edema;
-    if(exantema != null) _list[0]._exantema = exantema;
-    if(hematoma != null) _list[0]._hematoma = hematoma;
-    
-    if(vomito != null) _list[0]._vomito = vomito;
-    if(nauseas != null) _list[0]._nauseas = nauseas;
-    if(outros != null) _list[0]._outros = outros;
-    
-
-    print('dorretro ${_list[0]._dorretro}');
-    print('cefaleia ${_list[0]._cefaleia}');
-    print('prurido ${_list[0]._prurido}');
-
-    print('dorretro ${_list[0]._dorabdominal}');
-    print('cefaleia ${_list[0]._hemorragia}');
-    print('prurido ${_list[0]._artralgia}');
+    print('dorretro ${_list[0].dorretro}');
+    print('cefaleia ${_list[0].cefaleia}');
+    print('prurido ${_list[0].prurido}');
+    print('dorretro ${_list[0].dorabdominal}');
+    print('cefaleia ${_list[0].hemorragia}');
+    print('prurido ${_list[0].artralgia}');
     
 
   }

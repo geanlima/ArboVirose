@@ -1,6 +1,8 @@
+import 'package:arboviroses/models/exames_class.dart';
 import 'package:arboviroses/widgets/gotasangue_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:lite_rolling_switch/lite_rolling_switch.dart';
+import 'package:provider/provider.dart';
 
 class ExamesScreen extends StatefulWidget {
   @override
@@ -50,6 +52,7 @@ class _ExamesScreenState extends State<ExamesScreen> {
 
   @override
   Widget build(BuildContext context) {
+    ExamesClass obj = Provider.of(context, listen: false);
     return Container(
       decoration: BoxDecoration(
         color: Colors.white,
@@ -58,7 +61,7 @@ class _ExamesScreenState extends State<ExamesScreen> {
       child: Column(
         children: <Widget>[
           Container(
-            padding: EdgeInsets.only(top:10),
+            padding: EdgeInsets.only(top: 10),
             margin: EdgeInsets.only(left: 10, right: 10),
             width: double.infinity,
             child: Text(
@@ -88,7 +91,8 @@ class _ExamesScreenState extends State<ExamesScreen> {
                   iconOff: Icons.alarm_off,
                   textSize: 18.0,
                   onChanged: (bool position) {
-                    print("this");
+                    Map<String, int> laco = {"laco": position ? 1 : 0};
+                    obj.newFunction(laco);
                   },
                 ),
               ),
@@ -139,6 +143,12 @@ class _ExamesScreenState extends State<ExamesScreen> {
                           () {
                             _selected1 = !_selected1;
                             if (_selected1) {
+                              Map<String, int> hemacias1 = {"hemacias1": 1};
+                              Map<String, int> hemacias2 = {"hemacias2": 0};
+                              Map<String, int> hemacias3 = {"hemacias3": 0};
+                              obj.newFunction(hemacias1);
+                              obj.newFunction(hemacias2);
+                              obj.newFunction(hemacias3);
                               _selected2 = false;
                               _selected3 = false;
                             }
@@ -158,6 +168,14 @@ class _ExamesScreenState extends State<ExamesScreen> {
                           () {
                             _selected2 = !_selected2;
                             if (_selected2) {
+                              Map<String, int> hemacias1 = {"hemacias1": 0};
+                              Map<String, int> hemacias2 = {"hemacias2": 1};
+                              Map<String, int> hemacias3 = {"hemacias3": 0};
+                              obj.newFunction(hemacias1);
+                              obj.newFunction(hemacias2);
+                              obj.newFunction(hemacias3);
+                              _selected2 = false;
+                              _selected3 = false;
                               _selected1 = false;
                               _selected3 = false;
                             }
@@ -177,6 +195,14 @@ class _ExamesScreenState extends State<ExamesScreen> {
                           () {
                             _selected3 = !_selected3;
                             if (_selected3) {
+                              Map<String, int> hemacias1 = {"hemacias1": 0};
+                              Map<String, int> hemacias2 = {"hemacias2": 0};
+                              Map<String, int> hemacias3 = {"hemacias3": 1};
+                              obj.newFunction(hemacias1);
+                              obj.newFunction(hemacias2);
+                              obj.newFunction(hemacias3);
+                              _selected2 = false;
+                              _selected3 = false;
                               _selected1 = false;
                               _selected2 = false;
                             }
@@ -219,6 +245,18 @@ class _ExamesScreenState extends State<ExamesScreen> {
                             () {
                               _selected4 = !_selected4;
                               if (_selected4) {
+                                Map<String, int> hemoglobina1 = {
+                                  "hemoglobina1": 1
+                                };
+                                Map<String, int> hemoglobina2 = {
+                                  "hemoglobina2": 0
+                                };
+                                Map<String, int> hemoglobina3 = {
+                                  "hemoglobina3": 0
+                                };
+                                obj.newFunction(hemoglobina1);
+                                obj.newFunction(hemoglobina2);
+                                obj.newFunction(hemoglobina3);
                                 _selected5 = false;
                                 _selected6 = false;
                               }
@@ -239,6 +277,12 @@ class _ExamesScreenState extends State<ExamesScreen> {
                           () {
                             _selected5 = !_selected5;
                             if (_selected5) {
+                              Map<String, int> hemoglobina1 = {"hemoglobina1": 0};
+                              Map<String, int> hemoglobina2 = {"hemoglobina2": 1};
+                              Map<String, int> hemoglobina3 = {"hemoglobina3": 0};
+                              obj.newFunction(hemoglobina1);
+                              obj.newFunction(hemoglobina2);
+                              obj.newFunction(hemoglobina3);
                               _selected4 = false;
                               _selected6 = false;
                             }
@@ -258,6 +302,12 @@ class _ExamesScreenState extends State<ExamesScreen> {
                           () {
                             _selected6 = !_selected6;
                             if (_selected6) {
+                              Map<String, int> hemoglobina1 = {"hemoglobina1": 0};
+                              Map<String, int> hemoglobina2 = {"hemoglobina2": 0};
+                              Map<String, int> hemoglobina3 = {"hemoglobina3": 1};
+                              obj.newFunction(hemoglobina1);
+                              obj.newFunction(hemoglobina2);
+                              obj.newFunction(hemoglobina3);
                               _selected4 = false;
                               _selected5 = false;
                             }
@@ -299,6 +349,12 @@ class _ExamesScreenState extends State<ExamesScreen> {
                           () {
                             _selected7 = !_selected7;
                             if (_selected7) {
+                              Map<String, int> hematocrito1 = {"hematocrito1": 1};
+                              Map<String, int> hematocrito2 = {"hematocrito2": 0};
+                              Map<String, int> hematocrito3 = {"hematocrito3": 0};
+                              obj.newFunction(hematocrito1);
+                              obj.newFunction(hematocrito2);
+                              obj.newFunction(hematocrito3);
                               _selected8 = false;
                               _selected9 = false;
                             }
@@ -318,6 +374,12 @@ class _ExamesScreenState extends State<ExamesScreen> {
                           () {
                             _selected8 = !_selected8;
                             if (_selected8) {
+                              Map<String, int> hematocrito1 = {"hematocrito1": 0};
+                              Map<String, int> hematocrito2 = {"hematocrito2": 1};
+                              Map<String, int> hematocrito3 = {"hematocrito3": 0};
+                              obj.newFunction(hematocrito1);
+                              obj.newFunction(hematocrito2);
+                              obj.newFunction(hematocrito3);
                               _selected7 = false;
                               _selected9 = false;
                             }
@@ -337,6 +399,12 @@ class _ExamesScreenState extends State<ExamesScreen> {
                           () {
                             _selected9 = !_selected9;
                             if (_selected9) {
+                              Map<String, int> hematocrito1 = {"hematocrito1": 0};
+                              Map<String, int> hematocrito2 = {"hematocrito2": 0};
+                              Map<String, int> hematocrito3 = {"hematocrito3": 1};
+                              obj.newFunction(hematocrito1);
+                              obj.newFunction(hematocrito2);
+                              obj.newFunction(hematocrito3);
                               _selected7 = false;
                               _selected8 = false;
                             }
@@ -378,6 +446,12 @@ class _ExamesScreenState extends State<ExamesScreen> {
                           () {
                             _selected10 = !_selected10;
                             if (_selected10) {
+                              Map<String, int> leucocitos1 = {"leucocitos1": 1};
+                              Map<String, int> leucocitos2 = {"leucocitos2": 0};
+                              Map<String, int> leucocitos3 = {"leucocitos3": 0};
+                              obj.newFunction(leucocitos1);
+                              obj.newFunction(leucocitos2);
+                              obj.newFunction(leucocitos3);
                               _selected11 = false;
                               _selected12 = false;
                             }
@@ -397,6 +471,12 @@ class _ExamesScreenState extends State<ExamesScreen> {
                           () {
                             _selected11 = !_selected11;
                             if (_selected11) {
+                              Map<String, int> leucocitos1 = {"leucocitos1": 0};
+                              Map<String, int> leucocitos2 = {"leucocitos2": 1};
+                              Map<String, int> leucocitos3 = {"leucocitos3": 0};
+                              obj.newFunction(leucocitos1);
+                              obj.newFunction(leucocitos2);
+                              obj.newFunction(leucocitos3);
                               _selected10 = false;
                               _selected12 = false;
                             }
@@ -416,6 +496,12 @@ class _ExamesScreenState extends State<ExamesScreen> {
                           () {
                             _selected12 = !_selected12;
                             if (_selected12) {
+                              Map<String, int> leucocitos1 = {"leucocitos1": 0};
+                              Map<String, int> leucocitos2 = {"leucocitos2": 0};
+                              Map<String, int> leucocitos3 = {"leucocitos3": 1};
+                              obj.newFunction(leucocitos1);
+                              obj.newFunction(leucocitos2);
+                              obj.newFunction(leucocitos3);
                               _selected10 = false;
                               _selected11 = false;
                             }
@@ -457,6 +543,12 @@ class _ExamesScreenState extends State<ExamesScreen> {
                           () {
                             _selected13 = !_selected13;
                             if (_selected13) {
+                              Map<String, int> linfocitos1 = {"linfocitos1": 1};
+                              Map<String, int> linfocitos2 = {"linfocitos2": 0};
+                              Map<String, int> linfocitos3 = {"linfocitos3": 0};
+                              obj.newFunction(linfocitos1);
+                              obj.newFunction(linfocitos2);
+                              obj.newFunction(linfocitos3);
                               _selected14 = false;
                               _selected15 = false;
                             }
@@ -476,6 +568,12 @@ class _ExamesScreenState extends State<ExamesScreen> {
                           () {
                             _selected14 = !_selected14;
                             if (_selected14) {
+                              Map<String, int> linfocitos1 = {"linfocitos1": 0};
+                              Map<String, int> linfocitos2 = {"linfocitos2": 1};
+                              Map<String, int> linfocitos3 = {"linfocitos3": 0};
+                              obj.newFunction(linfocitos1);
+                              obj.newFunction(linfocitos2);
+                              obj.newFunction(linfocitos3);
                               _selected13 = false;
                               _selected15 = false;
                             }
@@ -495,6 +593,12 @@ class _ExamesScreenState extends State<ExamesScreen> {
                           () {
                             _selected15 = !_selected15;
                             if (_selected15) {
+                              Map<String, int> linfocitos1 = {"linfocitos1": 0};
+                              Map<String, int> linfocitos2 = {"linfocitos2": 0};
+                              Map<String, int> linfocitos3 = {"linfocitos3": 1};
+                              obj.newFunction(linfocitos1);
+                              obj.newFunction(linfocitos2);
+                              obj.newFunction(linfocitos3);
                               _selected13 = false;
                               _selected14 = false;
                             }
@@ -536,6 +640,12 @@ class _ExamesScreenState extends State<ExamesScreen> {
                           () {
                             _selected16 = !_selected16;
                             if (_selected16) {
+                              Map<String, int> neutrofilos1 = {"neutrofilos1": 1};
+                              Map<String, int> neutrofilos2 = {"neutrofilos2": 0};
+                              Map<String, int> neutrofilos3 = {"neutrofilos3": 0};
+                              obj.newFunction(neutrofilos1);
+                              obj.newFunction(neutrofilos2);
+                              obj.newFunction(neutrofilos3);
                               _selected17 = false;
                               _selected18 = false;
                             }
@@ -555,6 +665,12 @@ class _ExamesScreenState extends State<ExamesScreen> {
                           () {
                             _selected17 = !_selected17;
                             if (_selected17) {
+                              Map<String, int> neutrofilos1 = {"neutrofilos1": 0};
+                              Map<String, int> neutrofilos2 = {"neutrofilos2": 1};
+                              Map<String, int> neutrofilos3 = {"neutrofilos3": 0};
+                              obj.newFunction(neutrofilos1);
+                              obj.newFunction(neutrofilos2);
+                              obj.newFunction(neutrofilos3);
                               _selected16 = false;
                               _selected18 = false;
                             }
@@ -574,6 +690,12 @@ class _ExamesScreenState extends State<ExamesScreen> {
                           () {
                             _selected18 = !_selected18;
                             if (_selected18) {
+                              Map<String, int> neutrofilos1 = {"neutrofilos1": 0};
+                              Map<String, int> neutrofilos2 = {"neutrofilos2": 0};
+                              Map<String, int> neutrofilos3 = {"neutrofilos3": 1};
+                              obj.newFunction(neutrofilos1);
+                              obj.newFunction(neutrofilos2);
+                              obj.newFunction(neutrofilos3);
                               _selected16 = false;
                               _selected17 = false;
                             }
@@ -615,6 +737,12 @@ class _ExamesScreenState extends State<ExamesScreen> {
                           () {
                             _selected19 = !_selected19;
                             if (_selected19) {
+                              Map<String, int> plaqueta1 = {"plaqueta1": 1};
+                              Map<String, int> plaqueta2 = {"plaqueta2": 0};
+                              Map<String, int> plaqueta3 = {"plaqueta3": 0};
+                              obj.newFunction(plaqueta1);
+                              obj.newFunction(plaqueta2);
+                              obj.newFunction(plaqueta3);
                               _selected20 = false;
                               _selected21 = false;
                             }
@@ -634,6 +762,12 @@ class _ExamesScreenState extends State<ExamesScreen> {
                           () {
                             _selected20 = !_selected20;
                             if (_selected20) {
+                              Map<String, int> plaqueta1 = {"plaqueta1": 0};
+                              Map<String, int> plaqueta2 = {"plaqueta2": 1};
+                              Map<String, int> plaqueta3 = {"plaqueta3": 0};
+                              obj.newFunction(plaqueta1);
+                              obj.newFunction(plaqueta2);
+                              obj.newFunction(plaqueta3);
                               _selected19 = false;
                               _selected21 = false;
                             }
@@ -653,6 +787,12 @@ class _ExamesScreenState extends State<ExamesScreen> {
                           () {
                             _selected21 = !_selected21;
                             if (_selected21) {
+                              Map<String, int> plaqueta1 = {"plaqueta1": 0};
+                              Map<String, int> plaqueta2 = {"plaqueta2": 0};
+                              Map<String, int> plaqueta3 = {"plaqueta3": 1};
+                              obj.newFunction(plaqueta1);
+                              obj.newFunction(plaqueta2);
+                              obj.newFunction(plaqueta3);
                               _selected19 = false;
                               _selected20 = false;
                             }
@@ -694,6 +834,12 @@ class _ExamesScreenState extends State<ExamesScreen> {
                           () {
                             _selected22 = !_selected22;
                             if (_selected22) {
+                              Map<String, int> pcr1 = {"pcr1": 1};
+                              Map<String, int> pcr2 = {"pcr2": 0};
+                              Map<String, int> pcr3 = {"pcr3": 0};
+                              obj.newFunction(pcr1);
+                              obj.newFunction(pcr2);
+                              obj.newFunction(pcr3);
                               _selected23 = false;
                               _selected24 = false;
                             }
@@ -713,6 +859,12 @@ class _ExamesScreenState extends State<ExamesScreen> {
                           () {
                             _selected23 = !_selected23;
                             if (_selected23) {
+                              Map<String, int> pcr1 = {"pcr1": 0};
+                              Map<String, int> pcr2 = {"pcr2": 1};
+                              Map<String, int> pcr3 = {"pcr3": 0};
+                              obj.newFunction(pcr1);
+                              obj.newFunction(pcr2);
+                              obj.newFunction(pcr3);
                               _selected22 = false;
                               _selected24 = false;
                             }
@@ -732,6 +884,12 @@ class _ExamesScreenState extends State<ExamesScreen> {
                           () {
                             _selected24 = !_selected24;
                             if (_selected24) {
+                              Map<String, int> pcr1 = {"pcr1": 0};
+                              Map<String, int> pcr2 = {"pcr2": 0};
+                              Map<String, int> pcr3 = {"pcr3": 1};
+                              obj.newFunction(pcr1);
+                              obj.newFunction(pcr2);
+                              obj.newFunction(pcr3);
                               _selected22 = false;
                               _selected23 = false;
                             }
@@ -773,6 +931,12 @@ class _ExamesScreenState extends State<ExamesScreen> {
                           () {
                             _selected25 = !_selected25;
                             if (_selected25) {
+                              Map<String, int> tgo1 = {"tgo1": 1};
+                              Map<String, int> tgo2 = {"tgo2": 0};
+                              Map<String, int> tgo3 = {"tgo3": 0};
+                              obj.newFunction(tgo1);
+                              obj.newFunction(tgo2);
+                              obj.newFunction(tgo3);
                               _selected26 = false;
                               _selected27 = false;
                             }
@@ -792,6 +956,12 @@ class _ExamesScreenState extends State<ExamesScreen> {
                           () {
                             _selected26 = !_selected26;
                             if (_selected26) {
+                              Map<String, int> tgo1 = {"tgo1": 0};
+                              Map<String, int> tgo2 = {"tgo2": 1};
+                              Map<String, int> tgo3 = {"tgo3": 0};
+                              obj.newFunction(tgo1);
+                              obj.newFunction(tgo2);
+                              obj.newFunction(tgo3);
                               _selected25 = false;
                               _selected27 = false;
                             }
@@ -811,6 +981,12 @@ class _ExamesScreenState extends State<ExamesScreen> {
                           () {
                             _selected27 = !_selected27;
                             if (_selected27) {
+                              Map<String, int> tgo1 = {"tgo1": 0};
+                              Map<String, int> tgo2 = {"tgo2": 0};
+                              Map<String, int> tgo3 = {"tgo3": 1};
+                              obj.newFunction(tgo1);
+                              obj.newFunction(tgo2);
+                              obj.newFunction(tgo3);
                               _selected25 = false;
                               _selected26 = false;
                             }
@@ -852,6 +1028,12 @@ class _ExamesScreenState extends State<ExamesScreen> {
                           () {
                             _selected28 = !_selected28;
                             if (_selected28) {
+                              Map<String, int> tgp1 = {"tgp1": 1};
+                              Map<String, int> tgp2 = {"tgp2": 0};
+                              Map<String, int> tgp3 = {"tgp3": 0};
+                              obj.newFunction(tgp1);
+                              obj.newFunction(tgp2);
+                              obj.newFunction(tgp3);
                               _selected29 = false;
                               _selected30 = false;
                             }
@@ -871,6 +1053,12 @@ class _ExamesScreenState extends State<ExamesScreen> {
                           () {
                             _selected29 = !_selected29;
                             if (_selected29) {
+                              Map<String, int> tgp1 = {"tgp1": 0};
+                              Map<String, int> tgp2 = {"tgp2": 1};
+                              Map<String, int> tgp3 = {"tgp3": 0};
+                              obj.newFunction(tgp1);
+                              obj.newFunction(tgp2);
+                              obj.newFunction(tgp3);
                               _selected28 = false;
                               _selected30 = false;
                             }
@@ -890,6 +1078,12 @@ class _ExamesScreenState extends State<ExamesScreen> {
                           () {
                             _selected30 = !_selected30;
                             if (_selected30) {
+                              Map<String, int> tgp1 = {"tgp1": 0};
+                              Map<String, int> tgp2 = {"tgp2": 0};
+                              Map<String, int> tgp3 = {"tgp3": 1};
+                              obj.newFunction(tgp1);
+                              obj.newFunction(tgp2);
+                              obj.newFunction(tgp3);
                               _selected28 = false;
                               _selected29 = false;
                             }

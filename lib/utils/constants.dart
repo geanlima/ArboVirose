@@ -1,3 +1,3 @@
 class Constants{
-  static const BASE_API_URL = 'https://dengue-api-robson.herokuapp.com/api';
+  static const BASE_API_URL = 'https://dengue-api-robson.herokuapp.com/dai';
 }

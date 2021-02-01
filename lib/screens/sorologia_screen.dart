@@ -1,5 +1,7 @@
+import 'package:arboviroses/models/sorologia_class.dart';
 import 'package:arboviroses/widgets/box_text_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class SorologiaScreen extends StatefulWidget {
   @override
@@ -19,7 +21,8 @@ class _SorologiaScreenState extends State<SorologiaScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    SorologiaClass obj = Provider.of(context, listen: false);
+    return Container(      
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(20),
@@ -54,6 +57,12 @@ class _SorologiaScreenState extends State<SorologiaScreen> {
                       () {
                         _selected1 = !_selected1;
                         if (_selected1) {
+                          Map<String, int> dengueigg = {"dengueigg": 1};
+                          Map<String, int> dengueigm = {"dengueigm": 0};
+                          Map<String, int> denguens1 = {"denguens1": 0};
+                          obj.newFunction(dengueigg);
+                          obj.newFunction(dengueigm);
+                          obj.newFunction(denguens1);
                           _selected2 = false;
                           _selected3 = false;
                         }
@@ -74,6 +83,12 @@ class _SorologiaScreenState extends State<SorologiaScreen> {
                       () {
                         _selected2 = !_selected2;
                         if (_selected2) {
+                          Map<String, int> dengueigg = {"dengueigg": 0};
+                          Map<String, int> dengueigm = {"dengueigm": 1};
+                          Map<String, int> denguens1 = {"denguens1": 0};
+                          obj.newFunction(dengueigg);
+                          obj.newFunction(dengueigm);
+                          obj.newFunction(denguens1);
                           _selected1 = false;
                           _selected3 = false;
                         }
@@ -94,6 +109,12 @@ class _SorologiaScreenState extends State<SorologiaScreen> {
                       () {
                         _selected3 = !_selected3;
                         if (_selected3) {
+                          Map<String, int> dengueigg = {"dengueigg": 0};
+                          Map<String, int> dengueigm = {"dengueigm": 0};
+                          Map<String, int> denguens1 = {"denguens1": 1};
+                          obj.newFunction(dengueigg);
+                          obj.newFunction(dengueigm);
+                          obj.newFunction(denguens1);
                           _selected1 = false;
                           _selected2 = false;
                         }
@@ -138,6 +159,10 @@ class _SorologiaScreenState extends State<SorologiaScreen> {
                       () {
                         _selected4 = !_selected4;
                         if (_selected4) {
+                          Map<String, int> zikaigg = {"zikaigg": 1};
+                          Map<String, int> zikaigmint = {"zikaigmint": 0};                          
+                          obj.newFunction(zikaigg);
+                          obj.newFunction(zikaigmint);                          
                           _selected5 = false;
                         }
                       },
@@ -157,6 +182,10 @@ class _SorologiaScreenState extends State<SorologiaScreen> {
                       () {
                         _selected5 = !_selected5;
                         if (_selected5) {
+                          Map<String, int> zikaigg = {"zikaigg": 0};
+                          Map<String, int> zikaigmint = {"zikaigmint": 1};                          
+                          obj.newFunction(zikaigg);
+                          obj.newFunction(zikaigmint);  
                           _selected4 = false;
                         }
                       },
@@ -200,6 +229,10 @@ class _SorologiaScreenState extends State<SorologiaScreen> {
                       () {
                         _selected6 = !_selected6;
                         if (_selected6) {
+                          Map<String, int> chikigg = {"chikigg": 1};
+                          Map<String, int> chikigm = {"chikigm": 0};                          
+                          obj.newFunction(chikigg);
+                          obj.newFunction(chikigm);  
                           _selected7 = false;
                         }
                       },
@@ -218,6 +251,10 @@ class _SorologiaScreenState extends State<SorologiaScreen> {
                       () {
                         _selected7 = !_selected7;
                         if (_selected7) {
+                          Map<String, int> chikigg = {"chikigg": 0};
+                          Map<String, int> chikigm = {"chikigm": 1};                          
+                          obj.newFunction(chikigg);
+                          obj.newFunction(chikigm);  
                           _selected6 = false;
                         }
                       },

@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 
 class FebreClass with ChangeNotifier {
-  int _temperatura1;
-  int _temperatura2;
-  int _temperatura3;
-  int _duracao1;
-  int _duracao2;
-  int _duracao3;
-  int _temperaturanao;
-  int _febreausente;
+  int temperatura1;
+  int temperatura2;
+  int temperatura3;
+  int duracao1;
+  int duracao2;
+  int duracao3;
+  int temperaturanao;
+  int febreausente;
 
+  FebreClass(this.temperatura1, this.temperatura2, this.temperatura3, this.duracao1, this.duracao2, this.duracao3, this.febreausente, this.temperaturanao);
+  
   List<FebreClass> _list = [];
 
   int get regCount {
@@ -22,7 +24,7 @@ class FebreClass with ChangeNotifier {
     int qtd = regCount;
     
     if (qtd == 0){
-      obj = new FebreClass();
+      obj = new FebreClass(0,0,0,0,0,0,0,0,);
       _list.add(obj);
     }
 
@@ -35,23 +37,23 @@ class FebreClass with ChangeNotifier {
     int temperaturanao = map['temperaturanao'];
     int febreausente = map['febreausente'];
     
-    if(temperatura1 != null) _list[0]._temperatura1 = temperatura1;
-    if(temperatura2 != null) _list[0]._temperatura2 = temperatura2;
-    if(temperatura3 != null) _list[0]._temperatura3 = temperatura3;
-    if(duracao1 != null) _list[0]._duracao1 = duracao1;
-    if(duracao2 != null) _list[0]._duracao2 = duracao2;
-    if(duracao3 != null) _list[0]._duracao3 = duracao3;
-    if(temperaturanao != null) _list[0]._temperaturanao = temperaturanao;
-    if(febreausente != null) _list[0]._febreausente = febreausente;
+    if(temperatura1 != null) _list[0].temperatura1 = temperatura1;
+    if(temperatura2 != null) _list[0].temperatura2 = temperatura2;
+    if(temperatura3 != null) _list[0].temperatura3 = temperatura3;
+    if(duracao1 != null) _list[0].duracao1 = duracao1;
+    if(duracao2 != null) _list[0].duracao2 = duracao2;
+    if(duracao3 != null) _list[0].duracao3 = duracao3;
+    if(temperaturanao != null) _list[0].temperaturanao = temperaturanao;
+    if(febreausente != null) _list[0].febreausente = febreausente;
 
-    print('_temperatura1 ${_list[0]._temperatura1}');
-    print('_temperatura2 ${_list[0]._temperatura2}');
-    print('_temperatura3 ${_list[0]._temperatura3}');
-    print('_duracao1 ${_list[0]._duracao1}');
-    print('_duracao2 ${_list[0]._duracao2}');
-    print('_duracao3 ${_list[0]._duracao3}');
-    print('_temperaturanao ${_list[0]._temperaturanao}');
-    print('_febreausente ${_list[0]._febreausente}');
+    print('_temperatura1 ${_list[0].temperatura1}');
+    print('_temperatura2 ${_list[0].temperatura2}');
+    print('_temperatura3 ${_list[0].temperatura3}');
+    print('_duracao1 ${_list[0].duracao1}');
+    print('_duracao2 ${_list[0].duracao2}');
+    print('_duracao3 ${_list[0].duracao3}');
+    print('_temperaturanao ${_list[0].temperaturanao}');
+    print('_febreausente ${_list[0].febreausente}');
 
   }
 
