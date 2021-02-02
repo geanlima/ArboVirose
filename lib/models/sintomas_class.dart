@@ -37,6 +37,13 @@ class SintomasClass with ChangeNotifier {
     return _list.length;
   }
 
+  List<SintomasClass> get items => [..._list];
+
+  void clear() {
+    _list = [];
+    notifyListeners();
+  }
+  
   void newFunction(Map<String, int> map){
     
     SintomasClass obj;
@@ -103,14 +110,5 @@ class SintomasClass with ChangeNotifier {
     if(vomito != null) _list[0].vomito = vomito;
     if(nauseas != null) _list[0].nauseas = nauseas;
     if(outros != null) _list[0].outros = outros;    
-
-    print('dorretro ${_list[0].dorretro}');
-    print('cefaleia ${_list[0].cefaleia}');
-    print('prurido ${_list[0].prurido}');
-    print('dorretro ${_list[0].dorabdominal}');
-    print('cefaleia ${_list[0].hemorragia}');
-    print('prurido ${_list[0].artralgia}');
-    
-
   }
 }

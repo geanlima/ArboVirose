@@ -7,6 +7,7 @@ import 'package:lite_rolling_switch/lite_rolling_switch.dart';
 import 'package:provider/provider.dart';
 
 class DadosPessoaisScreen extends StatefulWidget {
+
   @override
   _DadosPessoaisScreenState createState() => _DadosPessoaisScreenState();
 }
@@ -20,13 +21,6 @@ class _DadosPessoaisScreenState extends State<DadosPessoaisScreen> {
   bool _value60 = false;
   bool _valueSwitch = false;
   bool prag = false;
-
-  final cntsexof = TextEditingController();
-  final cntsexom = TextEditingController();
-  final cntidade1 = TextEditingController();
-  final cntidade2 = TextEditingController();
-  final cntidade3 = TextEditingController();
-  final cntgestante = TextEditingController();
 
   bool rulePregnant(bool valueM) {
     return !valueM;

@@ -12,7 +12,13 @@ class ResultadoClass with ChangeNotifier{
   int get regCount {
     return _list.length;
   }
-
+  
+  List<ResultadoClass> get items => [..._list];
+  
+  void clear() {
+    _list = [];
+    notifyListeners();
+  }
   void newFunction(Map<String, int> map){
     ResultadoClass obj;
     int qtd = regCount;

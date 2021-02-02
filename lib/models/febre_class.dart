@@ -18,6 +18,13 @@ class FebreClass with ChangeNotifier {
     return _list.length;
   }
 
+  List<FebreClass> get items => [..._list];
+  
+  void clear() {
+    _list = [];
+    notifyListeners();
+  }
+  
   void newFunction(Map<String, int> map){
     
     FebreClass obj;
@@ -45,15 +52,6 @@ class FebreClass with ChangeNotifier {
     if(duracao3 != null) _list[0].duracao3 = duracao3;
     if(temperaturanao != null) _list[0].temperaturanao = temperaturanao;
     if(febreausente != null) _list[0].febreausente = febreausente;
-
-    print('_temperatura1 ${_list[0].temperatura1}');
-    print('_temperatura2 ${_list[0].temperatura2}');
-    print('_temperatura3 ${_list[0].temperatura3}');
-    print('_duracao1 ${_list[0].duracao1}');
-    print('_duracao2 ${_list[0].duracao2}');
-    print('_duracao3 ${_list[0].duracao3}');
-    print('_temperaturanao ${_list[0].temperaturanao}');
-    print('_febreausente ${_list[0].febreausente}');
 
   }
 

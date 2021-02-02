@@ -30,7 +30,6 @@ class _SingleWidgetState extends State<SingleWidget> {
       child: InkWell(
         onTap: () {
           setState(() {
-            print(widget.label);
             _selected1 = _selectd1();
             Map<String, int> map;
             if (_selected1){

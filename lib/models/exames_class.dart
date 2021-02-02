@@ -71,6 +71,13 @@ class ExamesClass with ChangeNotifier{
     return _list.length;
   }
 
+  List<ExamesClass> get items => [..._list];
+
+  void clear() {
+    _list = [];
+    notifyListeners();
+  }
+  
   void newFunction(Map<String, int> map){
     ExamesClass obj;
     int qtd = regCount;
@@ -143,14 +150,7 @@ class ExamesClass with ChangeNotifier{
     if(tgp1 != null) _list[0].tgp1 = tgp1;
     if(tgp2 != null) _list[0].tgp2 = tgp2;
     if(tgp3 != null) _list[0].tgp3 = tgp3;
-
-    print('_laco ${_list[0].laco}');
-    print('_hemacias1 ${_list[0].hemacias1}');
-    print('_hemacias2 ${_list[0].hemacias2}');
-    print('_hemacias3 ${_list[0].hemacias3}');
-    print('_hemoglobina1 ${_list[0].hemoglobina1}');
-    print('_hemoglobina2 ${_list[0].hemoglobina2}');
-    print('_hemoglobina3 ${_list[0].hemoglobina3}');    
+  
   }
 
 }

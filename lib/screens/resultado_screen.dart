@@ -1,6 +1,11 @@
 import 'package:arboviroses/models/dai_class.dart';
+import 'package:arboviroses/models/exames_class.dart';
+import 'package:arboviroses/models/febre_class.dart';
 import 'package:arboviroses/models/paciente_class.dart';
 import 'package:arboviroses/models/resultado_class.dart';
+import 'package:arboviroses/models/sintomas_class.dart';
+import 'package:arboviroses/models/sorologia_class.dart';
+import 'package:arboviroses/utils/app_routes.dart';
 import 'package:arboviroses/widgets/box_text_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -14,6 +19,26 @@ class _ResultadoScreenState extends State<ResultadoScreen> {
   bool _selected1 = false;
   bool _selected2 = false;
   bool _selected3 = false;
+  bool _status = true;
+
+  _showConfirmDialog() async {
+    await showDialog(
+      context: context,
+      builder: (ctx) => AlertDialog(
+        title: Text('Registro Gravado'),
+        content: Text('Registro Gravado com sucesso'),
+        actions: [
+          FlatButton(
+            onPressed: () {
+              Navigator.of(context).pushNamed(AppRoutes.HOME);
+            },
+            child: Text('Fechar'),
+          ),
+        ],
+      ),
+    );
+    return Future.value();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -120,6 +145,7 @@ class _ResultadoScreenState extends State<ResultadoScreen> {
               ],
             ),
           ),
+          _status ? 
           Container(
             padding: EdgeInsets.only(top: 40),
             child: Row(
@@ -128,10 +154,38 @@ class _ResultadoScreenState extends State<ResultadoScreen> {
               children: [
                 InkWell(
                   onTap: () {
+                    setState(() {
+                      _status = false;
+                      CircularProgressIndicator();
+                    });
+                    PacienteClass paciente =
+                        Provider.of<PacienteClass>(context, listen: false)
+                            .items[0];
+                    FebreClass febre =
+                        Provider.of<FebreClass>(context, listen: false)
+                            .items[0];
+                    SintomasClass sintomas =
+                        Provider.of<SintomasClass>(context, listen: false)
+                            .items[0];
+                    ExamesClass exames =
+                        Provider.of<ExamesClass>(context, listen: false)
+                            .items[0];
+                    SorologiaClass sorologia =
+                        Provider.of<SorologiaClass>(context, listen: false)
+                            .items[0];
+                    ResultadoClass resultado =
+                        Provider.of<ResultadoClass>(context, listen: false)
+                            .items[0];
+                    Provider.of<DaiClassAction>(context, listen: false).addDai(
+                        paciente != null ? paciente : null,
+                        febre != null ? febre : null,
+                        sintomas != null ? sintomas : null,
+                        exames != null ? exames : null,
+                        sorologia != null ? sorologia : null,
+                        resultado != null ? resultado : null);
 
-                    List<PacienteClass> paciente = Provider.of<PacienteClass>(context, listen: false).items;
-                    print('teste ${paciente[0].toString()}');
-                    //Provider.of<DaiClassAction>(context).addDai(pacClass, febreClass, sintomasClass, examesClass, sororologiaClass, resultadoClass);
+                    Navigator.of(context).pushNamed(AppRoutes.HOME);
+                    //_showConfirmDialog();  
                   },
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -155,7 +209,7 @@ class _ResultadoScreenState extends State<ResultadoScreen> {
                 ),
               ],
             ),
-          ),
+          ) : CircularProgressIndicator(),
         ],
       ),
     );

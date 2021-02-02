@@ -9,7 +9,7 @@ import 'package:arboviroses/widgets/main_body_widget.dart';
 import 'package:arboviroses/widgets/main_header_widget.dart';
 import 'package:arboviroses/widgets/shadow_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+
 
 class MainScreen extends StatefulWidget {
   @override
@@ -18,6 +18,8 @@ class MainScreen extends StatefulWidget {
 
 class _MainScreenState extends State<MainScreen> {
   
+  
+
   bool _expanded1 = false;
   bool _expanded2 = false;
   bool _expanded3 = false;

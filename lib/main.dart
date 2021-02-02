@@ -47,7 +47,6 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(
           create: (_) => new DaiClassAction(),
         ),
-        
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -62,6 +61,7 @@ class MyApp extends StatelessWidget {
           body: MainScreen(), //ReorderableListDemo()
         ),
         routes: {
+          AppRoutes.HOME: (ctx) => MyApp(),  
           AppRoutes.DADOS_PESSOAIS: (ctx) => DadosPessoaisScreen(),
           AppRoutes.SINTOMAS: (ctx) => SintomasScreen(),
           AppRoutes.EXAMES: (ctx) => ExamesScreen(),

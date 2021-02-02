@@ -25,6 +25,13 @@ class SorologiaClass with ChangeNotifier {
     return _list.length;
   }
 
+  List<SorologiaClass> get items => [..._list];
+
+  void clear() {
+    _list = [];
+    notifyListeners();
+  }
+  
   void newFunction(Map<String, int> map){
     SorologiaClass obj;
     int qtd = regCount;
@@ -50,12 +57,6 @@ class SorologiaClass with ChangeNotifier {
     if(chikigg != null) _list[0].chikigg = chikigg;
     if(chikigm != null) _list[0].chikigm = chikigm;
 
-    print('dengueigg ${_list[0].dengueigg}');
-    print('dengueigm ${_list[0].dengueigm}');
-    print('denguens1 ${_list[0].denguens1}');
-    print('zikaigg ${_list[0].zikaigg}');
-    print('zikaigmint ${_list[0].zikaigmint}');
-    print('chikigg ${_list[0].chikigg}');
-    print('chikigm ${_list[0].chikigm}');    
+  
   }
 }

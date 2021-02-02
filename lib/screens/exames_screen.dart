@@ -174,8 +174,6 @@ class _ExamesScreenState extends State<ExamesScreen> {
                               obj.newFunction(hemacias1);
                               obj.newFunction(hemacias2);
                               obj.newFunction(hemacias3);
-                              _selected2 = false;
-                              _selected3 = false;
                               _selected1 = false;
                               _selected3 = false;
                             }
@@ -201,8 +199,6 @@ class _ExamesScreenState extends State<ExamesScreen> {
                               obj.newFunction(hemacias1);
                               obj.newFunction(hemacias2);
                               obj.newFunction(hemacias3);
-                              _selected2 = false;
-                              _selected3 = false;
                               _selected1 = false;
                               _selected2 = false;
                             }
