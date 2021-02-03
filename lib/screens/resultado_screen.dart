@@ -151,15 +151,18 @@ class _ResultadoScreenState extends State<ResultadoScreen> {
               ],
             ),
           ),
-          _status
-              ? Container(
-                  padding: EdgeInsets.only(top: 40),
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      InkWell(
+          Container(
+            padding: EdgeInsets.only(top: 40),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.end,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                _status
+                    ? InkWell(
                         onTap: () async {
+                          setState(() {
+                            _status = false;
+                          });
                           PacienteClass paciente;
                           FebreClass febre;
                           SintomasClass sintomas;
@@ -325,6 +328,11 @@ class _ResultadoScreenState extends State<ResultadoScreen> {
                                 ),
                                 duration: Duration(seconds: segErro),
                                 backgroundColor: Colors.white,
+                                onVisible: () {
+                                  setState(() {
+                                    _status = true;
+                                  });
+                                },
                               ),
                             );
                           }
@@ -339,6 +347,11 @@ class _ResultadoScreenState extends State<ResultadoScreen> {
                                 ),
                                 backgroundColor: Colors.white,
                                 duration: Duration(seconds: segErro),
+                                onVisible: () {
+                                  setState(() {
+                                    _status = true;
+                                  });
+                                },
                               ),
                             );
                           }
@@ -353,6 +366,11 @@ class _ResultadoScreenState extends State<ResultadoScreen> {
                                 ),
                                 backgroundColor: Colors.white,
                                 duration: Duration(seconds: segErro),
+                                onVisible: () {
+                                  setState(() {
+                                    _status = true;
+                                  });
+                                },
                               ),
                             );
                           }
@@ -367,6 +385,11 @@ class _ResultadoScreenState extends State<ResultadoScreen> {
                                 ),
                                 backgroundColor: Colors.white,
                                 duration: Duration(seconds: segErro),
+                                onVisible: () {
+                                  setState(() {
+                                    _status = true;
+                                  });
+                                },
                               ),
                             );
                           }
@@ -398,13 +421,9 @@ class _ResultadoScreenState extends State<ResultadoScreen> {
                                     backgroundColor: Colors.white,
                                     onVisible: () async {
                                       setState(() {
-                                        _status = false;
-                                      });
-                                      await Future.delayed(
-                                          Duration(seconds: 5));
-                                      setState(() {
                                         _status = true;
-                                      });    
+                                      });
+
                                       Navigator.of(context)
                                           .pushNamed(AppRoutes.HOME);
                                     }),
@@ -427,31 +446,32 @@ class _ResultadoScreenState extends State<ResultadoScreen> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            _status ? container() : CircularProgressIndicator(),                            
+                            Container(
+                              height: 50,
+                              width: 120,
+                              alignment: Alignment.center,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10),
+                                color: Theme.of(context).primaryColor,
+                              ),
+                              child: Text(
+                                'Gravar',
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            )
+                            //_status ? container() : CircularProgressIndicator(),
                           ],
                         ),
+                      )
+                    : Center(
+                        child: CircularProgressIndicator(),
                       ),
-                    ],
-                  ),
-                )
-              : CircularProgressIndicator(),
+              ],
+            ),
+          )
         ],
-      ),
-    );
-  }
-
-  Container container() {
-    return Container(
-      height: 50,
-      width: 120,
-      alignment: Alignment.center,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
-        color: Theme.of(context).primaryColor,
-      ),
-      child: Text(
-        'Gravar',
-        style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
       ),
     );
   }
