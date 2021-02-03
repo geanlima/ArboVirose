@@ -160,7 +160,6 @@ class _ResultadoScreenState extends State<ResultadoScreen> {
                     children: [
                       InkWell(
                         onTap: () async {
-                          
                           PacienteClass paciente;
                           FebreClass febre;
                           SintomasClass sintomas;
@@ -398,8 +397,14 @@ class _ResultadoScreenState extends State<ResultadoScreen> {
                                     duration: Duration(seconds: 5),
                                     backgroundColor: Colors.white,
                                     onVisible: () async {
+                                      setState(() {
+                                        _status = false;
+                                      });
                                       await Future.delayed(
                                           Duration(seconds: 5));
+                                      setState(() {
+                                        _status = true;
+                                      });    
                                       Navigator.of(context)
                                           .pushNamed(AppRoutes.HOME);
                                     }),
@@ -422,21 +427,7 @@ class _ResultadoScreenState extends State<ResultadoScreen> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Container(
-                              height: 50,
-                              width: 120,
-                              alignment: Alignment.center,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10),
-                                color: Theme.of(context).primaryColor,
-                              ),
-                              child: Text(
-                                'Gravar',
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold),
-                              ),
-                            ),
+                            _status ? container() : CircularProgressIndicator(),                            
                           ],
                         ),
                       ),
@@ -445,6 +436,22 @@ class _ResultadoScreenState extends State<ResultadoScreen> {
                 )
               : CircularProgressIndicator(),
         ],
+      ),
+    );
+  }
+
+  Container container() {
+    return Container(
+      height: 50,
+      width: 120,
+      alignment: Alignment.center,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(10),
+        color: Theme.of(context).primaryColor,
+      ),
+      child: Text(
+        'Gravar',
+        style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
       ),
     );
   }
