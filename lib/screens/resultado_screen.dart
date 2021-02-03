@@ -27,7 +27,7 @@ class _ResultadoScreenState extends State<ResultadoScreen> {
   @override
   Widget build(BuildContext context) {
     ResultadoClass obj = Provider.of(context, listen: false);
-    int segErro = 4;
+    int segErro = 6;
 
     TextStyle styleErro() {
       return TextStyle(
@@ -382,8 +382,6 @@ class _ResultadoScreenState extends State<ResultadoScreen> {
                                     sorologia != null ? sorologia : null,
                                     resultado != null ? resultado : null);
 
-                            print('ret $ret');
-
                             if (ret) {
                               Scaffold.of(context).hideCurrentSnackBar();
                               Scaffold.of(context).showSnackBar(
@@ -392,7 +390,7 @@ class _ResultadoScreenState extends State<ResultadoScreen> {
                                       'Registro adicinado com sucesso!',
                                       style: styleSucess(),
                                     ),
-                                    duration: Duration(seconds: 5),
+                                    duration: Duration(seconds: 10),
                                     backgroundColor: Colors.white,
                                     onVisible: () {
                                       Navigator.of(context)
@@ -408,11 +406,7 @@ class _ResultadoScreenState extends State<ResultadoScreen> {
                                     style: styleErro(),
                                   ),
                                   backgroundColor: Colors.white,
-                                  duration: Duration(seconds: segErro),
-                                  onVisible: () {
-                                    Navigator.of(context)
-                                        .pushNamed(AppRoutes.HOME);
-                                  },
+                                  duration: Duration(seconds: segErro),                                  
                                 ),
                               );
                             }
