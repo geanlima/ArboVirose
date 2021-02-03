@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:arboviroses/models/exames_class.dart';
 import 'package:arboviroses/models/febre_class.dart';
 import 'package:arboviroses/models/paciente_class.dart';
+import 'package:arboviroses/models/post.dart';
 import 'package:arboviroses/models/resultado_class.dart';
 import 'package:arboviroses/models/sintomas_class.dart';
 import 'package:arboviroses/models/sorologia_class.dart';
@@ -9,6 +10,7 @@ import 'package:arboviroses/utils/constants.dart';
 import 'package:arboviroses/utils/validator.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:http/http.dart';
 import 'package:provider/provider.dart';
 
 class DaiClass with ChangeNotifier {
@@ -193,105 +195,116 @@ class DaiClass with ChangeNotifier {
 
 class DaiClassAction with ChangeNotifier {
   String baseUrl = Constants.BASE_API_URL;
+  
+  bool retorno = false;
 
-  Future<void> addDai(
-      BuildContext context,
+  Future<bool> addDai(
       PacienteClass pacienteClass,
       FebreClass febreClass,
       SintomasClass sintomasClass,
       ExamesClass examesClass,
       SorologiaClass sororologiaClass,
       ResultadoClass resultadoClass) async {
+
     try {
-      
-      var response = await http.post(
-          baseUrl,
-          headers: {"Content-type": "application/json"},
-          body: json.encode({
-            "artralgia": sintomasClass.artralgia,
-            "artrite": sintomasClass.artrite,
-            "calafrio": sintomasClass.calafrio,
-            "cefaleia": sintomasClass.cefaleia,
-            "chik_igg": sororologiaClass.chikigg,
-            "chik_igm": sororologiaClass.chikigm,
-            "conjutivite": sintomasClass.conjutivite,
-            "convulsoes": sintomasClass.convulsoes,
-            "dengue_igg": sororologiaClass.dengueigg,
-            "dengue_igm": sororologiaClass.dengueigm,
-            "dengue_ns1": sororologiaClass.denguens1,
-            "diarreia": sintomasClass.diarreia,
-            "dispneia": sintomasClass.dispneia,
-            "doenca": resultadoClass.doenca,
-            "dor_abdominal": sintomasClass.dorabdominal,
-            "dor_costas": sintomasClass.dorcostas,
-            "dor_ouvido": sintomasClass.dorouvido,
-            "dor_retro": sintomasClass.dorretro,
-            "duracao1": febreClass.duracao1,
-            "duracao2": febreClass.duracao2,
-            "duracao3": febreClass.duracao3,
-            "edema": sintomasClass.edema,
-            "exantema": sintomasClass.exantema,
-            "falta_apetite": sintomasClass.faltaapetite,
-            "febre_ausente": febreClass.febreausente,
-            "gestante": pacienteClass.gestante,
-            "hemacias1": examesClass.hemacias1,
-            "hemacias2": examesClass.hemacias2,
-            "hemacias3": examesClass.hemacias3,
-            "hematocrito1": examesClass.hematocrito1,
-            "hematocrito2": examesClass.hematocrito2,
-            "hematocrito3": examesClass.hematocrito3,
-            "hematoma": sintomasClass.hematoma,
-            "hemoglobina1": examesClass.hemoglobina1,
-            "hemoglobina2": examesClass.hemoglobina2,
-            "hemoglobina3": examesClass.hemoglobina3,
-            "hemorragia": sintomasClass.hemorragia,
-            "idade1": pacienteClass.idade1,
-            "idade2": pacienteClass.idade2,
-            "idade3": pacienteClass.idade3,
-            "laco": examesClass.laco,
-            "leucocitos1": examesClass.leucocitos1,
-            "leucocitos2": examesClass.leucocitos2,
-            "leucocitos3": examesClass.leucocitos3,
-            "linfadenopatia": sintomasClass.linfadenopatia,
-            "linfocitos1": examesClass.linfocitos1,
-            "linfocitos2": examesClass.linfocitos2,
-            "linfocitos3": examesClass.linfocitos3,
-            "mal_estar": sintomasClass.malestar,
-            "mialgia": sintomasClass.mialgia,
-            "nauseas": sintomasClass.nauseas,
-            "neutrofilos1": examesClass.neutrofilos1,
-            "neutrofilos2": examesClass.neutrofilos2,
-            "neutrofilos3": examesClass.neutrofilos3,
-            "outros": sintomasClass.outros,
-            "pcr1": examesClass.pcr1,
-            "pcr2": examesClass.pcr2,
-            "pcr3": examesClass.pcr3,
-            "plaqueta1": examesClass.plaqueta1,
-            "plaqueta2": examesClass.plaqueta2,
-            "plaqueta3": examesClass.plaqueta3,
-            "prostacao": sintomasClass.prostacao,
-            "prurido": sintomasClass.prurido,
-            "sexof": pacienteClass.sexof,
-            "sexom": pacienteClass.sexom,
-            "sudorese": sintomasClass.sudorese,
-            "temperatura1": febreClass.temperatura1,
-            "temperatura2": febreClass.temperatura2,
-            "temperatura3": febreClass.temperatura3,
-            "temperatura_nao": febreClass.temperaturanao,
-            "tgo1": examesClass.tgo1,
-            "tgo2": examesClass.tgo2,
-            "tgo3": examesClass.tgo3,
-            "tgp1": examesClass.tgp1,
-            "tgp2": examesClass.tgp2,
-            "tgp3": examesClass.tgp3,
-            "tosse": sintomasClass.tosse,
-            "vomito": sintomasClass.vomito,
-            "zika_igg": sororologiaClass.zikaigg,
-            "zika_igm": sororologiaClass.zikaigmint,
-          }));
-      
-      
-      
+      print('1');
+      await http
+          .post(baseUrl,
+              headers: {"Content-type": "application/json"},
+              body: json.encode({
+                "artralgia": sintomasClass.artralgia,
+                "artrite": sintomasClass.artrite,
+                "calafrio": sintomasClass.calafrio,
+                "cefaleia": sintomasClass.cefaleia,
+                "chik_igg": sororologiaClass.chikigg,
+                "chik_igm": sororologiaClass.chikigm,
+                "conjutivite": sintomasClass.conjutivite,
+                "convulsoes": sintomasClass.convulsoes,
+                "dengue_igg": sororologiaClass.dengueigg,
+                "dengue_igm": sororologiaClass.dengueigm,
+                "dengue_ns1": sororologiaClass.denguens1,
+                "diarreia": sintomasClass.diarreia,
+                "dispneia": sintomasClass.dispneia,
+                "doenca": resultadoClass.doenca,
+                "dor_abdominal": sintomasClass.dorabdominal,
+                "dor_costas": sintomasClass.dorcostas,
+                "dor_ouvido": sintomasClass.dorouvido,
+                "dor_retro": sintomasClass.dorretro,
+                "duracao1": febreClass.duracao1,
+                "duracao2": febreClass.duracao2,
+                "duracao3": febreClass.duracao3,
+                "edema": sintomasClass.edema,
+                "exantema": sintomasClass.exantema,
+                "falta_apetite": sintomasClass.faltaapetite,
+                "febre_ausente": febreClass.febreausente,
+                "gestante": pacienteClass.gestante,
+                "hemacias1": examesClass.hemacias1,
+                "hemacias2": examesClass.hemacias2,
+                "hemacias3": examesClass.hemacias3,
+                "hematocrito1": examesClass.hematocrito1,
+                "hematocrito2": examesClass.hematocrito2,
+                "hematocrito3": examesClass.hematocrito3,
+                "hematoma": sintomasClass.hematoma,
+                "hemoglobina1": examesClass.hemoglobina1,
+                "hemoglobina2": examesClass.hemoglobina2,
+                "hemoglobina3": examesClass.hemoglobina3,
+                "hemorragia": sintomasClass.hemorragia,
+                "idade1": pacienteClass.idade1,
+                "idade2": pacienteClass.idade2,
+                "idade3": pacienteClass.idade3,
+                "laco": examesClass.laco,
+                "leucocitos1": examesClass.leucocitos1,
+                "leucocitos2": examesClass.leucocitos2,
+                "leucocitos3": examesClass.leucocitos3,
+                "linfadenopatia": sintomasClass.linfadenopatia,
+                "linfocitos1": examesClass.linfocitos1,
+                "linfocitos2": examesClass.linfocitos2,
+                "linfocitos3": examesClass.linfocitos3,
+                "mal_estar": sintomasClass.malestar,
+                "mialgia": sintomasClass.mialgia,
+                "nauseas": sintomasClass.nauseas,
+                "neutrofilos1": examesClass.neutrofilos1,
+                "neutrofilos2": examesClass.neutrofilos2,
+                "neutrofilos3": examesClass.neutrofilos3,
+                "outros": sintomasClass.outros,
+                "pcr1": examesClass.pcr1,
+                "pcr2": examesClass.pcr2,
+                "pcr3": examesClass.pcr3,
+                "plaqueta1": examesClass.plaqueta1,
+                "plaqueta2": examesClass.plaqueta2,
+                "plaqueta3": examesClass.plaqueta3,
+                "prostacao": sintomasClass.prostacao,
+                "prurido": sintomasClass.prurido,
+                "sexof": pacienteClass.sexof,
+                "sexom": pacienteClass.sexom,
+                "sudorese": sintomasClass.sudorese,
+                "temperatura1": febreClass.temperatura1,
+                "temperatura2": febreClass.temperatura2,
+                "temperatura3": febreClass.temperatura3,
+                "temperatura_nao": febreClass.temperaturanao,
+                "tgo1": examesClass.tgo1,
+                "tgo2": examesClass.tgo2,
+                "tgo3": examesClass.tgo3,
+                "tgp1": examesClass.tgp1,
+                "tgp2": examesClass.tgp2,
+                "tgp3": examesClass.tgp3,
+                "tosse": sintomasClass.tosse,
+                "vomito": sintomasClass.vomito,
+                "zika_igg": sororologiaClass.zikaigg,
+                "zika_igm": sororologiaClass.zikaigmint,
+              }))
+          .then((http.Response response) {
+                if(response.statusCode == 201){
+                  print('2');
+                  retorno = true;
+                } else {
+                  print('3');
+                  retorno = false;
+                }
+              }).catchError(((onError){
+                print('4');
+              }));
+          
       pacienteClass.clear();
       febreClass.clear();
       sintomasClass.clear();
@@ -300,9 +313,12 @@ class DaiClassAction with ChangeNotifier {
       resultadoClass.clear();
 
       notifyListeners();
+      
+      return retorno;
 
     } catch (error) {
-      
+      print('error $error');
+      return false;
     }
   }
 }

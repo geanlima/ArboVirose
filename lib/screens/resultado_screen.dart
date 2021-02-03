@@ -8,7 +8,6 @@ import 'package:arboviroses/models/resultado_class.dart';
 import 'package:arboviroses/models/sintomas_class.dart';
 import 'package:arboviroses/models/sorologia_class.dart';
 import 'package:arboviroses/utils/app_routes.dart';
-import 'package:arboviroses/utils/constants.dart';
 import 'package:arboviroses/utils/validator.dart';
 import 'package:arboviroses/widgets/box_text_widget.dart';
 import 'package:flutter/material.dart';
@@ -51,11 +50,13 @@ class _ResultadoScreenState extends State<ResultadoScreen> {
       ),
       child: Column(
         children: <Widget>[
+          SizedBox(height: 15,),
           Container(
             padding: EdgeInsets.only(bottom: 15),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                SizedBox(height: 10,),
                 Container(
                   height: 50,
                   width: 150,
@@ -288,12 +289,14 @@ class _ResultadoScreenState extends State<ResultadoScreen> {
                           Validator validateFebre = new Validator();
                           Validator validateSintomas = new Validator();
                           Validator validateResultado = new Validator();
-                          
 
-                          bool validPaciente = validatePaciente.validatePaciente(paciente);
+                          bool validPaciente =
+                              validatePaciente.validatePaciente(paciente);
                           bool validFebre = validateFebre.validateFebre(febre);
-                          bool validSintomas = validateSintomas.validateSintomas(sintomas);
-                          bool validResultado = validateResultado.validateResultado(resultado);
+                          bool validSintomas =
+                              validateSintomas.validateSintomas(sintomas);
+                          bool validResultado =
+                              validateResultado.validateResultado(resultado);
                           bool validConnection = false;
 
                           try {
@@ -364,28 +367,14 @@ class _ResultadoScreenState extends State<ResultadoScreen> {
                             );
                           }
 
-                          if (!validConnection) {
-                            Scaffold.of(context).hideCurrentSnackBar();
-                            Scaffold.of(context).showSnackBar(
-                              SnackBar(
-                                content: Text(
-                                  "Dispositivo entra-se sem conexão com o servidor",
-                                  style: styleErro(),
-                                ),
-                                backgroundColor: Colors.white,
-                                duration: Duration(seconds: segErro),
-                              ),
-                            );
-                          }
-
                           if (validSintomas &&
                               validFebre &&
                               validResultado &&
-                              validPaciente &&
-                              validConnection) {
-                            Provider.of<DaiClassAction>(context, listen: false)
-                                .addDai(
+                              validPaciente) {
+                            final ret = await Provider.of<DaiClassAction>(
                                     context,
+                                    listen: false)
+                                .addDai(
                                     paciente != null ? paciente : null,
                                     febre != null ? febre : null,
                                     sintomas != null ? sintomas : null,
@@ -393,20 +382,40 @@ class _ResultadoScreenState extends State<ResultadoScreen> {
                                     sorologia != null ? sorologia : null,
                                     resultado != null ? resultado : null);
 
-                            Scaffold.of(context).hideCurrentSnackBar();
-                            Scaffold.of(context).showSnackBar(
-                              SnackBar(
+                            print('ret $ret');
+
+                            if (ret) {
+                              Scaffold.of(context).hideCurrentSnackBar();
+                              Scaffold.of(context).showSnackBar(
+                                SnackBar(
+                                    content: Text(
+                                      'Registro adicinado com sucesso!',
+                                      style: styleSucess(),
+                                    ),
+                                    duration: Duration(seconds: 5),
+                                    backgroundColor: Colors.white,
+                                    onVisible: () {
+                                      Navigator.of(context)
+                                          .pushNamed(AppRoutes.HOME);
+                                    }),
+                              );
+                            } else {
+                              Scaffold.of(context).hideCurrentSnackBar();
+                              Scaffold.of(context).showSnackBar(
+                                SnackBar(
                                   content: Text(
-                                    'Registro adicinado com sucesso!',
-                                    style: styleSucess(),
+                                    "Registro não gravado! Problema no servidor ou internet indisponível.",
+                                    style: styleErro(),
                                   ),
-                                  duration: Duration(seconds: 4),
                                   backgroundColor: Colors.white,
+                                  duration: Duration(seconds: segErro),
                                   onVisible: () {
                                     Navigator.of(context)
                                         .pushNamed(AppRoutes.HOME);
-                                  }),
-                            );
+                                  },
+                                ),
+                              );
+                            }
                           }
                         },
                         child: Row(

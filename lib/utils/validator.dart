@@ -6,6 +6,7 @@ import 'package:arboviroses/models/paciente_class.dart';
 import 'package:arboviroses/models/resultado_class.dart';
 import 'package:arboviroses/models/sintomas_class.dart';
 import 'package:arboviroses/models/sorologia_class.dart';
+import 'package:flutter/cupertino.dart';
 
 class Validator {
   PacienteClass pacienteClass;
@@ -14,20 +15,19 @@ class Validator {
   ExamesClass examesClass;
   SorologiaClass sorologiaClass;
   ResultadoClass resultadoClass;
+  BuildContext context;
 
-  
-  
   Validator(
       {this.pacienteClass,
       this.examesClass,
       this.febreClass,
       this.sintomasClass,
       this.sorologiaClass,
-      this.resultadoClass});
+      this.resultadoClass,
+      this.context});
 
   int total = 0;
 
-  
   bool validateFebre(FebreClass febre) {
     bool retorno = false;
 
@@ -108,9 +108,6 @@ class Validator {
 
     int prag = paciente.gestante;
     int man = paciente.sexom;
-
-    print('man $man');
-    print('prag $prag');
     
     if (prag == 1 && man == 1) {
       retorno = false;
