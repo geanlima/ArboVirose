@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:arboviroses/models/dai_class.dart';
 import 'package:arboviroses/models/exames_class.dart';
 import 'package:arboviroses/models/febre_class.dart';
@@ -6,12 +8,11 @@ import 'package:arboviroses/models/resultado_class.dart';
 import 'package:arboviroses/models/sintomas_class.dart';
 import 'package:arboviroses/models/sorologia_class.dart';
 import 'package:arboviroses/utils/app_routes.dart';
+import 'package:arboviroses/utils/constants.dart';
 import 'package:arboviroses/utils/validator.dart';
 import 'package:arboviroses/widgets/box_text_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
-import 'main_screen.dart';
 
 class ResultadoScreen extends StatefulWidget {
   @override
@@ -24,34 +25,24 @@ class _ResultadoScreenState extends State<ResultadoScreen> {
   bool _selected3 = false;
   bool _status = true;
 
-  Future<bool> _showConfirmDialog() async {
-    bool retorno = false;
-    await showDialog(
-      context: context,
-      builder: (ctx) => AlertDialog(
-        title: Text('Registro Gravado'),
-        content: Text('Registro Gravado com sucesso'),
-        actions: [
-          FlatButton(
-            onPressed: () {
-              retorno = true;
-              Navigator.of(context).pop();
-              //retorno = true;
-              //Navigator.of(context).pushNamed(AppRoutes.HOME);
-            },
-            child: Text('Fechar'),
-          ),
-        ],
-      ),
-    );
-    return retorno;
-  }
-
   @override
   Widget build(BuildContext context) {
     ResultadoClass obj = Provider.of(context, listen: false);
-    PacienteClass objPaciente = Provider.of(context, listen: false);
-    //Validator objValidator = Provider.of<Validator>(context, listen: false);
+    int segErro = 4;
+
+    TextStyle styleErro() {
+      return TextStyle(
+        color: Colors.red,
+        fontWeight: FontWeight.bold,
+      );
+    }
+
+    TextStyle styleSucess() {
+      return TextStyle(
+        color: Colors.green,
+        fontWeight: FontWeight.bold,
+      );
+    }
 
     return Container(
       decoration: BoxDecoration(
@@ -163,7 +154,7 @@ class _ResultadoScreenState extends State<ResultadoScreen> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       InkWell(
-                        onTap: () {
+                        onTap: () async {
                           PacienteClass paciente;
                           FebreClass febre;
                           SintomasClass sintomas;
@@ -174,14 +165,7 @@ class _ResultadoScreenState extends State<ResultadoScreen> {
                           if (Provider.of<PacienteClass>(context, listen: false)
                               .items
                               .isEmpty) {
-                            paciente = new PacienteClass(
-                              0,
-                              0,
-                              0,
-                              0,
-                              0,
-                              0,
-                            );
+                            paciente = new PacienteClass(0, 0, 0, 0, 0, 0);
                           } else {
                             paciente = Provider.of<PacienteClass>(context,
                                     listen: false)
@@ -191,16 +175,7 @@ class _ResultadoScreenState extends State<ResultadoScreen> {
                           if (Provider.of<FebreClass>(context, listen: false)
                               .items
                               .isEmpty) {
-                            febre = new FebreClass(
-                              0,
-                              0,
-                              0,
-                              0,
-                              0,
-                              0,
-                              0,
-                              0,
-                            );
+                            febre = new FebreClass(0, 0, 0, 0, 0, 0, 0, 0);
                           } else {
                             febre =
                                 Provider.of<FebreClass>(context, listen: false)
@@ -211,34 +186,33 @@ class _ResultadoScreenState extends State<ResultadoScreen> {
                               .items
                               .isEmpty) {
                             sintomas = new SintomasClass(
-                              0,
-                              0,
-                              0,
-                              0,
-                              0,
-                              0,
-                              0,
-                              0,
-                              0,
-                              0,
-                              0,
-                              0,
-                              0,
-                              0,
-                              0,
-                              0,
-                              0,
-                              0,
-                              0,
-                              0,
-                              0,
-                              0,
-                              0,
-                              0,
-                              0,
-                              0,
-                              0,
-                            );
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0);
                           } else {
                             sintomas = Provider.of<SintomasClass>(context,
                                     listen: false)
@@ -249,38 +223,37 @@ class _ResultadoScreenState extends State<ResultadoScreen> {
                               .items
                               .isEmpty) {
                             exames = new ExamesClass(
-                              0,
-                              0,
-                              0,
-                              0,
-                              0,
-                              0,
-                              0,
-                              0,
-                              0,
-                              0,
-                              0,
-                              0,
-                              0,
-                              0,
-                              0,
-                              0,
-                              0,
-                              0,
-                              0,
-                              0,
-                              0,
-                              0,
-                              0,
-                              0,
-                              0,
-                              0,
-                              0,
-                              0,
-                              0,
-                              0,
-                              0,
-                            );
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0,
+                                0);
                           } else {
                             exames =
                                 Provider.of<ExamesClass>(context, listen: false)
@@ -291,15 +264,7 @@ class _ResultadoScreenState extends State<ResultadoScreen> {
                                   listen: false)
                               .items
                               .isEmpty) {
-                            sorologia = new SorologiaClass(
-                              0,
-                              0,
-                              0,
-                              0,
-                              0,
-                              0,
-                              0,
-                            );
+                            sorologia = new SorologiaClass(0, 0, 0, 0, 0, 0, 0);
                           } else {
                             sorologia = Provider.of<SorologiaClass>(context,
                                     listen: false)
@@ -319,20 +284,40 @@ class _ResultadoScreenState extends State<ResultadoScreen> {
                                 .items[0];
                           }
 
+                          Validator validatePaciente = new Validator();
                           Validator validateFebre = new Validator();
                           Validator validateSintomas = new Validator();
-                          bool validfebre = validateFebre.validateFebre(febre);
-                          bool validSintomas =
-                              validateSintomas.validateSintomas(sintomas);
+                          Validator validateResultado = new Validator();
+                          
 
-                          if (!validfebre) {
+                          bool validPaciente = validatePaciente.validatePaciente(paciente);
+                          bool validFebre = validateFebre.validateFebre(febre);
+                          bool validSintomas = validateSintomas.validateSintomas(sintomas);
+                          bool validResultado = validateResultado.validateResultado(resultado);
+                          bool validConnection = false;
+
+                          try {
+                            final result =
+                                await InternetAddress.lookup('google.com');
+
+                            if (result.isNotEmpty &&
+                                result[0].rawAddress.isNotEmpty) {
+                              validConnection = true;
+                            }
+                          } on SocketException catch (_) {
+                            validConnection = false;
+                          }
+
+                          if (!validResultado) {
                             Scaffold.of(context).hideCurrentSnackBar();
                             Scaffold.of(context).showSnackBar(
                               SnackBar(
                                 content: Text(
-                                  "Favor escolher pelo menos 1 item de febre",
+                                  "Favor escolher pelo menos 1 doença",
+                                  style: styleErro(),
                                 ),
-                                duration: Duration(seconds: 2),
+                                duration: Duration(seconds: segErro),
+                                backgroundColor: Colors.white,
                               ),
                             );
                           }
@@ -343,13 +328,61 @@ class _ResultadoScreenState extends State<ResultadoScreen> {
                               SnackBar(
                                 content: Text(
                                   "Favor escolher pelo menos 3 itens de Sintomas",
+                                  style: styleErro(),
                                 ),
-                                duration: Duration(seconds: 3),
+                                backgroundColor: Colors.white,
+                                duration: Duration(seconds: segErro),
                               ),
                             );
                           }
 
-                          if (validSintomas && validfebre) {
+                          if (!validFebre) {
+                            Scaffold.of(context).hideCurrentSnackBar();
+                            Scaffold.of(context).showSnackBar(
+                              SnackBar(
+                                content: Text(
+                                  "Favor escolher pelo menos 1 item de febre",
+                                  style: styleErro(),
+                                ),
+                                backgroundColor: Colors.white,
+                                duration: Duration(seconds: segErro),
+                              ),
+                            );
+                          }
+
+                          if (!validPaciente) {
+                            Scaffold.of(context).hideCurrentSnackBar();
+                            Scaffold.of(context).showSnackBar(
+                              SnackBar(
+                                content: Text(
+                                  "Opção gestante é apenas para o sexo Feminino!",
+                                  style: styleErro(),
+                                ),
+                                backgroundColor: Colors.white,
+                                duration: Duration(seconds: segErro),
+                              ),
+                            );
+                          }
+
+                          if (!validConnection) {
+                            Scaffold.of(context).hideCurrentSnackBar();
+                            Scaffold.of(context).showSnackBar(
+                              SnackBar(
+                                content: Text(
+                                  "Dispositivo entra-se sem conexão com o servidor",
+                                  style: styleErro(),
+                                ),
+                                backgroundColor: Colors.white,
+                                duration: Duration(seconds: segErro),
+                              ),
+                            );
+                          }
+
+                          if (validSintomas &&
+                              validFebre &&
+                              validResultado &&
+                              validPaciente &&
+                              validConnection) {
                             Provider.of<DaiClassAction>(context, listen: false)
                                 .addDai(
                                     context,
@@ -365,8 +398,10 @@ class _ResultadoScreenState extends State<ResultadoScreen> {
                               SnackBar(
                                   content: Text(
                                     'Registro adicinado com sucesso!',
+                                    style: styleSucess(),
                                   ),
-                                  duration: Duration(seconds: 2),
+                                  duration: Duration(seconds: 4),
+                                  backgroundColor: Colors.white,
                                   onVisible: () {
                                     Navigator.of(context)
                                         .pushNamed(AppRoutes.HOME);
@@ -402,5 +437,11 @@ class _ResultadoScreenState extends State<ResultadoScreen> {
         ],
       ),
     );
+  }
+
+  Future<List<InternetAddress>> validateConnection() async {
+    List<InternetAddress> result;
+
+    return result;
   }
 }

@@ -7,7 +7,6 @@ import 'package:lite_rolling_switch/lite_rolling_switch.dart';
 import 'package:provider/provider.dart';
 
 class DadosPessoaisScreen extends StatefulWidget {
-
   @override
   _DadosPessoaisScreenState createState() => _DadosPessoaisScreenState();
 }
@@ -19,11 +18,18 @@ class _DadosPessoaisScreenState extends State<DadosPessoaisScreen> {
   bool _value016 = false;
   bool _value1760 = false;
   bool _value60 = false;
-  bool _valueSwitch = false;
+
   bool prag = false;
 
   bool rulePregnant(bool valueM) {
     return !valueM;
+  }
+
+  TextStyle styleErro() {
+    return TextStyle(
+      color: Colors.red,
+      fontWeight: FontWeight.bold,
+    );
   }
 
   @override
@@ -46,19 +52,33 @@ class _DadosPessoaisScreenState extends State<DadosPessoaisScreen> {
                   Container(
                     child: InkWell(
                       onTap: () {
-                        setState(
-                          () {
-                            _valueMan = !_valueMan;
-                            if (_valueMan) {
-                              Map<String, int> sexom = {"sexom": 1};
-                              Map<String, int> sexof = {"sexof": 0};
-                              obj.newPaciente(sexom);
-                              obj.newPaciente(sexof);
-                              _valueWoman = false;
-                              _valueSwitch = rulePregnant(_valueMan);
-                            }
-                          },
-                        );
+                        setState(() {
+                          int gest = prag ? 1 : 0;
+                          _valueMan = !_valueMan;
+                          if (prag && _valueMan) {
+                            Scaffold.of(context).hideCurrentSnackBar();
+                            Scaffold.of(context).showSnackBar(
+                              SnackBar(
+                                  content: Text(
+                                    'Favor informar gestante Não!',
+                                    style: styleErro(),
+                                  ),
+                                  duration: Duration(seconds: 3),
+                                  backgroundColor: Colors.white,
+                                  onVisible: () {}),
+                            );
+                          }
+                          if (_valueMan) {
+                            print(gest);
+                            Map<String, int> sexom = {"sexom": 1};
+                            Map<String, int> sexof = {"sexof": 0};
+                            Map<String, int> prag = {"gestante": gest};
+                            obj.newPaciente(sexom);
+                            obj.newPaciente(sexof);
+                            obj.newPaciente(prag);
+                            _valueWoman = false;
+                          }
+                        });
                       },
                       child: BoxImageWidget(
                         'assets/images/man.png',
@@ -78,7 +98,6 @@ class _DadosPessoaisScreenState extends State<DadosPessoaisScreen> {
                             obj.newPaciente(sexof);
                             obj.newPaciente(sexom);
                             _valueMan = false;
-                            _valueSwitch = true;
                           }
                         },
                       );
@@ -113,7 +132,7 @@ class _DadosPessoaisScreenState extends State<DadosPessoaisScreen> {
                             Map<String, int> idade3 = {"idade3": 0};
                             obj.newPaciente(idade1);
                             obj.newPaciente(idade2);
-                            obj.newPaciente(idade3);                            
+                            obj.newPaciente(idade3);
                           }
                         },
                       );
@@ -135,7 +154,7 @@ class _DadosPessoaisScreenState extends State<DadosPessoaisScreen> {
                           Map<String, int> idade3 = {"idade3": 0};
                           obj.newPaciente(idade1);
                           obj.newPaciente(idade2);
-                          obj.newPaciente(idade3);  
+                          obj.newPaciente(idade3);
                           _value016 = false;
                           _value60 = false;
                         }
@@ -160,7 +179,7 @@ class _DadosPessoaisScreenState extends State<DadosPessoaisScreen> {
                           Map<String, int> idade3 = {"idade3": 1};
                           obj.newPaciente(idade1);
                           obj.newPaciente(idade2);
-                          obj.newPaciente(idade3);  
+                          obj.newPaciente(idade3);
                         }
                       });
                     },
@@ -182,7 +201,6 @@ class _DadosPessoaisScreenState extends State<DadosPessoaisScreen> {
               SizedBox(width: 10),
               Container(
                 child: LiteRollingSwitch(
-                  value: _valueSwitch,
                   textOn: "Sim",
                   textOff: "Não",
                   colorOn: const Color(0xff7380f2),
@@ -190,9 +208,31 @@ class _DadosPessoaisScreenState extends State<DadosPessoaisScreen> {
                   iconOn: Icons.pregnant_woman_rounded,
                   iconOff: Icons.alarm_off,
                   textSize: 18.0,
-                  onChanged: (bool position) {                    
-                    Map<String, int> gestante = {"gestante": position ? 1 : 0};                    
+                  onChanged: (bool position) {
+                    prag = position;
+                    
+                    if (position && _valueMan) {
+                      Scaffold.of(context).hideCurrentSnackBar();
+                      Scaffold.of(context).showSnackBar(
+                        SnackBar(
+                            content: Text(
+                              'Favor selecionar o sexo feminino!',
+                              style: styleErro(),
+                            ),
+                            duration: Duration(seconds: 3),
+                            backgroundColor: Colors.white,
+                            onVisible: () {}),
+                      );
+                    }
+                    Map<String, int> gestante = {
+                      "gestante": position ? 1 : 0
+                    };
+                    Map<String, int> man = {
+                      "sexom": _valueMan ? 1 : 0
+                    };
                     obj.newPaciente(gestante);
+                    obj.newPaciente(man);
+                    
                   },
                 ),
               ),

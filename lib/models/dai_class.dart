@@ -290,9 +290,7 @@ class DaiClassAction with ChangeNotifier {
             "zika_igm": sororologiaClass.zikaigmint,
           }));
       
-      if (response.body.isNotEmpty) {
-        print('Gean Lima ${json.decode(response.body)['name']}');
-      }
+      
       
       pacienteClass.clear();
       febreClass.clear();
@@ -304,7 +302,7 @@ class DaiClassAction with ChangeNotifier {
       notifyListeners();
 
     } catch (error) {
-      print(error.toString(),);
+      
     }
   }
 }

@@ -9,7 +9,6 @@ import 'package:arboviroses/screens/resultado_screen.dart';
 import 'package:arboviroses/screens/sintomas_screen.dart';
 import 'package:arboviroses/screens/sorologia_screen.dart';
 import 'package:arboviroses/utils/app_routes.dart';
-import 'package:arboviroses/utils/validator.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'models/exames_class.dart';
