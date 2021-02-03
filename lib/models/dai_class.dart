@@ -2,16 +2,12 @@ import 'dart:convert';
 import 'package:arboviroses/models/exames_class.dart';
 import 'package:arboviroses/models/febre_class.dart';
 import 'package:arboviroses/models/paciente_class.dart';
-import 'package:arboviroses/models/post.dart';
 import 'package:arboviroses/models/resultado_class.dart';
 import 'package:arboviroses/models/sintomas_class.dart';
 import 'package:arboviroses/models/sorologia_class.dart';
 import 'package:arboviroses/utils/constants.dart';
-import 'package:arboviroses/utils/validator.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:http/http.dart';
-import 'package:provider/provider.dart';
 
 class DaiClass with ChangeNotifier {
   int id;
