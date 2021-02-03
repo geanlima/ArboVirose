@@ -69,7 +69,6 @@ class _DadosPessoaisScreenState extends State<DadosPessoaisScreen> {
                             );
                           }
                           if (_valueMan) {
-                            print(gest);
                             Map<String, int> sexom = {"sexom": 1};
                             Map<String, int> sexof = {"sexof": 0};
                             Map<String, int> prag = {"gestante": gest};

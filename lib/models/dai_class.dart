@@ -203,7 +203,6 @@ class DaiClassAction with ChangeNotifier {
       ResultadoClass resultadoClass) async {
 
     try {
-      print('1');
       await http
           .post(baseUrl,
               headers: {"Content-type": "application/json"},
@@ -291,14 +290,11 @@ class DaiClassAction with ChangeNotifier {
               }))
           .then((http.Response response) {
                 if(response.statusCode == 201){
-                  print('2');
                   retorno = true;
                 } else {
-                  print('3');
                   retorno = false;
                 }
-              }).catchError(((onError){
-                print('4');
+              }).catchError(((onError){                
               }));
           
       pacienteClass.clear();

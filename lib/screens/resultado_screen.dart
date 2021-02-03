@@ -50,13 +50,17 @@ class _ResultadoScreenState extends State<ResultadoScreen> {
       ),
       child: Column(
         children: <Widget>[
-          SizedBox(height: 15,),
+          SizedBox(
+            height: 15,
+          ),
           Container(
             padding: EdgeInsets.only(bottom: 15),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                SizedBox(height: 10,),
+                SizedBox(
+                  height: 10,
+                ),
                 Container(
                   height: 50,
                   width: 150,
@@ -156,6 +160,7 @@ class _ResultadoScreenState extends State<ResultadoScreen> {
                     children: [
                       InkWell(
                         onTap: () async {
+                          
                           PacienteClass paciente;
                           FebreClass febre;
                           SintomasClass sintomas;
@@ -390,9 +395,11 @@ class _ResultadoScreenState extends State<ResultadoScreen> {
                                       'Registro adicinado com sucesso!',
                                       style: styleSucess(),
                                     ),
-                                    duration: Duration(seconds: 10),
+                                    duration: Duration(seconds: 5),
                                     backgroundColor: Colors.white,
-                                    onVisible: () {
+                                    onVisible: () async {
+                                      await Future.delayed(
+                                          Duration(seconds: 5));
                                       Navigator.of(context)
                                           .pushNamed(AppRoutes.HOME);
                                     }),
@@ -406,7 +413,7 @@ class _ResultadoScreenState extends State<ResultadoScreen> {
                                     style: styleErro(),
                                   ),
                                   backgroundColor: Colors.white,
-                                  duration: Duration(seconds: segErro),                                  
+                                  duration: Duration(seconds: segErro),
                                 ),
                               );
                             }
@@ -440,11 +447,5 @@ class _ResultadoScreenState extends State<ResultadoScreen> {
         ],
       ),
     );
-  }
-
-  Future<List<InternetAddress>> validateConnection() async {
-    List<InternetAddress> result;
-
-    return result;
   }
 }
