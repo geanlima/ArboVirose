@@ -18,8 +18,6 @@ class MainScreen extends StatefulWidget {
 
 class _MainScreenState extends State<MainScreen> {
   
-  
-
   bool _expanded1 = false;
   bool _expanded2 = false;
   bool _expanded3 = false;

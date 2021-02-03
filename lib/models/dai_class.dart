@@ -6,8 +6,10 @@ import 'package:arboviroses/models/resultado_class.dart';
 import 'package:arboviroses/models/sintomas_class.dart';
 import 'package:arboviroses/models/sorologia_class.dart';
 import 'package:arboviroses/utils/constants.dart';
+import 'package:arboviroses/utils/validator.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:provider/provider.dart';
 
 class DaiClass with ChangeNotifier {
   int id;
@@ -192,8 +194,8 @@ class DaiClass with ChangeNotifier {
 class DaiClassAction with ChangeNotifier {
   String baseUrl = Constants.BASE_API_URL;
 
-
   Future<void> addDai(
+      BuildContext context,
       PacienteClass pacienteClass,
       FebreClass febreClass,
       SintomasClass sintomasClass,
@@ -201,7 +203,8 @@ class DaiClassAction with ChangeNotifier {
       SorologiaClass sororologiaClass,
       ResultadoClass resultadoClass) async {
     try {
-      final response = await http.post(
+      
+      var response = await http.post(
           baseUrl,
           headers: {"Content-type": "application/json"},
           body: json.encode({
@@ -286,7 +289,7 @@ class DaiClassAction with ChangeNotifier {
             "zika_igg": sororologiaClass.zikaigg,
             "zika_igm": sororologiaClass.zikaigmint,
           }));
-
+      
       if (response.body.isNotEmpty) {
         print('Gean Lima ${json.decode(response.body)['name']}');
       }
@@ -299,6 +302,7 @@ class DaiClassAction with ChangeNotifier {
       resultadoClass.clear();
 
       notifyListeners();
+
     } catch (error) {
       print(error.toString(),);
     }

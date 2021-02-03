@@ -6,9 +6,12 @@ import 'package:arboviroses/models/resultado_class.dart';
 import 'package:arboviroses/models/sintomas_class.dart';
 import 'package:arboviroses/models/sorologia_class.dart';
 import 'package:arboviroses/utils/app_routes.dart';
+import 'package:arboviroses/utils/validator.dart';
 import 'package:arboviroses/widgets/box_text_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
+import 'main_screen.dart';
 
 class ResultadoScreen extends StatefulWidget {
   @override
@@ -21,7 +24,8 @@ class _ResultadoScreenState extends State<ResultadoScreen> {
   bool _selected3 = false;
   bool _status = true;
 
-  _showConfirmDialog() async {
+  Future<bool> _showConfirmDialog() async {
+    bool retorno = false;
     await showDialog(
       context: context,
       builder: (ctx) => AlertDialog(
@@ -30,19 +34,25 @@ class _ResultadoScreenState extends State<ResultadoScreen> {
         actions: [
           FlatButton(
             onPressed: () {
-              Navigator.of(context).pushNamed(AppRoutes.HOME);
+              retorno = true;
+              Navigator.of(context).pop();
+              //retorno = true;
+              //Navigator.of(context).pushNamed(AppRoutes.HOME);
             },
             child: Text('Fechar'),
           ),
         ],
       ),
     );
-    return Future.value();
+    return retorno;
   }
 
   @override
   Widget build(BuildContext context) {
     ResultadoClass obj = Provider.of(context, listen: false);
+    PacienteClass objPaciente = Provider.of(context, listen: false);
+    //Validator objValidator = Provider.of<Validator>(context, listen: false);
+
     return Container(
       decoration: BoxDecoration(
         color: Colors.white,
@@ -145,71 +155,250 @@ class _ResultadoScreenState extends State<ResultadoScreen> {
               ],
             ),
           ),
-          _status ? 
-          Container(
-            padding: EdgeInsets.only(top: 40),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.end,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                InkWell(
-                  onTap: () {
-                    setState(() {
-                      _status = false;
-                      CircularProgressIndicator();
-                    });
-                    PacienteClass paciente =
-                        Provider.of<PacienteClass>(context, listen: false)
-                            .items[0];
-                    FebreClass febre =
-                        Provider.of<FebreClass>(context, listen: false)
-                            .items[0];
-                    SintomasClass sintomas =
-                        Provider.of<SintomasClass>(context, listen: false)
-                            .items[0];
-                    ExamesClass exames =
-                        Provider.of<ExamesClass>(context, listen: false)
-                            .items[0];
-                    SorologiaClass sorologia =
-                        Provider.of<SorologiaClass>(context, listen: false)
-                            .items[0];
-                    ResultadoClass resultado =
-                        Provider.of<ResultadoClass>(context, listen: false)
-                            .items[0];
-                    Provider.of<DaiClassAction>(context, listen: false).addDai(
-                        paciente != null ? paciente : null,
-                        febre != null ? febre : null,
-                        sintomas != null ? sintomas : null,
-                        exames != null ? exames : null,
-                        sorologia != null ? sorologia : null,
-                        resultado != null ? resultado : null);
-
-                    Navigator.of(context).pushNamed(AppRoutes.HOME);
-                    //_showConfirmDialog();  
-                  },
+          _status
+              ? Container(
+                  padding: EdgeInsets.only(top: 40),
                   child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.end,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Container(
-                        height: 50,
-                        width: 120,
-                        alignment: Alignment.center,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          color: Theme.of(context).primaryColor,
-                        ),
-                        child: Text(
-                          'Gravar',
-                          style: TextStyle(
-                              color: Colors.white, fontWeight: FontWeight.bold),
+                      InkWell(
+                        onTap: () {
+                          PacienteClass paciente;
+                          FebreClass febre;
+                          SintomasClass sintomas;
+                          ExamesClass exames;
+                          SorologiaClass sorologia;
+                          ResultadoClass resultado;
+
+                          if (Provider.of<PacienteClass>(context, listen: false)
+                              .items
+                              .isEmpty) {
+                            paciente = new PacienteClass(
+                              0,
+                              0,
+                              0,
+                              0,
+                              0,
+                              0,
+                            );
+                          } else {
+                            paciente = Provider.of<PacienteClass>(context,
+                                    listen: false)
+                                .items[0];
+                          }
+
+                          if (Provider.of<FebreClass>(context, listen: false)
+                              .items
+                              .isEmpty) {
+                            febre = new FebreClass(
+                              0,
+                              0,
+                              0,
+                              0,
+                              0,
+                              0,
+                              0,
+                              0,
+                            );
+                          } else {
+                            febre =
+                                Provider.of<FebreClass>(context, listen: false)
+                                    .items[0];
+                          }
+
+                          if (Provider.of<SintomasClass>(context, listen: false)
+                              .items
+                              .isEmpty) {
+                            sintomas = new SintomasClass(
+                              0,
+                              0,
+                              0,
+                              0,
+                              0,
+                              0,
+                              0,
+                              0,
+                              0,
+                              0,
+                              0,
+                              0,
+                              0,
+                              0,
+                              0,
+                              0,
+                              0,
+                              0,
+                              0,
+                              0,
+                              0,
+                              0,
+                              0,
+                              0,
+                              0,
+                              0,
+                              0,
+                            );
+                          } else {
+                            sintomas = Provider.of<SintomasClass>(context,
+                                    listen: false)
+                                .items[0];
+                          }
+
+                          if (Provider.of<ExamesClass>(context, listen: false)
+                              .items
+                              .isEmpty) {
+                            exames = new ExamesClass(
+                              0,
+                              0,
+                              0,
+                              0,
+                              0,
+                              0,
+                              0,
+                              0,
+                              0,
+                              0,
+                              0,
+                              0,
+                              0,
+                              0,
+                              0,
+                              0,
+                              0,
+                              0,
+                              0,
+                              0,
+                              0,
+                              0,
+                              0,
+                              0,
+                              0,
+                              0,
+                              0,
+                              0,
+                              0,
+                              0,
+                              0,
+                            );
+                          } else {
+                            exames =
+                                Provider.of<ExamesClass>(context, listen: false)
+                                    .items[0];
+                          }
+
+                          if (Provider.of<SorologiaClass>(context,
+                                  listen: false)
+                              .items
+                              .isEmpty) {
+                            sorologia = new SorologiaClass(
+                              0,
+                              0,
+                              0,
+                              0,
+                              0,
+                              0,
+                              0,
+                            );
+                          } else {
+                            sorologia = Provider.of<SorologiaClass>(context,
+                                    listen: false)
+                                .items[0];
+                          }
+
+                          if (Provider.of<ResultadoClass>(context,
+                                  listen: false)
+                              .items
+                              .isEmpty) {
+                            resultado = new ResultadoClass(
+                              0,
+                            );
+                          } else {
+                            resultado = Provider.of<ResultadoClass>(context,
+                                    listen: false)
+                                .items[0];
+                          }
+
+                          Validator validateFebre = new Validator();
+                          Validator validateSintomas = new Validator();
+                          bool validfebre = validateFebre.validateFebre(febre);
+                          bool validSintomas =
+                              validateSintomas.validateSintomas(sintomas);
+
+                          if (!validfebre) {
+                            Scaffold.of(context).hideCurrentSnackBar();
+                            Scaffold.of(context).showSnackBar(
+                              SnackBar(
+                                content: Text(
+                                  "Favor escolher pelo menos 1 item de febre",
+                                ),
+                                duration: Duration(seconds: 2),
+                              ),
+                            );
+                          }
+
+                          if (!validSintomas) {
+                            Scaffold.of(context).hideCurrentSnackBar();
+                            Scaffold.of(context).showSnackBar(
+                              SnackBar(
+                                content: Text(
+                                  "Favor escolher pelo menos 3 itens de Sintomas",
+                                ),
+                                duration: Duration(seconds: 3),
+                              ),
+                            );
+                          }
+
+                          if (validSintomas && validfebre) {
+                            Provider.of<DaiClassAction>(context, listen: false)
+                                .addDai(
+                                    context,
+                                    paciente != null ? paciente : null,
+                                    febre != null ? febre : null,
+                                    sintomas != null ? sintomas : null,
+                                    exames != null ? exames : null,
+                                    sorologia != null ? sorologia : null,
+                                    resultado != null ? resultado : null);
+
+                            Scaffold.of(context).hideCurrentSnackBar();
+                            Scaffold.of(context).showSnackBar(
+                              SnackBar(
+                                  content: Text(
+                                    'Registro adicinado com sucesso!',
+                                  ),
+                                  duration: Duration(seconds: 2),
+                                  onVisible: () {
+                                    Navigator.of(context)
+                                        .pushNamed(AppRoutes.HOME);
+                                  }),
+                            );
+                          }
+                        },
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Container(
+                              height: 50,
+                              width: 120,
+                              alignment: Alignment.center,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10),
+                                color: Theme.of(context).primaryColor,
+                              ),
+                              child: Text(
+                                'Gravar',
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                     ],
                   ),
-                ),
-              ],
-            ),
-          ) : CircularProgressIndicator(),
+                )
+              : CircularProgressIndicator(),
         ],
       ),
     );
