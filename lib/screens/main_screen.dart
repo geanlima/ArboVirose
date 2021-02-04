@@ -25,13 +25,7 @@ class _MainScreenState extends State<MainScreen> {
   bool _expanded5 = false;
   bool _expanded6 = false;
 
-  double itemsHeight1 = (15 * 25.0) + 10;
-  double itemsHeight2 = (25 * 25.0) + 10;
-  double itemsHeight3 = (10 * 25.0) + 10;
-  double itemsHeight4 = (62 * 25.0) + 10;
-  double itemsHeight5 = (13 * 25.0) + 10;
-  double itemsHeight6 = (12 * 25.0) + 10;
-
+ 
   void expanded1() => _expanded1 = !_expanded1;
   void expanded2() => _expanded2 = !_expanded2;
   void expanded3() => _expanded3 = !_expanded3;
@@ -43,6 +37,15 @@ class _MainScreenState extends State<MainScreen> {
 
   @override
   Widget build(BuildContext context) {
+    MediaQueryData deviceInfo = MediaQuery.of(context);
+    
+    double itemsHeight1 = deviceInfo.size <= Size(500.0, 700.0) ? (15 * 25.0) + 10 : MediaQuery.of(context).size.height * 0.35; //
+    double itemsHeight2 = deviceInfo.size <= Size(500.0, 700.0) ? (25 * 25.0) + 10 : MediaQuery.of(context).size.height * 0.6; //
+    double itemsHeight3 = deviceInfo.size <= Size(500.0, 700.0) ? (10 * 25.0) + 10 : MediaQuery.of(context).size.height * 0.25; //;
+    double itemsHeight4 = deviceInfo.size <= Size(500.0, 700.0) ? (62 * 25.0) + 10 : MediaQuery.of(context).size.height * 1.3; //;
+    double itemsHeight5 = deviceInfo.size <= Size(500.0, 700.0) ? (13 * 25.0) + 10 : MediaQuery.of(context).size.height * 0.33;//;
+    double itemsHeight6 = deviceInfo.size <= Size(500.0, 700.0) ? (12 * 25.0) + 10 : MediaQuery.of(context).size.height * 0.28;//;
+
     return Container(
       child: Stack(
         children: [

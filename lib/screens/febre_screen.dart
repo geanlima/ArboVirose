@@ -39,6 +39,7 @@ class _FebreScreenState extends State<FebreScreen> {
                   children: [
                     SizedBox(height: 10),
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         InkWell(
                           onTap: () {
@@ -140,6 +141,7 @@ class _FebreScreenState extends State<FebreScreen> {
                     ),
                     SizedBox(height: 25),
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         InkWell(
                           onTap: () {
@@ -240,94 +242,97 @@ class _FebreScreenState extends State<FebreScreen> {
                       ],
                     ),
                     SizedBox(height: 25),
-                    Row(
-                      children: [
-                        InkWell(
-                          onTap: () {
-                            setState(
-                              () {
-                                _selected7 = !_selected7;
-                                if (_selected7) {
-                                  Map<String, int> temperatura1 = {"temperatura1": 0};
-                                  Map<String, int> temperatura2 = {"temperatura2": 0};
-                                  Map<String, int> temperatura3 = {"temperatura3": 0};
-                                  Map<String, int> duracao1 = {"duracao1": 0};
-                                  Map<String, int> duracao2 = {"duracao2": 0};
-                                  Map<String, int> duracao3 = {"duracao3": 0};
-                                  Map<String, int> febreausente = {"febreausente": 1};
-                                  Map<String, int> temperaturanao = {"temperaturanao": 0};                                  
-                                  obj.newFunction(temperatura1);
-                                  obj.newFunction(temperatura2);
-                                  obj.newFunction(temperatura3);
-                                  obj.newFunction(duracao1);
-                                  obj.newFunction(duracao2);
-                                  obj.newFunction(duracao3);  
-                                  obj.newFunction(febreausente);
-                                  obj.newFunction(temperaturanao);  
-                                  
-                                  _selected1 = false;
-                                  _selected2 = false;
-                                  _selected3 = false;
-                                  _selected4 = false;
-                                  _selected5 = false;
-                                  _selected6 = false;
-                                  _selected8 = false;
-                                }
-                              },
-                            );
-                          },
-                          child: BoxTextWidget(
-                            'Ausente',
-                            80,
-                            _selected7,
-                            sizeFont: 12,
-                          ),
-                        ),
-                        SizedBox(width: 15),
-                        InkWell(
-                          onTap: () {
-                            setState(
-                              () {
-                                _selected8 = !_selected8;
-                                if (_selected8) {
-                                  Map<String, int> temperatura1 = {"temperatura1": 0};
-                                  Map<String, int> temperatura2 = {"temperatura2": 0};
-                                  Map<String, int> temperatura3 = {"temperatura3": 0};
-                                  Map<String, int> duracao1 = {"duracao1": 0};
-                                  Map<String, int> duracao2 = {"duracao2": 0};
-                                  Map<String, int> duracao3 = {"duracao3": 0};
-                                  Map<String, int> febreausente = {"febreausente": 0};
-                                  Map<String, int> temperaturanao = {"temperaturanao": 1};
-                                  obj.newFunction(temperatura1);
-                                  obj.newFunction(temperatura2);
-                                  obj.newFunction(temperatura3);
-                                  obj.newFunction(duracao1);
-                                  obj.newFunction(duracao2);
-                                  obj.newFunction(duracao3);  
-                                  obj.newFunction(febreausente);
-                                  obj.newFunction(temperaturanao);
-                                  _selected1 = false;
-                                  _selected2 = false;
-                                  _selected3 = false;
-                                  _selected4 = false;
-                                  _selected5 = false;
-                                  _selected6 = false;
-                                  _selected7 = false;
-                                }
-                              },
-                            );
-                          },
-                          child: Container(
+                    Container(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          InkWell(
+                            onTap: () {
+                              setState(
+                                () {
+                                  _selected7 = !_selected7;
+                                  if (_selected7) {
+                                    Map<String, int> temperatura1 = {"temperatura1": 0};
+                                    Map<String, int> temperatura2 = {"temperatura2": 0};
+                                    Map<String, int> temperatura3 = {"temperatura3": 0};
+                                    Map<String, int> duracao1 = {"duracao1": 0};
+                                    Map<String, int> duracao2 = {"duracao2": 0};
+                                    Map<String, int> duracao3 = {"duracao3": 0};
+                                    Map<String, int> febreausente = {"febreausente": 1};
+                                    Map<String, int> temperaturanao = {"temperaturanao": 0};                                  
+                                    obj.newFunction(temperatura1);
+                                    obj.newFunction(temperatura2);
+                                    obj.newFunction(temperatura3);
+                                    obj.newFunction(duracao1);
+                                    obj.newFunction(duracao2);
+                                    obj.newFunction(duracao3);  
+                                    obj.newFunction(febreausente);
+                                    obj.newFunction(temperaturanao);  
+                                    
+                                    _selected1 = false;
+                                    _selected2 = false;
+                                    _selected3 = false;
+                                    _selected4 = false;
+                                    _selected5 = false;
+                                    _selected6 = false;
+                                    _selected8 = false;
+                                  }
+                                },
+                              );
+                            },
                             child: BoxTextWidget(
-                              'Temperatura não informada',
+                              'Ausente',
                               80,
-                              _selected8,
+                              _selected7,
                               sizeFont: 12,
                             ),
                           ),
-                        ),
-                        SizedBox(width: 15),
-                      ],
+                          SizedBox(width: 15),
+                          InkWell(
+                            onTap: () {
+                              setState(
+                                () {
+                                  _selected8 = !_selected8;
+                                  if (_selected8) {
+                                    Map<String, int> temperatura1 = {"temperatura1": 0};
+                                    Map<String, int> temperatura2 = {"temperatura2": 0};
+                                    Map<String, int> temperatura3 = {"temperatura3": 0};
+                                    Map<String, int> duracao1 = {"duracao1": 0};
+                                    Map<String, int> duracao2 = {"duracao2": 0};
+                                    Map<String, int> duracao3 = {"duracao3": 0};
+                                    Map<String, int> febreausente = {"febreausente": 0};
+                                    Map<String, int> temperaturanao = {"temperaturanao": 1};
+                                    obj.newFunction(temperatura1);
+                                    obj.newFunction(temperatura2);
+                                    obj.newFunction(temperatura3);
+                                    obj.newFunction(duracao1);
+                                    obj.newFunction(duracao2);
+                                    obj.newFunction(duracao3);  
+                                    obj.newFunction(febreausente);
+                                    obj.newFunction(temperaturanao);
+                                    _selected1 = false;
+                                    _selected2 = false;
+                                    _selected3 = false;
+                                    _selected4 = false;
+                                    _selected5 = false;
+                                    _selected6 = false;
+                                    _selected7 = false;
+                                  }
+                                },
+                              );
+                            },
+                            child: Container(
+                              child: BoxTextWidget(
+                                'Temperatura não informada',
+                                80,
+                                _selected8,
+                                sizeFont: 12,
+                              ),
+                            ),
+                          ),
+                          SizedBox(width: 15),
+                        ],
+                      ),
                     ),
                     SizedBox(height: 30),
                   ],

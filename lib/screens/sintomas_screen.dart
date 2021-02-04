@@ -25,6 +25,7 @@ class _SintomasScreenState extends State<SintomasScreen> {
         child: Column(
           children: <Widget>[
             Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 SingleWidget(label: 'dorretro', function: _selected1),
                 SizedBox(height: 15),
@@ -36,6 +37,7 @@ class _SintomasScreenState extends State<SintomasScreen> {
             ),
             SizedBox(height: 15),
             Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 SingleWidget(label: 'dorabdominal', function: _selected1),
                 SizedBox(height: 15),
@@ -47,6 +49,7 @@ class _SintomasScreenState extends State<SintomasScreen> {
             ),
             SizedBox(height: 15),
             Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 SingleWidget(label: 'prostacao', function: _selected1),
                 SizedBox(height: 15),
@@ -58,6 +61,7 @@ class _SintomasScreenState extends State<SintomasScreen> {
             ),
             SizedBox(height: 15),
             Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 SingleWidget(label: 'conjutivite', function: _selected1),
                 SizedBox(height: 15),
@@ -69,6 +73,7 @@ class _SintomasScreenState extends State<SintomasScreen> {
             ),
             SizedBox(height: 15),
             Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 SingleWidget(label: 'artrite', function: _selected1),
                 SizedBox(height: 15),
@@ -80,6 +85,7 @@ class _SintomasScreenState extends State<SintomasScreen> {
             ),
             SizedBox(height: 15),
             Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 SingleWidget(label: 'diarreia', function: _selected1),
                 SizedBox(height: 15),
@@ -91,6 +97,7 @@ class _SintomasScreenState extends State<SintomasScreen> {
             ),
             SizedBox(height: 15),
             Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 SingleWidget(label: 'sudorese', function: _selected1),
                 SizedBox(height: 15),
@@ -102,6 +109,7 @@ class _SintomasScreenState extends State<SintomasScreen> {
             ),
             SizedBox(height: 15),
             Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 SingleWidget(label: 'edema', function: _selected1),
                 SizedBox(height: 15),
@@ -113,6 +121,7 @@ class _SintomasScreenState extends State<SintomasScreen> {
             ),
              SizedBox(height: 15),
             Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 SingleWidget(label: 'nauseas', function: _selected1),
                 SizedBox(height: 15),
