@@ -414,16 +414,16 @@ class _ResultadoScreenState extends State<ResultadoScreen> {
                               Scaffold.of(context).showSnackBar(
                                 SnackBar(
                                     content: Text(
-                                      'Registro adicinado com sucesso!',
+                                      'Registro adicionado com sucesso!',
                                       style: styleSucess(),
                                     ),
-                                    duration: Duration(seconds: 5),
+                                    duration: Duration(seconds: 10),
                                     backgroundColor: Colors.white,
                                     onVisible: () async {
                                       setState(() {
                                         _status = true;
                                       });
-
+                                      await Future.delayed(Duration(seconds: 3));
                                       Navigator.of(context)
                                           .pushNamed(AppRoutes.HOME);
                                     }),
@@ -438,6 +438,11 @@ class _ResultadoScreenState extends State<ResultadoScreen> {
                                   ),
                                   backgroundColor: Colors.white,
                                   duration: Duration(seconds: segErro),
+                                  onVisible: () {
+                                  setState(() {
+                                    _status = true;
+                                  });
+                                },
                                 ),
                               );
                             }
