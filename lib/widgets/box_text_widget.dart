@@ -24,7 +24,7 @@ class BoxTextWidget extends StatelessWidget {
       builder: (context, snapshot) {
         return Container(
             alignment: Alignment.center,
-            width:  deviceInfo.size >= Size(500.0, 700.0) || deviceInfo.orientation == Orientation.landscape ? 180 : 80,
+            width:  deviceInfo.size >= Size(500.0, 700.0) || deviceInfo.orientation == Orientation.landscape ? 125 : 80,
             height: 50.0,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10.0),
