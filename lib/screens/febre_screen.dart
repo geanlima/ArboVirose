@@ -244,7 +244,7 @@ class _FebreScreenState extends State<FebreScreen> {
                     SizedBox(height: 25),
                     Container(
                       child: Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.center,  
                         children: [
                           InkWell(
                             onTap: () {
