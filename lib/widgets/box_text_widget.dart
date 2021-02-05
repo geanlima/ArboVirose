@@ -17,13 +17,14 @@ class BoxTextWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     MediaQueryData deviceInfo = MediaQuery.of(context);
+    
     print(deviceInfo);
     return StreamBuilder<Object>(
       stream: null,
       builder: (context, snapshot) {
         return Container(
             alignment: Alignment.center,
-            width:  deviceInfo.size <= Size(500.0, 700.0) ? _size : 200,
+            width:  deviceInfo.size >= Size(500.0, 700.0) || deviceInfo.orientation == Orientation.landscape ? 180 : 80,
             height: 50.0,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10.0),
