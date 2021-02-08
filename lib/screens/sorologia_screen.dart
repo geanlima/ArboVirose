@@ -38,7 +38,7 @@ class _SorologiaScreenState extends State<SorologiaScreen> {
     );
   }
 
-  bool msgValidador() {
+  void msgValidador() {
     Scaffold.of(context).hideCurrentSnackBar();
     Scaffold.of(context).showSnackBar(
       SnackBar(

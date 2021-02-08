@@ -28,7 +28,8 @@ class _ResultadoScreenState extends State<ResultadoScreen> {
   Widget build(BuildContext context) {
     ResultadoClass obj = Provider.of(context, listen: false);
     int segErro = 6;
-
+    bool validConnection = false;
+    
     TextStyle styleErro() {
       return TextStyle(
         color: Colors.red,
@@ -310,7 +311,7 @@ class _ResultadoScreenState extends State<ResultadoScreen> {
                               validateSorologia.validateSorologia(sorologia);    
                         
 
-                          bool validConnection = false;
+                          
 
                           final result =
                               await InternetAddress.lookup('google.com');
