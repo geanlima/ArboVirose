@@ -6,7 +6,7 @@ class MainHeaderWidget extends StatelessWidget {
   final String header;
 
   MainHeaderWidget(
-    @required this.header,
+    this.header,
   );
 
   @override

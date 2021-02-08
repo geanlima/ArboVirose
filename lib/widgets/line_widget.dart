@@ -1,7 +1,5 @@
-import 'package:arboviroses/models/sintomas_class.dart';
 import 'package:arboviroses/widgets/box_text_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class LineWidget extends StatefulWidget {
   final String label1;
@@ -44,7 +42,7 @@ class _LineWidgetState extends State<LineWidget> {
   @override
   Widget build(BuildContext context) {
 
-    SintomasClass obj = Provider.of(context, listen: false);
+    //SintomasClass obj = Provider.of(context, listen: false);
     return Container(
       margin: EdgeInsets.only(left: 10, right: 10),
       width: double.infinity,

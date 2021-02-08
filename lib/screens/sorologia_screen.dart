@@ -19,10 +19,48 @@ class _SorologiaScreenState extends State<SorologiaScreen> {
   bool _selected6 = false;
   bool _selected7 = false;
 
+  int segErro = 5;
+
+  bool validador() {
+    int sel1 = _selected1 == true ? 1 : 0;
+    int sel2 = _selected2 == true ? 1 : 0;
+    int sel3 = _selected3 == true ? 1 : 0;
+
+    int total = sel1 + sel2 + sel3;
+
+    return total == 3 ? false : true;
+  }
+
+  TextStyle styleErro() {
+    return TextStyle(
+      color: Colors.red,
+      fontWeight: FontWeight.bold,
+    );
+  }
+
+  bool msgValidador() {
+    Scaffold.of(context).hideCurrentSnackBar();
+    Scaffold.of(context).showSnackBar(
+      SnackBar(
+        content: Text(
+          "Favor escolher até 2 opções de Dengue.",
+          style: styleErro(),
+        ),
+        duration: Duration(seconds: segErro),
+        backgroundColor: Colors.white,
+        onVisible: () {
+          setState(() {
+            //_status = true;
+          });
+        },
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     SorologiaClass obj = Provider.of(context, listen: false);
-    return Container(      
+    return Container(
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(20),
@@ -56,15 +94,19 @@ class _SorologiaScreenState extends State<SorologiaScreen> {
                     setState(
                       () {
                         _selected1 = !_selected1;
-                        if (_selected1) {
-                          Map<String, int> dengueigg = {"dengueigg": 1};
-                          Map<String, int> dengueigm = {"dengueigm": 0};
-                          Map<String, int> denguens1 = {"denguens1": 0};
-                          obj.newFunction(dengueigg);
-                          obj.newFunction(dengueigm);
-                          obj.newFunction(denguens1);
-                          _selected2 = false;
-                          _selected3 = false;
+                        print('_selected1 $_selected1' );
+                        if (_selected1) {                          
+                          if (validador()) {
+                            Map<String, int> map = {"dengueigm": 1};
+                            obj.newFunction(map);                           
+                          }else{
+                            Map<String, int> map = {"dengueigm": 1};
+                            obj.newFunction(map); 
+                             msgValidador();
+                          }
+                        }else{
+                          Map<String, int> map = {"dengueigm": 0};
+                          obj.newFunction(map); 
                         }
                       },
                     );
@@ -82,15 +124,19 @@ class _SorologiaScreenState extends State<SorologiaScreen> {
                     setState(
                       () {
                         _selected2 = !_selected2;
+                        print('_selected2 $_selected2' );
                         if (_selected2) {
-                          Map<String, int> dengueigg = {"dengueigg": 0};
-                          Map<String, int> dengueigm = {"dengueigm": 1};
-                          Map<String, int> denguens1 = {"denguens1": 0};
-                          obj.newFunction(dengueigg);
-                          obj.newFunction(dengueigm);
-                          obj.newFunction(denguens1);
-                          _selected1 = false;
-                          _selected3 = false;
+                          if (validador()) {                            
+                            Map<String, int> map = {"dengueigg": 1};
+                            obj.newFunction(map);
+                          } else{
+                            Map<String, int> map = {"dengueigg": 1};
+                            obj.newFunction(map);
+                            msgValidador();
+                          }
+                        }else{
+                          Map<String, int> map = {"dengueigg": 0};
+                          obj.newFunction(map); 
                         }
                       },
                     );
@@ -108,15 +154,19 @@ class _SorologiaScreenState extends State<SorologiaScreen> {
                     setState(
                       () {
                         _selected3 = !_selected3;
+                        print('_selected3 $_selected3' );
                         if (_selected3) {
-                          Map<String, int> dengueigg = {"dengueigg": 0};
-                          Map<String, int> dengueigm = {"dengueigm": 0};
-                          Map<String, int> denguens1 = {"denguens1": 1};
-                          obj.newFunction(dengueigg);
-                          obj.newFunction(dengueigm);
-                          obj.newFunction(denguens1);
-                          _selected1 = false;
-                          _selected2 = false;
+                          if (validador()) {
+                            Map<String, int> map = {"denguens1": 1};
+                            obj.newFunction(map);
+                          } else {
+                            Map<String, int> map = {"denguens1": 1};
+                            obj.newFunction(map);
+                            msgValidador();
+                          }
+                        } else{
+                          Map<String, int> map = {"denguens1": 0};
+                          obj.newFunction(map); 
                         }
                       },
                     );
@@ -157,14 +207,7 @@ class _SorologiaScreenState extends State<SorologiaScreen> {
                   onTap: () {
                     setState(
                       () {
-                        _selected4 = !_selected4;
-                        if (_selected4) {
-                          Map<String, int> zikaigg = {"zikaigg": 1};
-                          Map<String, int> zikaigmint = {"zikaigmint": 0};                          
-                          obj.newFunction(zikaigg);
-                          obj.newFunction(zikaigmint);                          
-                          _selected5 = false;
-                        }
+                        _selected4 = !_selected4;                        
                       },
                     );
                   },
@@ -181,13 +224,6 @@ class _SorologiaScreenState extends State<SorologiaScreen> {
                     setState(
                       () {
                         _selected5 = !_selected5;
-                        if (_selected5) {
-                          Map<String, int> zikaigg = {"zikaigg": 0};
-                          Map<String, int> zikaigmint = {"zikaigmint": 1};                          
-                          obj.newFunction(zikaigg);
-                          obj.newFunction(zikaigmint);  
-                          _selected4 = false;
-                        }
                       },
                     );
                   },
@@ -227,14 +263,7 @@ class _SorologiaScreenState extends State<SorologiaScreen> {
                   onTap: () {
                     setState(
                       () {
-                        _selected6 = !_selected6;
-                        if (_selected6) {
-                          Map<String, int> chikigg = {"chikigg": 1};
-                          Map<String, int> chikigm = {"chikigm": 0};                          
-                          obj.newFunction(chikigg);
-                          obj.newFunction(chikigm);  
-                          _selected7 = false;
-                        }
+                        _selected6 = !_selected6;                        
                       },
                     );
                   },
@@ -250,13 +279,6 @@ class _SorologiaScreenState extends State<SorologiaScreen> {
                     setState(
                       () {
                         _selected7 = !_selected7;
-                        if (_selected7) {
-                          Map<String, int> chikigg = {"chikigg": 0};
-                          Map<String, int> chikigm = {"chikigm": 1};                          
-                          obj.newFunction(chikigg);
-                          obj.newFunction(chikigm);  
-                          _selected6 = false;
-                        }
                       },
                     );
                   },

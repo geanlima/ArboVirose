@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:adobe_xd/pinned.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class arbo_Sorologia extends StatelessWidget {
-  arbo_Sorologia({
+// ignore: camel_case_types
+class Arbo_Sorologia extends StatelessWidget {
+  Arbo_Sorologia({
     Key key,
   }) : super(key: key);
   @override

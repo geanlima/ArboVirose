@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:arboviroses/models/exames_class.dart';
 import 'package:arboviroses/models/febre_class.dart';
 import 'package:arboviroses/models/paciente_class.dart';
@@ -84,6 +82,20 @@ class Validator {
       retorno = false;
     } else {
       retorno = true;
+    }
+
+    return retorno;
+  }
+
+  bool validateSorologia(SorologiaClass sorologia) {
+    bool retorno = false;
+
+    total = sorologia.dengueigm + sorologia.denguens1 + sorologia.dengueigg;
+        
+    if (total == 3) {
+      retorno = false;
+    } else {
+      retorno = true;  
     }
 
     return retorno;

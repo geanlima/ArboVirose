@@ -296,6 +296,8 @@ class _ResultadoScreenState extends State<ResultadoScreen> {
                           Validator validateFebre = new Validator();
                           Validator validateSintomas = new Validator();
                           Validator validateResultado = new Validator();
+                          Validator validateSorologia = new Validator();
+
 
                           bool validPaciente =
                               validatePaciente.validatePaciente(paciente);
@@ -304,18 +306,18 @@ class _ResultadoScreenState extends State<ResultadoScreen> {
                               validateSintomas.validateSintomas(sintomas);
                           bool validResultado =
                               validateResultado.validateResultado(resultado);
+                          bool validSorologia =
+                              validateSorologia.validateSorologia(sorologia);    
+                        
+
                           bool validConnection = false;
 
-                          try {
-                            final result =
-                                await InternetAddress.lookup('google.com');
+                          final result =
+                              await InternetAddress.lookup('google.com');
 
-                            if (result.isNotEmpty &&
-                                result[0].rawAddress.isNotEmpty) {
-                              validConnection = true;
-                            }
-                          } on SocketException catch (_) {
-                            validConnection = false;
+                          if (result.isNotEmpty &&
+                              result[0].rawAddress.isNotEmpty) {
+                            validConnection = true;
                           }
 
                           if (!validResultado) {
@@ -328,6 +330,25 @@ class _ResultadoScreenState extends State<ResultadoScreen> {
                                 ),
                                 duration: Duration(seconds: segErro),
                                 backgroundColor: Colors.white,
+                                onVisible: () {
+                                  setState(() {
+                                    _status = true;
+                                  });
+                                },
+                              ),
+                            );
+                          }
+
+                          if (!validSorologia) {
+                            Scaffold.of(context).hideCurrentSnackBar();
+                            Scaffold.of(context).showSnackBar(
+                              SnackBar(
+                                content: Text(
+                                  "Favor selecionar até 2 registros em sorologia Dengue!",
+                                  style: styleErro(),
+                                ),
+                                backgroundColor: Colors.white,
+                                duration: Duration(seconds: segErro),
                                 onVisible: () {
                                   setState(() {
                                     _status = true;
@@ -397,7 +418,8 @@ class _ResultadoScreenState extends State<ResultadoScreen> {
                           if (validSintomas &&
                               validFebre &&
                               validResultado &&
-                              validPaciente) {
+                              validPaciente &&
+                              validSorologia) {
                             final ret = await Provider.of<DaiClassAction>(
                                     context,
                                     listen: false)
@@ -423,7 +445,8 @@ class _ResultadoScreenState extends State<ResultadoScreen> {
                                       setState(() {
                                         _status = true;
                                       });
-                                      await Future.delayed(Duration(seconds: 3));
+                                      await Future.delayed(
+                                          Duration(seconds: 3));
                                       Navigator.of(context)
                                           .pushNamed(AppRoutes.HOME);
                                     }),
@@ -439,10 +462,10 @@ class _ResultadoScreenState extends State<ResultadoScreen> {
                                   backgroundColor: Colors.white,
                                   duration: Duration(seconds: segErro),
                                   onVisible: () {
-                                  setState(() {
-                                    _status = true;
-                                  });
-                                },
+                                    setState(() {
+                                      _status = true;
+                                    });
+                                  },
                                 ),
                               );
                             }

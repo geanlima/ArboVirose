@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:adobe_xd/pinned.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class arbo_DadosPessoais extends StatelessWidget {
-  arbo_DadosPessoais({
+// ignore: camel_case_types
+class Arbo_DadosPessoais extends StatelessWidget {
+  Arbo_DadosPessoais({
     Key key,
   }) : super(key: key);
   @override

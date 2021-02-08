@@ -35,7 +35,7 @@ class SorologiaClass with ChangeNotifier {
   void newFunction(Map<String, int> map){
     SorologiaClass obj;
     int qtd = regCount;
-    
+    print('qtd $qtd');
     if (qtd == 0){
       obj = new SorologiaClass(0,0,0,0,0,0,0,);
       _list.add(obj);
@@ -48,6 +48,10 @@ class SorologiaClass with ChangeNotifier {
     int zikaigmint = map['zikaigmint'];
     int chikigg = map['chikigg'];
     int chikigm = map['chikigm']; 
+
+    print('dengueigg $dengueigg');
+    print('dengueigg $dengueigm');
+    print('dengueigg $denguens1');
 
     if(dengueigg != null) _list[0].dengueigg = dengueigg;
     if(dengueigm != null) _list[0].dengueigm = dengueigm;

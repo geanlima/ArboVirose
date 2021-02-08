@@ -1,4 +1,3 @@
-import 'package:arboviroses/widgets/line_widget.dart';
 import 'package:arboviroses/widgets/single_widget.dart';
 
 import 'package:flutter/material.dart';

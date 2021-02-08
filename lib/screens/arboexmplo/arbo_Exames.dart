@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:adobe_xd/pinned.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class arbo_Exames extends StatelessWidget {
-  arbo_Exames({
+// ignore: camel_case_types
+class Arbo_Exames extends StatelessWidget {
+  Arbo_Exames({
     Key key,
   }) : super(key: key);
   @override

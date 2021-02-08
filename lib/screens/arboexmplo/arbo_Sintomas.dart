@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:adobe_xd/pinned.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class arbo_Sintomas extends StatelessWidget {
-  arbo_Sintomas({
+// ignore: camel_case_types
+class Arbo_Sintomas extends StatelessWidget {
+  Arbo_Sintomas({
     Key key,
   }) : super(key: key);
   @override

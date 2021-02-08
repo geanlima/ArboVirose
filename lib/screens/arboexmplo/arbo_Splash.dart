@@ -1,10 +1,8 @@
-import 'package:arboviroses/utils/app_routes.dart';
 import 'package:flutter/material.dart';
-import 'package:adobe_xd/pinned.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
-class arbo_Splash extends StatefulWidget {
-  arbo_Splash({
+// ignore: camel_case_types
+class Arbo_Splash extends StatefulWidget {
+  Arbo_Splash({
     Key key,
   }) : super(key: key);
 
@@ -12,7 +10,8 @@ class arbo_Splash extends StatefulWidget {
   _arbo_SplashState createState() => _arbo_SplashState();
 }
 
-class _arbo_SplashState extends State<arbo_Splash> {
+// ignore: camel_case_types
+class _arbo_SplashState extends State<Arbo_Splash> {
   @override
   void initState() {
     super.initState();
