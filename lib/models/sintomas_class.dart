@@ -29,7 +29,10 @@ class SintomasClass with ChangeNotifier {
   int nauseas;
   int convulsoes;
 
-  SintomasClass(this.dorretro, this.cefaleia, this.prurido, this.dorabdominal, this.hemorragia, this.artralgia, this.prostacao, this.mialgia, this.vomito, this.conjutivite, this.tosse, this.dorcostas, this.artrite, this.dorouvido, this.faltaapetite, this.diarreia, this.malestar, this.dispneia, this.sudorese, this.calafrio, this.linfadenopatia, this.edema, this.exantema, this.hematoma, this.outros, this.nauseas,this.convulsoes);
+  SintomasClass(this.dorretro, this.cefaleia, this.prurido, this.dorabdominal, this.hemorragia, this.artralgia, 
+  this.prostacao, this.mialgia, this.vomito, this.conjutivite, this.tosse, this.dorcostas, this.artrite, 
+  this.dorouvido, this.faltaapetite, this.diarreia, this.malestar, this.dispneia, this.sudorese, this.calafrio, 
+  this.linfadenopatia, this.edema, this.exantema, this.hematoma, this.outros, this.nauseas,this.convulsoes);
 
   List<SintomasClass> _list = [];
 
@@ -62,7 +65,7 @@ class SintomasClass with ChangeNotifier {
     int artralgia = map['artralgia'];
     int prostacao = map['prostacao'];
     int mialgia = map['mialgia'];
-    int convulcoes = map['convulcoes'];
+    int convulsoes = map['convulsoes'];
     int vomito = map['vomito'];
     int conjutivite = map['conjutivite'];
     int tosse = map['tosse'];
@@ -82,7 +85,6 @@ class SintomasClass with ChangeNotifier {
     int outros = map['outros'];
     int nauseas = map['nauseas'];
     
-    
     if(dorretro != null) _list[0].dorretro = dorretro;
     if(cefaleia != null) _list[0].cefaleia = cefaleia;
     if(prurido != null) _list[0].prurido = prurido;
@@ -91,7 +93,7 @@ class SintomasClass with ChangeNotifier {
     if(artralgia != null) _list[0].artralgia = artralgia;
     if(prostacao != null) _list[0].prostacao = prostacao;
     if(mialgia != null) _list[0].mialgia = mialgia;
-    if(convulcoes != null) _list[0].mialgia = convulcoes;
+    if(convulsoes != null) _list[0].convulsoes = convulsoes;
     if(conjutivite != null) _list[0].conjutivite = conjutivite;
     if(tosse != null) _list[0].tosse = tosse;
     if(dorcostas != null) _list[0].dorcostas = dorcostas;

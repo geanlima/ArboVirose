@@ -94,7 +94,6 @@ class _SorologiaScreenState extends State<SorologiaScreen> {
                     setState(
                       () {
                         _selected1 = !_selected1;
-                        print('_selected1 $_selected1' );
                         if (_selected1) {                          
                           if (validador()) {
                             Map<String, int> map = {"dengueigm": 1};
@@ -124,7 +123,6 @@ class _SorologiaScreenState extends State<SorologiaScreen> {
                     setState(
                       () {
                         _selected2 = !_selected2;
-                        print('_selected2 $_selected2' );
                         if (_selected2) {
                           if (validador()) {                            
                             Map<String, int> map = {"dengueigg": 1};
@@ -154,7 +152,6 @@ class _SorologiaScreenState extends State<SorologiaScreen> {
                     setState(
                       () {
                         _selected3 = !_selected3;
-                        print('_selected3 $_selected3' );
                         if (_selected3) {
                           if (validador()) {
                             Map<String, int> map = {"denguens1": 1};
@@ -207,7 +204,14 @@ class _SorologiaScreenState extends State<SorologiaScreen> {
                   onTap: () {
                     setState(
                       () {
-                        _selected4 = !_selected4;                        
+                        Map<String, int> map;
+                        _selected4 = !_selected4;     
+                        if (_selected4) {    
+                          map = {"zika_igm": 1};                                         
+                        } else {
+                          map = {"zika_igm": 0};                          
+                        } 
+                        obj.newFunction(map);               
                       },
                     );
                   },
@@ -223,7 +227,14 @@ class _SorologiaScreenState extends State<SorologiaScreen> {
                   onTap: () {
                     setState(
                       () {
+                        Map<String, int> map;
                         _selected5 = !_selected5;
+                        if (_selected5) {    
+                          map = {"zika_igg": 1};                                         
+                        } else {
+                          map = {"zika_igg": 0};                          
+                        } 
+                        obj.newFunction(map);               
                       },
                     );
                   },
@@ -263,7 +274,14 @@ class _SorologiaScreenState extends State<SorologiaScreen> {
                   onTap: () {
                     setState(
                       () {
-                        _selected6 = !_selected6;                        
+                        Map<String, int> map;
+                        _selected6 = !_selected6;  
+                        if (_selected6) {    
+                          map = {"chik_igm": 1};                                         
+                        } else {
+                          map = {"chik_igm": 0};                          
+                        } 
+                        obj.newFunction(map);                        
                       },
                     );
                   },
@@ -278,7 +296,14 @@ class _SorologiaScreenState extends State<SorologiaScreen> {
                   onTap: () {
                     setState(
                       () {
+                        Map<String, int> map;
                         _selected7 = !_selected7;
+                        if (_selected7) {    
+                          map = {"chik_igg": 1};                                         
+                        } else {
+                          map = {"chik_igg": 0};                          
+                        } 
+                        obj.newFunction(map);   
                       },
                     );
                   },

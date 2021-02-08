@@ -54,7 +54,7 @@ class _SintomasScreenState extends State<SintomasScreen> {
                 SizedBox(height: 15),
                 SingleWidget(label: 'mialgia', function: _selected1),
                 SizedBox(height: 15),
-                SingleWidget(label: 'convulcoes', function: _selected1),
+                SingleWidget(label: 'convulsoes', function: _selected1),
                 SizedBox(height: 15),
               ],
             ),

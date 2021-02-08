@@ -309,7 +309,6 @@ class DaiClassAction with ChangeNotifier {
       return retorno;
 
     } catch (error) {
-      print('error $error');
       return false;
     }
   }

@@ -18,7 +18,6 @@ class BoxTextWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     MediaQueryData deviceInfo = MediaQuery.of(context);
     
-    print(deviceInfo);
     return StreamBuilder<Object>(
       stream: null,
       builder: (context, snapshot) {
