@@ -25,7 +25,6 @@ class _ContentState extends State<Content>
     return Card(
       elevation: 1,
       margin: const EdgeInsets.all(5),
-      //clipBehavior: Clip.antiAliasWithSaveLayer,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
