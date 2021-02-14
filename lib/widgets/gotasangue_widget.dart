@@ -1,6 +1,7 @@
 import 'package:adobe_xd/adobe_xd.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+
+import 'box_image_widget.dart';
 
 class GotaSangueWidget extends StatelessWidget {
   final String _label;
@@ -66,49 +67,61 @@ class GotaSangueWidget extends StatelessWidget {
     return SizedBox(
       width: 19.0,
       height: 31.0,
-      child: Stack(
-        children: <Widget>[
-          Pinned.fromSize(
-            bounds: Rect.fromLTWH(0.0, 0.0, 19.0, 31.3),
-            size: Size(19.0, 31.3),
-            pinLeft: true,
-            pinRight: true,
-            pinTop: true,
-            pinBottom: true,
-            child: SvgPicture.string(
-              _svg_4whgdy,
-              allowDrawingOutsideViewBox: true,
-              fit: BoxFit.fill,
-            ),
-          ),
-          Pinned.fromSize(
-            bounds: Rect.fromLTWH(0.1, 11.9, 18.9, 19.4),
-            size: Size(19.0, 31.3),
-            pinLeft: true,
-            pinRight: true,
-            pinBottom: true,
-            fixedHeight: true,
-            child: SvgPicture.string(
-              _svg_d9kv6t,
-              allowDrawingOutsideViewBox: true,
-              fit: BoxFit.fill,
-            ),
-          ),
-          Pinned.fromSize(
-            bounds: Rect.fromLTWH(2.7, 4.6, 5.6, 16.7),
-            size: Size(19.0, 31.3),
-            pinLeft: true,
-            pinTop: true,
-            fixedWidth: true,
-            fixedHeight: true,
-            child: SvgPicture.string(
-              _svg_t3r0k,
-              allowDrawingOutsideViewBox: true,
-              fit: BoxFit.fill,
-            ),
-          ),
-        ],
+      child: 
+      BoxImageWidget(
+        'assets/images/blood.png',
+        false,
       ),
+
+      // Stack(
+      //   children: <Widget>[
+
+      //     // Pinned.fromSize(
+      //     //   bounds: Rect.fromLTWH(0.0, 0.0, 19.0, 31.3),
+      //     //   size: Size(19.0, 31.3),
+      //     //   pinLeft: true,
+      //     //   pinRight: true,
+      //     //   pinTop: true,
+      //     //   pinBottom: true,
+      //     //   child: BoxImageWidget(
+      //     //               'assets/images/blood.png',
+      //     //               true,
+      //     //             ),
+
+      //     //   // SvgPicture.string(
+      //     //   //   _svg_4whgdy,
+      //     //   //   allowDrawingOutsideViewBox: true,
+      //     //   //   fit: BoxFit.fill,
+      //     //   // ),
+      //     // ),
+      //     // Pinned.fromSize(
+      //     //   bounds: Rect.fromLTWH(0.1, 11.9, 18.9, 19.4),
+      //     //   size: Size(19.0, 31.3),
+      //     //   pinLeft: true,
+      //     //   pinRight: true,
+      //     //   pinBottom: true,
+      //     //   fixedHeight: true,
+      //     //   child: SvgPicture.string(
+      //     //     _svg_d9kv6t,
+      //     //     allowDrawingOutsideViewBox: true,
+      //     //     fit: BoxFit.fill,
+      //     //   ),
+      //     // ),
+      //     // Pinned.fromSize(
+      //     //   bounds: Rect.fromLTWH(2.7, 4.6, 5.6, 16.7),
+      //     //   size: Size(19.0, 31.3),
+      //     //   pinLeft: true,
+      //     //   pinTop: true,
+      //     //   fixedWidth: true,
+      //     //   fixedHeight: true,
+      //     //   child: SvgPicture.string(
+      //     //     _svg_t3r0k,
+      //     //     allowDrawingOutsideViewBox: true,
+      //     //     fit: BoxFit.fill,
+      //     //   ),
+      //     // ),
+      //   ],
+      // ),
     );
   }
 }

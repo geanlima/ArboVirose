@@ -79,7 +79,8 @@ class _DadosPessoaisScreenState extends State<DadosPessoaisScreen> {
                           }
                         });
                       },
-                      child: BoxImageWidget(
+                      child: 
+                      BoxImageWidget(
                         'assets/images/man.png',
                         _valueMan,
                       ),
