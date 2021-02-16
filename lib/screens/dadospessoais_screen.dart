@@ -36,6 +36,7 @@ class _DadosPessoaisScreenState extends State<DadosPessoaisScreen> {
   Widget build(BuildContext context) {
     PacienteClass obj = Provider.of(context, listen: false);
     return Container(
+      width: double.infinity,
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(20),
@@ -79,8 +80,7 @@ class _DadosPessoaisScreenState extends State<DadosPessoaisScreen> {
                           }
                         });
                       },
-                      child: 
-                      BoxImageWidget(
+                      child: BoxImageWidget(
                         'assets/images/man.png',
                         _valueMan,
                       ),
@@ -210,7 +210,7 @@ class _DadosPessoaisScreenState extends State<DadosPessoaisScreen> {
                   textSize: 18.0,
                   onChanged: (bool position) {
                     prag = position;
-                    
+
                     if (position && _valueMan) {
                       Scaffold.of(context).hideCurrentSnackBar();
                       Scaffold.of(context).showSnackBar(
@@ -227,12 +227,9 @@ class _DadosPessoaisScreenState extends State<DadosPessoaisScreen> {
                     Map<String, int> gestante = {
                       "gestante": position ? 1 : 0
                     };
-                    Map<String, int> man = {
-                      "sexom": _valueMan ? 1 : 0
-                    };
+                    Map<String, int> man = {"sexom": _valueMan ? 1 : 0};
                     obj.newPaciente(gestante);
                     obj.newPaciente(man);
-                    
                   },
                 ),
               ),

@@ -42,7 +42,7 @@ class _MainScreenState extends State<MainScreen> {
     double itemsHeight1 = deviceInfo.size <= Size(500.0, 700.0) || deviceInfo.orientation == Orientation.landscape ? (15 * 25.0) + 30 : MediaQuery.of(context).size.height * 0.39; //
     double itemsHeight2 = deviceInfo.size <= Size(500.0, 700.0) || deviceInfo.orientation == Orientation.landscape ? (25 * 25.0) + 30 : MediaQuery.of(context).size.height * 0.68; //
     double itemsHeight3 = deviceInfo.size <= Size(500.0, 700.0) || deviceInfo.orientation == Orientation.landscape ? (10 * 25.0) + 30 : MediaQuery.of(context).size.height * 0.27; //;
-    double itemsHeight4 = deviceInfo.size <= Size(500.0, 700.0) || deviceInfo.orientation == Orientation.landscape ? (62 * 25.0) + 30 : MediaQuery.of(context).size.height * 1.7; //;
+    double itemsHeight4 = deviceInfo.size <= Size(500.0, 700.0) || deviceInfo.orientation == Orientation.landscape ? (62 * 25.0) + 100 : MediaQuery.of(context).size.height * 1.9; //;
     double itemsHeight5 = deviceInfo.size <= Size(500.0, 700.0) || deviceInfo.orientation == Orientation.landscape ? (13 * 25.0) + 30 : MediaQuery.of(context).size.height * 0.35;//;
     double itemsHeight6 = deviceInfo.size <= Size(500.0, 700.0) || deviceInfo.orientation == Orientation.landscape ? (12 * 25.0) + 30 : MediaQuery.of(context).size.height * 0.35;//;
 
