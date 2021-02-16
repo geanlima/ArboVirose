@@ -294,7 +294,8 @@ class DaiClassAction with ChangeNotifier {
                 } else {
                   retorno = false;
                 }
-              }).catchError(((onError){                
+              }).catchError(((onError){       
+                         
               }));
           
       pacienteClass.clear();

@@ -300,26 +300,13 @@ class _ResultadoScreenState extends State<ResultadoScreen> {
                           Validator validateSorologia = new Validator();
 
 
-                          bool validPaciente =
-                              validatePaciente.validatePaciente(paciente);
+                          bool validPaciente =validatePaciente.validatePaciente(paciente);
                           bool validFebre = validateFebre.validateFebre(febre);
-                          bool validSintomas =
-                              validateSintomas.validateSintomas(sintomas);
-                          bool validResultado =
-                              validateResultado.validateResultado(resultado);
+                          bool validSintomas = validateSintomas.validateSintomas(sintomas);
+                          bool validResultado = validateResultado.validateResultado(resultado);
                           bool validSorologia =
-                              validateSorologia.validateSorologia(sorologia);    
-                        
+                              validateSorologia.validateSorologia(sorologia);
 
-                          
-
-                          final result =
-                              await InternetAddress.lookup('google.com');
-
-                          if (result.isNotEmpty &&
-                              result[0].rawAddress.isNotEmpty) {
-                            validConnection = true;
-                          }
 
                           if (!validResultado) {
                             Scaffold.of(context).hideCurrentSnackBar();
