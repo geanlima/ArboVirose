@@ -10,14 +10,12 @@ import 'package:arboviroses/widgets/main_header_widget.dart';
 import 'package:arboviroses/widgets/shadow_widget.dart';
 import 'package:flutter/material.dart';
 
-
 class MainScreen extends StatefulWidget {
   @override
   _MainScreenState createState() => _MainScreenState();
 }
 
 class _MainScreenState extends State<MainScreen> {
-  
   bool _expanded1 = false;
   bool _expanded2 = false;
   bool _expanded3 = false;
@@ -25,7 +23,6 @@ class _MainScreenState extends State<MainScreen> {
   bool _expanded5 = false;
   bool _expanded6 = false;
 
- 
   void expanded1() => _expanded1 = !_expanded1;
   void expanded2() => _expanded2 = !_expanded2;
   void expanded3() => _expanded3 = !_expanded3;
@@ -38,13 +35,31 @@ class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     MediaQueryData deviceInfo = MediaQuery.of(context);
-    
-    double itemsHeight1 = deviceInfo.size <= Size(500.0, 700.0) || deviceInfo.orientation == Orientation.landscape ? (15 * 25.0) + 30 : MediaQuery.of(context).size.height * 0.39; //
-    double itemsHeight2 = deviceInfo.size <= Size(500.0, 700.0) || deviceInfo.orientation == Orientation.landscape ? (25 * 25.0) + 30 : MediaQuery.of(context).size.height * 0.68; //
-    double itemsHeight3 = deviceInfo.size <= Size(500.0, 700.0) || deviceInfo.orientation == Orientation.landscape ? (10 * 25.0) + 30 : MediaQuery.of(context).size.height * 0.27; //;
-    double itemsHeight4 = deviceInfo.size <= Size(500.0, 700.0) || deviceInfo.orientation == Orientation.landscape ? (62 * 25.0) + 100 : MediaQuery.of(context).size.height * 1.9; //;
-    double itemsHeight5 = deviceInfo.size <= Size(500.0, 700.0) || deviceInfo.orientation == Orientation.landscape ? (13 * 25.0) + 30 : MediaQuery.of(context).size.height * 0.35;//;
-    double itemsHeight6 = deviceInfo.size <= Size(500.0, 700.0) || deviceInfo.orientation == Orientation.landscape ? (12 * 25.0) + 30 : MediaQuery.of(context).size.height * 0.35;//;
+
+    double itemsHeight1 = deviceInfo.size <= Size(500.0, 700.0) ||
+            deviceInfo.orientation == Orientation.landscape
+        ? (15 * 25.0) + 30
+        : MediaQuery.of(context).size.height * 0.39; //
+    double itemsHeight2 = deviceInfo.size <= Size(500.0, 700.0) ||
+            deviceInfo.orientation == Orientation.landscape
+        ? (25 * 25.0) + 30
+        : MediaQuery.of(context).size.height * 0.68; //
+    double itemsHeight3 = deviceInfo.size <= Size(500.0, 700.0) ||
+            deviceInfo.orientation == Orientation.landscape
+        ? (10 * 25.0) + 30
+        : MediaQuery.of(context).size.height * 0.27; //;
+    double itemsHeight4 = deviceInfo.size <= Size(500.0, 700.0) ||
+            deviceInfo.orientation == Orientation.landscape
+        ? (62 * 25.0) + 100
+        : MediaQuery.of(context).size.height * 1.9; //;
+    double itemsHeight5 = deviceInfo.size <= Size(500.0, 700.0) ||
+            deviceInfo.orientation == Orientation.landscape
+        ? (13 * 25.0) + 30
+        : MediaQuery.of(context).size.height * 0.35; //;
+    double itemsHeight6 = deviceInfo.size <= Size(500.0, 700.0) ||
+            deviceInfo.orientation == Orientation.landscape
+        ? (12 * 25.0) + 30
+        : MediaQuery.of(context).size.height * 0.35; //;
 
     return Container(
       child: Stack(
@@ -92,18 +107,40 @@ class _MainScreenState extends State<MainScreen> {
                                       color: Colors.white,
                                     ),
                                   ),
+                                  // AnimatedContainer(
+                                  //   duration: Duration(milliseconds: 300),
+                                  //   height: _expanded1 ? itemsHeight1 : 0,
+                                  //   child: Container(
+                                  //     padding: EdgeInsets.symmetric(
+                                  //       horizontal: 15,
+                                  //       vertical: 4,
+                                  //     ),
+                                  //     height: 25, //itemsHeight1,
+                                  //     child: Container(
+                                  //       child: Container(
+                                  //         child: DadosPessoaisScreen(),
+                                  //       ),
+                                  //       width: double.infinity,
+                                  //       decoration: BoxDecoration(
+                                  //         color: Colors.blue,
+                                  //         borderRadius:
+                                  //             BorderRadius.circular(20),
+                                  //       ),
+                                  //     ),
+                                  //   ),
+                                  // ),
                                   AnimatedContainer(
-                                    duration: Duration(milliseconds: 300),
-                                    height: _expanded1 ? itemsHeight1 : 0,                                    
-                                    child: Container(
-                                      padding: EdgeInsets.symmetric(
-                                        horizontal: 15,
-                                        vertical: 4,
+                                      duration: Duration(milliseconds: 300),
+                                      height: _expanded1 ? itemsHeight1 : 0,
+                                      child: Container(
+                                        padding: EdgeInsets.symmetric(
+                                          horizontal: 15,
+                                          vertical: 4,
+                                        ),
+                                        height: itemsHeight1,
+                                        child: DadosPessoaisScreen(),
                                       ),
-                                      height: 25, //itemsHeight1,
-                                      child: DadosPessoaisScreen(),
                                     ),
-                                  ),
                                 ],
                               ),
                             ),
